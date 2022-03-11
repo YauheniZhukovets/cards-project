@@ -1,0 +1,14 @@
+.activeLink {
+    color: #e075ae;
+    text-decoration: none;
+}
+
+.item {
+    color: #a054e7;
+    text-decoration: none;
+}
+
+.item:hover {
+    color: #c2a1e0;
+    text-decoration: none;
+}
