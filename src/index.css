@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+@media (pointer: fine) {
+  body {
+    background:url("tekstura.jpg");
+  }
+}
