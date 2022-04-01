@@ -22,62 +22,57 @@ export const Test = () => {
 
     return (
         <div>
-            <hr/>
-            <b>Test task</b>
-            <hr/>
+            <div className={s.main_container}>
+                <div className={s.title}>
+                    <h1 >Test task</h1>
+                </div>
+                <div className={s.column}>
+                    <div className={s.superInput}>
+                        <SuperInputText
+                            value={text}
+                            onChangeText={setText}
+                            onEnter={showAlert}
+                            error={error}
+                            //spanClassName={s.testSpanError}
+                        />
 
-            <div className={s.column}>
-                <div className={s.superInput}>
-                    <SuperInputText
-                        value={text}
-                        onChangeText={setText}
-                        onEnter={showAlert}
-                        error={error}
-                        //spanClassName={s.testSpanError}
-                    />
+                        <SuperInputText
+                            className={s.blue} // проверьте, рабоет ли смешивание классов
+                        />
+                    </div>
 
-                    <SuperInputText
-                        className={s.blue} // проверьте, рабоет ли смешивание классов
-                    />
+
+                    <div className={s.superButton}>
+                        <SuperButton>
+                            default
+                        </SuperButton>
+
+                        <SuperButton
+                            red // пропсу с булевым значением не обязательно указывать true
+                            onClick={showAlert}
+                        >
+                            delete {/*// название кнопки попадёт в children*/}
+                        </SuperButton>
+
+                        <SuperButton disabled>
+                            disabled
+                        </SuperButton>
+                    </div>
+
+                    <div className={s.superCheckbox}>
+                        <SuperCheckbox
+                            checked={checked}
+                            onChangeChecked={setChecked}
+                        >
+                            Click me! {/*// этот текст попадёт в children*/}
+                        </SuperCheckbox>
+
+                        {/*// onChange тоже должен работать*/}
+                        <SuperCheckbox checked={checked} onChange={testOnChange}/>
+                    </div>
                 </div>
 
-
-                <div className={s.superButton}>
-                    <SuperButton>
-                        default
-                    </SuperButton>
-
-                    <SuperButton
-                        red // пропсу с булевым значением не обязательно указывать true
-                        onClick={showAlert}
-                    >
-                        delete {/*// название кнопки попадёт в children*/}
-                    </SuperButton>
-
-                    <SuperButton disabled>
-                        disabled
-                    </SuperButton>
-                </div>
-
-                <div className={s.superCheckbox}>
-                    <SuperCheckbox
-                        checked={checked}
-                        onChangeChecked={setChecked}
-                    >
-                        Click me! {/*// этот текст попадёт в children*/}
-                    </SuperCheckbox>
-
-                    {/*// onChange тоже должен работать*/}
-                    <SuperCheckbox checked={checked} onChange={testOnChange}/>
-                </div>
             </div>
-
-            <hr/>
-            {/*для личного творчества, могу проверить*/}
-            {/*<AlternativeSuperInputText/>*/}
-            {/*<AlternativeSuperButton/>*/}
-            {/*<AlternativeSuperCheckbox/>*/}
-            <hr/>
         </div>
     )
 }

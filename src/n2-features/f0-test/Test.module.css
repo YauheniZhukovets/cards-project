@@ -1,3 +1,24 @@
+
+
+.main_container{
+    height: 415px;
+    width: 500px;
+    margin-left: 580px ;
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*align-items: flex-start;*/
+    border: 2px solid rgba(105, 105, 105, 0.75);;
+    background-color: rgba(105, 105, 105, 0.75);
+}
+.title{
+    color: #cecece;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-around;
+
+}
 .blue {
     border-bottom: 1px solid blue;
 }
