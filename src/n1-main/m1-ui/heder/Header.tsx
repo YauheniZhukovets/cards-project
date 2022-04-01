@@ -10,7 +10,6 @@ export const Header = () => {
 
     return (
         <div>
-            <NavLink className={setActive} to={PATH.TEST}> <b> Test </b> </NavLink>
             <NavLink className={setActive} to={PATH.LOGIN}> <b> Login </b> </NavLink>
         </div>
     );
