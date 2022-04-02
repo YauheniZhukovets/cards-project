@@ -27,10 +27,10 @@ export const RoutesRoot = () => {
                 <Route path={PATH.LOGIN} element={<Login/>} />
                 <Route path={PATH.TEST} element={<Test/>} />
                 <Route path={PATH.REGISTRATION} element={<Registration/>} />
-                <Route path={PATH.NEW_PASSWORD} element={<NewPassword/>} />
-                <Route path={PATH.PASSWORD_RECOVERY} element={<PasswordRecovery/>} />
-                <Route path={PATH.PROFILE} element={<Profile/>} />
-                <Route path={'/*'} element={<Error404/>} />
+                {/*<Route path={PATH.NEW_PASSWORD} element={<NewPassword/>} />*/}
+                {/*<Route path={PATH.PASSWORD_RECOVERY} element={<PasswordRecovery/>} />*/}
+                {/*<Route path={PATH.PROFILE} element={<Profile/>} />*/}
+                {/*<Route path={'/*'} element={<Error404/>} />*/}
             </Routes>
         </div>
     );
