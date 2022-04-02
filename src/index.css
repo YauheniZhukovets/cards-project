@@ -16,3 +16,6 @@ code {
     background:url("tekstura.jpg");
   }
 }
+a{
+  text-decoration: none;
+}
