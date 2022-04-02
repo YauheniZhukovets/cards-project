@@ -11,6 +11,7 @@ export const Header = () => {
     return (
         <div>
             <NavLink className={setActive} to={PATH.LOGIN}> <b> Login </b> </NavLink>
+            <NavLink className={setActive} to={PATH.REGISTRATION}> <b> Registration</b> </NavLink>
         </div>
     );
 }
