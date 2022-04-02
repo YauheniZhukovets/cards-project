@@ -1,6 +1,6 @@
 import {combineReducers, createStore} from 'redux';
-import {authReducer} from '../../n2-features/f1-auth/authReducer';
-import {profileReducer} from '../../n2-features/f2 -profile/profileReducer';
+import {authReducer} from './b1-reducers/authReducer';
+import {profileReducer} from './b1-reducers/profileReducer';
 
 
 const reducers = combineReducers({

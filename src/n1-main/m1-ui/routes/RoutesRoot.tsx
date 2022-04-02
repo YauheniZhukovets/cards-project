@@ -1,11 +1,11 @@
 import React from 'react';
 import {Routes, Route} from 'react-router-dom'
 import {Login} from '../../../n2-features/f1-auth/a1-login/Login';
-import {Error404} from '../../../n2-features/f3-error/Error404';
+import {Error404} from '../../../n2-features/f1-auth/a6-error404/Error404';
 import {Registration} from '../../../n2-features/f1-auth/a2-registration/Registration';
-import {NewPassword} from '../../../n2-features/f1-auth/a3-password/NewPassword';
-import {PasswordRecovery} from '../../../n2-features/f1-auth/a3-password/PasswordRecovery';
-import {Profile} from '../../../n2-features/f2 -profile/Profile';
+import {NewPassword} from '../../../n2-features/f1-auth/a3-newPassword/NewPassword';
+import {PasswordRecovery} from '../../../n2-features/f1-auth/a4-passwordRecovery/PasswordRecovery';
+import {Profile} from '../../../n2-features/f1-auth/a5 -profile/Profile';
 
 
 
