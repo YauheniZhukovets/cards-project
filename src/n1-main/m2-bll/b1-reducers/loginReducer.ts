@@ -54,9 +54,6 @@ export const loginTC = (data: LoginDataType) => (dispatch: Dispatch<ActionsLogin
             dispatch(setLoginErrorAC(error))
             dispatch(setAppStatusAC('failed'))
         })
-        .finally(()=>{
-            dispatch(setAppStatusAC('idle'))
-        })
 }
 
 //type
