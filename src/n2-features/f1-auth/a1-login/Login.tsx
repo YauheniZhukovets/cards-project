@@ -4,14 +4,34 @@ export const Login = () => {
     return (
         <div>
             <div className={style.container_log} >
-                <h2 className={style.title} style={{color:'black'}}>IT-incubator</h2>
-                <h2 className={style.subtitle} style={{color:'black'}}> Sing in</h2>
-                <input type="text"/>
-                <input type="text"/>
-                <input type="checkbox"/><span style={{color:'black'}}>remenber me</span>
-                <a>Forgot Password?</a>
-                <button>Login</button>
-                <h4 style={{color:'black'}}>Don't have an account?</h4>
+                <div className={style.title} >
+                    <h2>Login</h2>
+                </div>
+                <div className={style.subtitle}>
+                    <h2> Sing in</h2>
+                </div>
+                <div>
+                    <form >
+                        <label >Email</label>
+                        <input type="email"/>
+                        <label >Password</label>
+                        <a ><input className={style.eyes} type="password"/></a>
+                        <span style={{color:'black'}}><input type="checkbox"/>remenber me</span>
+                        {/*<div className={style.inputEmail}>*/}
+                        {/*    <span>Email<input type="email"/></span>*/}
+                        {/*</div>*/}
+                        {/*<div className={style.inputPass}>*/}
+                        {/*    <span>Password<input type="password"/></span>*/}
+                        {/*</div>*/}
+                        {/*<span style={{color:'black'}}><input type="checkbox"/>remenber me</span>*/}
+                        {/*<a>Forgot Password?</a>*/}
+                        {/*<button>Login</button>*/}
+                        {/*<h4 style={{color:'black'}}>Don't have an account?</h4>*/}
+
+                    </form>
+                </div>
+
+
             </div>
         </div>
     );
