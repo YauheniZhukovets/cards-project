@@ -1,8 +1,8 @@
 import React from 'react';
-import style from './Login.module.css'
+import style from '../../../n1-main/m1-ui/styles/Login.module.css'
 export const Login = () => {
     return (
-        <div>
+        <div className={style.mainContainer}>
             <div className={style.container_log} >
                 <div className={style.title} >
                     <h1>Login</h1>
