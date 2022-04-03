@@ -8,6 +8,8 @@ import {useDispatch, useSelector} from 'react-redux';
 import {AppStoreType} from '../../../n1-main/m2-bll/store';
 import {PATH} from '../../../n1-main/m1-ui/routes/RoutesRoot';
 import {loginTC} from '../../../n1-main/m2-bll/b1-reducers/loginReducer';
+import {AppStatusType} from '../../../n1-main/m2-bll/b1-reducers/appReducer';
+import preload from '../../../n1-main/m1-ui/common/c0-Preloder/Spinner.svg';
 
 export const Login = () => {
     type FormikErrorType = {
@@ -18,7 +20,9 @@ export const Login = () => {
 
     const dispatch = useDispatch()
     const isLoggedIn = useSelector<AppStoreType, boolean>(state => state.login.isLoggedIn)
-    const statusText = useSelector<AppStoreType, string>(state => state.app.status)
+    const error = useSelector<AppStoreType, string | null>(state => state.login.error)
+    const status = useSelector<AppStoreType, AppStatusType>(state => state.app.status)
+
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -41,8 +45,7 @@ export const Login = () => {
             return errors;
         },
         onSubmit: (values) => {
-            /* alert(JSON.stringify(values));*/
-            /*formik.resetForm()*/
+            formik.resetForm()
             dispatch(loginTC(values))
         },
     })
@@ -60,10 +63,9 @@ export const Login = () => {
             </div>
             <div>
                 <h1>Sign in</h1>
-                {statusText === 'loading' ? <div style={{color: 'orange'}}>loading...</div>
-                    : statusText === 'success' ? <div style={{color: 'lime'}}>Success!</div>
-                        : statusText ? <div style={{color: 'red'}}>{statusText}</div>
-                            : <div><br/></div>}
+                {!!error ? <div style={{color: 'red'}}>{error}</div>
+                    : status === 'loading' ? <img  src={preload} style={ {height:'30px'} } alt={'pic'}/>
+                        : <div><br/></div>}
             </div>
 
             <form onSubmit={formik.handleSubmit}>
@@ -95,6 +97,7 @@ export const Login = () => {
                 </div>
                 <div>
                     <SuperButton type={'submit'}
+                                 disabled={status=== 'loading'}
                     >
                         Login
                     </SuperButton>
