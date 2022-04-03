@@ -16,9 +16,9 @@ export const Login = () => {
         rememberMe?: boolean
     }
 
+    const dispatch = useDispatch()
     const isLoggedIn = useSelector<AppStoreType, boolean>(state => state.login.isLoggedIn)
     const statusText = useSelector<AppStoreType, string>(state => state.login.status)
-    const dispatch = useDispatch()
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -55,8 +55,8 @@ export const Login = () => {
         <div>
             <div>
                 <p>To log in get registered or use common test account credentials:</p>
-                <p>Email: nya-admin@nya.nya</p>
-                <p>Password: 1qazxcvBG</p>
+                <p><b>Email</b>: nya-admin@nya.nya</p>
+                <p><b>Password</b>: 1qazxcvBG</p>
             </div>
             <div>
                 <h1>Sign in</h1>
