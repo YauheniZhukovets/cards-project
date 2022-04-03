@@ -7,6 +7,7 @@ import {NewPassword} from '../../../n2-features/f1-auth/a3-password/NewPassword'
 import {PasswordRecovery} from '../../../n2-features/f1-auth/a3-password/PasswordRecovery';
 import {Profile} from '../../../n2-features/f3 -profile/Profile';
 import {Test} from '../../../n2-features/f0-test/Test';
+import {CheckEmail} from "../../../n2-features/f1-auth/a3-password/CheckEmail";
 
 
 export const PATH = {
@@ -16,6 +17,7 @@ export const PATH = {
     NEW_PASSWORD: 'new-password',
     PASSWORD_RECOVERY: '/password-recovery',
     PROFILE: '/profile',
+    CHECK:'/check',
 }
 
 export const RoutesRoot = () => {
@@ -30,6 +32,7 @@ export const RoutesRoot = () => {
                 <Route path={PATH.NEW_PASSWORD} element={<NewPassword/>} />
                 <Route path={PATH.PASSWORD_RECOVERY} element={<PasswordRecovery/>} />
                 <Route path={PATH.PROFILE} element={<Profile/>} />
+                <Route path={PATH.CHECK} element={<CheckEmail/>} />
                 {/*<Route path={'/*'} element={<Error404/>} />*/}
             </Routes>
         </div>

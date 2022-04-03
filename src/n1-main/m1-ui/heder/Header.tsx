@@ -39,7 +39,7 @@ export const Header = () => {
                         <NavLink  to={PATH.PROFILE} className={s.active }> Profile </NavLink>
                     </div>
                     <div className={s.itemMenu}>
-                        <NavLink  to={PATH.TEST} className={s.active }> Packs </NavLink>
+                        <NavLink  to={PATH.CHECK} className={s.active }> Packs </NavLink>
                     </div>
                     <div className={s.itemMenu}>
                         <NavLink  to={PATH.TEST} className={s.active }> Cards </NavLink>

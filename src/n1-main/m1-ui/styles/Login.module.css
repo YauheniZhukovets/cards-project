@@ -189,6 +189,20 @@ form input{
     left: 0%;
     top: 0%;
 }
+.img{
+    width: 250px;
+    height: 250px;
+    margin: 15px 65px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    /*border: 1px solid white;*/
+
+}
 @media (max-width: 1570px) {
     .mainContainer{
         left: 23%;

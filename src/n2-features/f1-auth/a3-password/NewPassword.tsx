@@ -17,7 +17,6 @@ export const NewPassword = () => {
                         <input type="email"/>
                         <h4 style={{color:'black', marginTop:'0px'}}>Enter your email address and we will send you further instructions</h4>
                         <div className={style.btnContainer} style={{marginTop:'95px'}} >
-
                             <button className={style.btn} style={{width:'200px'}}>Send Instructions</button>
                         </div>
                     </form>
@@ -30,17 +29,6 @@ export const NewPassword = () => {
                 </div>
             </div>
         </div>
-        // <div>
-        //     <div className={style.container_log} >
-        //         <h2 className={style.title} style={{color:'black'}}>IT-incubator</h2>
-        //         <h2 className={style.subtitle} style={{color:'black'}}> Forgot your password?</h2>
-        //
-        //         <input type="rmail"/><span style={{color:'black'}}>Enter your email address and we will send you further instructions</span>
-        //         <button>Send Instructions</button>
-        //         <p>Did you remember your password?</p>
-        //         <a>Try logging in</a>
-        //     </div>
-        // </div>
     );
 };
 
