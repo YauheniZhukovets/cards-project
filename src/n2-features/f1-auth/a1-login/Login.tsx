@@ -5,7 +5,7 @@ export const Login = () => {
         <div>
             <div className={style.container_log} >
                 <div className={style.title} >
-                    <h2>Login</h2>
+                    <h1>Login</h1>
                 </div>
                 <div className={style.subtitle}>
                     <h2> Sing in</h2>
@@ -15,23 +15,21 @@ export const Login = () => {
                         <label >Email</label>
                         <input type="email"/>
                         <label >Password</label>
-                        <a ><input className={style.eyes} type="password"/></a>
+                        <a href='#'><input className={style.eyes} type="password"/></a>
                         <span style={{color:'black'}}><input type="checkbox"/>remenber me</span>
-                        {/*<div className={style.inputEmail}>*/}
-                        {/*    <span>Email<input type="email"/></span>*/}
-                        {/*</div>*/}
-                        {/*<div className={style.inputPass}>*/}
-                        {/*    <span>Password<input type="password"/></span>*/}
-                        {/*</div>*/}
-                        {/*<span style={{color:'black'}}><input type="checkbox"/>remenber me</span>*/}
-                        {/*<a>Forgot Password?</a>*/}
-                        {/*<button>Login</button>*/}
-                        {/*<h4 style={{color:'black'}}>Don't have an account?</h4>*/}
+                        <a href='#' className={style.link}>Forgot Password?</a>
+                        <div className={style.btnContainer}>
+                            <button className={style.btn}>Login</button>
+                        </div>
+                        <div className={style.hContainer}>
+                            <h4 style={{color:'black'}}>Don't have an account?</h4>
+                        </div>
+                        <div className={style.aContainer}>
+                            <a href='#' className={style.linkUp}>Sing Up</a>
+                        </div>
 
                     </form>
                 </div>
-
-
             </div>
         </div>
     );
