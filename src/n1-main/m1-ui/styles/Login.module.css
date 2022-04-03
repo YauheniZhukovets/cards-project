@@ -150,13 +150,34 @@ form input{
     box-shadow: 0px 4px 18px rgba(143, 33, 75, 0.35), inset 0px 1px 0px rgba(255, 255, 255, 0.3);
     border-radius: 30px;
     color: white;
+    margin:0 15px 15px;
 }
 .btn:hover{
-    height: 37px;
+    height: 35px;
     width: 127px;
     transform: scale(1);
     transition: all 1s ease;
+    margin-left:10px;
 }
+.btnDise{
+    height: 29px;
+    width: 120px;
+    font-size: 16px;
+    background: rgba(232, 226, 226, 0.57);
+    box-shadow: 0px 4px 18px rgba(143, 33, 75, 0.35), inset 0px 1px 0px rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    color: #130d0d;
+    margin:0 15px 15px;
+}
+.btnDise:hover{
+    height: 35px;
+    width: 127px;
+    transform: scale(1);
+    transition: all 1s ease;
+    margin-right:10px;
+}
+
+
 .hContainer, .aContainer{
     height: 55px;
     width: 375px;

@@ -1,17 +1,30 @@
 import React from 'react';
-import style from './Login.module.css'
+import style from '../../../n1-main/m1-ui/styles/Login.module.css';
 
 export const Registration = () => {
     return (
-        <div>
+        <div className={style.mainContainer}>
             <div className={style.container_log} >
-                <h2 className={style.title} style={{color:'black'}}>IT-incubator</h2>
-                <h2 className={style.subtitle} style={{color:'black'}}> Sing Up</h2>
-                <input type="email"/>
-                <input type="password"/>
-                <input type="password"/><span style={{color:'black'}}>remenber me</span>
-                <button>Cancel</button>
-                <button>Register</button>
+                <div className={style.title} >
+                    <h1>Register</h1>
+                </div>
+                <div className={style.subtitle}>
+                    <h2> Sing Up</h2>
+                </div>
+                <div>
+                    <form >
+                        <label >Email</label>
+                        <input type="email"/>
+                        <label >Password</label>
+                        <a href='#'><input className={style.eyes} type="password"/></a>
+                        <label >Confirm password</label>
+                        <a href='#'><input className={style.eyes} type="password"/></a>
+                    </form>
+                </div>
+                <div className={style.btnContainer}>
+                    <button className={style.btnDise}>Cancel</button>
+                    <button className={style.btn}>Register</button>
+                </div>
             </div>
         </div>
     );
