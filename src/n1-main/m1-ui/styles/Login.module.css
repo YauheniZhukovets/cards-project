@@ -14,7 +14,8 @@
 .container_log{
     /*position: absolute;*/
     width: 413px;
-    height: 560px;
+    min-height: 560px;
+    max-height: 561px;
     left: 670px;
     top: 80px;
 
@@ -142,15 +143,16 @@ form input{
     align-items: center;
     left: 0%;
     top: 0%;
+
 }
 .btn{
     height: 29px;
     width: 120px;
     background: rgba(190, 47, 65, 0.92);
-    box-shadow: 0px 4px 18px rgba(143, 33, 75, 0.35), inset 0px 1px 0px rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 3px 10px rgba(12, 5, 9, 0.84), inset 0px 1px 0px rgba(255, 255, 255, 0.42);
     border-radius: 30px;
     color: white;
-    margin:0 15px 15px;
+    margin:16px 15px 16px;
 }
 .btn:hover{
     height: 35px;
@@ -164,10 +166,10 @@ form input{
     width: 120px;
     font-size: 16px;
     background: rgba(232, 226, 226, 0.57);
-    box-shadow: 0px 4px 18px rgba(143, 33, 75, 0.35), inset 0px 1px 0px rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 3px 10px rgba(143, 33, 49, 0.84), inset 0px 1px 0px rgba(255, 255, 255, 0.42);
     border-radius: 30px;
     color: #130d0d;
-    margin:0 15px 15px;
+    margin:16px 15px 16px;
 }
 .btnDise:hover{
     height: 35px;
