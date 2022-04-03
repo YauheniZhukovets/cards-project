@@ -3,9 +3,11 @@ import {meReducer} from './b1-reducers/meReducer';
 import {profileReducer} from './b1-reducers/profileReducer';
 import {loginReducer} from './b1-reducers/loginReducer';
 import thunk from 'redux-thunk';
+import {appReducer} from './b1-reducers/appReducer';
 
 
 const reducers = combineReducers({
+    app: appReducer,
     login: loginReducer,
     me: meReducer,
     profile: profileReducer,

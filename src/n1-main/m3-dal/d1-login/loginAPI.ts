@@ -1,4 +1,4 @@
-import { instance } from "../instance";
+import {instance} from '../instance';
 
 export const LoginAPI = {
     login(data: LoginDataType) {
@@ -11,3 +11,4 @@ export type LoginDataType = {
     password: string
     rememberMe: boolean
 }
+

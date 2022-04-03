@@ -18,7 +18,7 @@ export const Login = () => {
 
     const dispatch = useDispatch()
     const isLoggedIn = useSelector<AppStoreType, boolean>(state => state.login.isLoggedIn)
-    const statusText = useSelector<AppStoreType, string>(state => state.login.status)
+    const statusText = useSelector<AppStoreType, string>(state => state.app.status)
     const formik = useFormik({
         initialValues: {
             email: '',
