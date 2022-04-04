@@ -10,7 +10,7 @@ export const  App = () => {
     return (
         <div className={s.container}>
             <Header/>
-            <Main/>
+            {/*<Main/>*/}
             <RoutesRoot/>
         </div>
     );
