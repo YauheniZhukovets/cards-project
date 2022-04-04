@@ -6,7 +6,6 @@ import thunk from 'redux-thunk';
 import {appReducer} from './b1-reducers/appReducer';
 import {registrationReducer} from './b1-reducers/registrationReducer';
 
-
 const reducers = combineReducers({
     app: appReducer,
     login: loginReducer,
