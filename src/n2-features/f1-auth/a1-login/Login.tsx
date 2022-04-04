@@ -32,13 +32,13 @@ export const Login = () => {
         validate: (values) => {
             const errors: FormikErrorType = {};
             if (!values.email) {
-                errors.email = 'Required';
+                errors.email = 'Please enter your email Address.';
             } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-                errors.email = 'Invalid email address';
+                errors.email = 'Please enter valid email address.';
             }
 
             if (!values.password) {
-                errors.password = 'Required';
+                errors.password = 'Please enter your password.';
             } else if (values.password.length < 3) {
                 errors.password = 'Password length must be more than 8 characters';
             }
@@ -62,7 +62,7 @@ export const Login = () => {
                 <p><b>Password</b>: 1qazxcvBG</p>
             </div>
             <div>
-                <h1>Sign in</h1>
+                <h2>Sign in</h2>
                 {!!error ? <div style={{color: 'red'}}>{error}</div>
                     : status === 'loading' ? <img  src={preload} style={ {height:'30px'} } alt={'pic'}/>
                         : <div><br/></div>}

@@ -3,7 +3,7 @@ import {AxiosResponse} from 'axios';
 
 export const LoginAPI = {
     login(data: LoginParamsType) {
-        return instance.post<LoginParamsType, AxiosResponse<UserType>>(`auth/login/`, data);
+        return instance.post<LoginParamsType, AxiosResponse<UserResponseType>>(`auth/login/`, data);
     }
 }
 
@@ -13,7 +13,7 @@ export type LoginParamsType = {
     rememberMe: boolean
 }
 
-export type UserType = {
+export type UserResponseType = {
     _id: string;
     email: string;
     name: string;

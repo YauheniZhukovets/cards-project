@@ -1,23 +1,11 @@
 import {Dispatch} from 'redux';
-import {LoginAPI, LoginParamsType, UserType} from '../../m3-dal/d1-login/loginAPI';
+import {LoginAPI, LoginParamsType, UserResponseType} from '../../m3-dal/m1-API/loginAPI';
 import {setAppStatusAC, SetAppStatusACType} from './appReducer';
 
 const initialState: InitialStateType = {
     isLoggedIn: false,
     error: null,
-    user: {
-        _id: '',
-        email: '',
-        name: '',
-        avatar: '',
-        publicCardPacksCount: 0,
-        created: null,
-        updated: null,
-        isAdmin: false,
-        verified: false,
-        rememberMe: false,
-        error: '',
-    },
+    user: null
 }
 
 export const loginReducer = (state: InitialStateType = initialState, action: ActionsLoginType): InitialStateType => {
@@ -43,7 +31,7 @@ export const setIsLoggedInAC = (value: boolean) => {
 export const setLoginErrorAC = (error: string | null) => {
     return {type: 'login/SET-LOGIN-ERROR', payload: {error}} as const
 }
-export const addUserDateAC = (user: UserType) => {
+export const addUserDateAC = (user: UserResponseType) => {
     return {type: 'login/SET-USER-DATE', payload: {user}} as const
 }
 
@@ -60,7 +48,6 @@ export const loginTC = (data: LoginParamsType) => (dispatch: Dispatch<ActionsLog
             const error = e.response ? e.response.data.error : (e.message + ', more details in the console')
             dispatch(setLoginErrorAC(error))
             dispatch(setAppStatusAC('failed'))
-            dispatch(setIsLoggedInAC(false))
         })
 }
 
@@ -68,11 +55,11 @@ export const loginTC = (data: LoginParamsType) => (dispatch: Dispatch<ActionsLog
 export type InitialStateType = {
     isLoggedIn: boolean
     error: string | null
-    user: UserType
+    user: UserResponseType | null
 }
 
-type LoginACType = ReturnType<typeof setIsLoggedInAC>
+export type setIsLoggedInACType = ReturnType<typeof setIsLoggedInAC>
 type SetLoginErrorACType = ReturnType<typeof setLoginErrorAC>
 type AddUserDateACType = ReturnType<typeof addUserDateAC>
 
-type ActionsLoginType = LoginACType | SetLoginErrorACType | SetAppStatusACType | AddUserDateACType
+type ActionsLoginType = setIsLoggedInACType | SetLoginErrorACType | SetAppStatusACType | AddUserDateACType
