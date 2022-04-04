@@ -4,6 +4,7 @@ import avatar from "../f3 -profile/coolboy.png";
 const avatarIcon = [
     { url: `${avatar}` },
 ];
+//test
 export const Profile = () => {
     const imageAva = {
         backgroundImage: `url(${avatar})`,
