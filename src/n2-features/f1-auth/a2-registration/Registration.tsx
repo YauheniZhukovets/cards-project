@@ -8,6 +8,7 @@ import SuperButton from '../../../n1-main/m1-ui/common/c2-SuperButton/SuperButto
 import {registrationTC} from '../../../n1-main/m2-bll/b1-reducers/registrationReducer';
 import {Navigate} from 'react-router-dom';
 import {PATH} from '../../../n1-main/m1-ui/routes/RoutesRoot';
+import preload from '../../../n1-main/m1-ui/common/c0-Preloder/Spinner.svg';
 
 export const Registration = () => {
     type FormikErrorType = {
@@ -65,9 +66,9 @@ export const Registration = () => {
             <div>
                 <h1>it-incubator</h1>
                 <h2>Sign up</h2>
-                {/*   {!!error ? <div style={{color: 'red'}}>{error}</div>
+                {!!error ? <div style={{color: 'red'}}>{error}</div>
                     : status === 'loading' ? <img  src={preload} style={ {height:'30px'} } alt={'pic'}/>
-                        : <div><br/></div>}*/}
+                        : <div><br/></div>}
             </div>
 
             <form onSubmit={formik.handleSubmit}>
