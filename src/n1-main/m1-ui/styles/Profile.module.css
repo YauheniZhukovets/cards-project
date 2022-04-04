@@ -1,19 +1,19 @@
 .mainContainer{
     position: relative;
     max-height: 100vh;
-    max-width: 800px;
+    max-width: 1100px;
     display: flex;
     justify-content: center;
     align-items: center;
-    left: 30%;
+    left: 19%;
     margin-top: 20px;
-    /*border: 2px solid aqua;*/
+    border: 2px solid aqua;
 
 }
 
 .container_log{
     /*position: absolute;*/
-    width: 413px;
+    width: 1000px;
     min-height: 560px;
     max-height: 561px;
     left: 670px;
@@ -200,21 +200,6 @@ form input{
     background-size: cover;
     background-position: center;
     position: relative;
-    /*border: 1px solid white;*/
-
-}
-.imgAvatar{
-    width: 170px;
-    height: 170px;
-    margin: -24px 100px 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    border-radius: 50%;
     /*border: 1px solid white;*/
 
 }

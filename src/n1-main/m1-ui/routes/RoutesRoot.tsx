@@ -33,7 +33,7 @@ export const RoutesRoot = () => {
                 <Route path={PATH.PASSWORD_RECOVERY} element={<PasswordRecovery/>} />
                 <Route path={PATH.PROFILE} element={<Profile/>} />
                 <Route path={PATH.CHECK} element={<CheckEmail/>} />
-                {/*<Route path={'/*'} element={<Error404/>} />*/}
+                <Route path={'/*'} element={<Error404/>} />
             </Routes>
         </div>
     );
