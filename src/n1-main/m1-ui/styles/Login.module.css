@@ -106,7 +106,8 @@ form input{
     height: 35px;
     left: 695px;
     top: 395px;
-    margin-bottom: 10px;
+    margin: 27px 0px 0px;
+
 
     font-family: 'SF UI Display';
     font-style: normal;
@@ -127,6 +128,8 @@ form input{
 .linkUp{
     text-align: center;
     color: rgb(66, 47, 190);
+    margin: 0px 0px 15px;
+    font-size: 20px;
 }
 .linkUp:hover{
     color: rgb(241, 240, 240);
