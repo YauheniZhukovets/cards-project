@@ -64,7 +64,7 @@ export const Login = () => {
             <div>
                 <h2>Sign in</h2>
                 {!!error ? <div style={{color: 'red'}}>{error}</div>
-                    : status === 'loading' ? <img  src={preload} style={ {height:'30px'} } alt={'pic'}/>
+                    : status === 'loading' ? <img src={preload} style={{height: '30px'}} alt={'pic'}/>
                         : <div><br/></div>}
             </div>
 
@@ -97,7 +97,7 @@ export const Login = () => {
                 </div>
                 <div>
                     <SuperButton type={'submit'}
-                                 disabled={status=== 'loading'}
+                                 disabled={status === 'loading'}
                     >
                         Login
                     </SuperButton>
@@ -105,7 +105,7 @@ export const Login = () => {
             </form>
             <div>
                 <div>
-                    <NavLink to={PATH.REGISTRATION}>Sign up</NavLink>
+                    <NavLink to={PATH.REGISTRATION}><b> Sign up </b></NavLink>
                 </div>
 
             </div>

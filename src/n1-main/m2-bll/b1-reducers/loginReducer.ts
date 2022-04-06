@@ -59,7 +59,7 @@ export type InitialStateType = {
 }
 
 export type setIsLoggedInACType = ReturnType<typeof setIsLoggedInAC>
-type SetLoginErrorACType = ReturnType<typeof setLoginErrorAC>
-type AddUserDateACType = ReturnType<typeof addUserDateAC>
+export type SetLoginErrorACType = ReturnType<typeof setLoginErrorAC>
+export type AddUserDateACType = ReturnType<typeof addUserDateAC>
 
 type ActionsLoginType = setIsLoggedInACType | SetLoginErrorACType | SetAppStatusACType | AddUserDateACType

@@ -6,7 +6,7 @@ import {useFormik} from 'formik';
 import SuperInputText from '../../../n1-main/m1-ui/common/c1-SuperInputText/SuperInputText';
 import SuperButton from '../../../n1-main/m1-ui/common/c2-SuperButton/SuperButton';
 import {registrationTC} from '../../../n1-main/m2-bll/b1-reducers/registrationReducer';
-import {Navigate} from 'react-router-dom';
+import {Navigate, NavLink} from 'react-router-dom';
 import {PATH} from '../../../n1-main/m1-ui/routes/RoutesRoot';
 import preload from '../../../n1-main/m1-ui/common/c0-Preloder/Spinner.svg';
 
@@ -103,6 +103,9 @@ export const Registration = () => {
                     >
                         Sign up
                     </SuperButton>
+                </div>
+                <div>
+                    <NavLink to={PATH.LOGIN}> <b> Sign in </b> </NavLink>
                 </div>
             </form>
         </div>
