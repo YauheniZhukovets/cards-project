@@ -59,7 +59,11 @@
 
 
 .activeLink {
-    color: rgb(47, 190, 169);
+    color: #ff5967;
+    text-decoration: none;
+}
+.activeLink:hover{
+    color: #5cdecb;
     text-decoration: none;
 }
 
