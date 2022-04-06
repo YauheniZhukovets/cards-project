@@ -1,14 +1,14 @@
 import React from 'react';
 import style from "../../n1-main/m1-ui/styles/Login.module.css";
 import avatar from "../f3 -profile/coolboy.png";
-import {useDispatch, useSelector} from 'react-redux';
-// import {AppStoreType} from '../../../n1-main/m2-bll/store';
-// import {AppStatusType} from '../../../n1-main/m2-bll/b1-reducers/appReducer';
-import {useFormik} from 'formik';
-// import {registrationTC} from '../../../n1-main/m2-bll/b1-reducers/registrationReducer';
+import {useSelector} from 'react-redux';
 import {Navigate} from 'react-router-dom';
-// import {PATH} from '../../../n1-main/m1-ui/routes/RoutesRoot';
+
 // import preload from '../../../n1-main/m1-ui/common/c0-Preloder/Spinner.svg';
+import {AppStoreType} from '../../n1-main/m2-bll/store';
+import {UserResponseType} from '../../n1-main/m3-dal/m1-API/loginAPI';
+import {PATH} from '../../n1-main/m1-ui/routes/RoutesRoot';
+
 
 
 const avatarIcon = [
@@ -19,6 +19,13 @@ export const Profile = () => {
     const imageAva = {
         backgroundImage: `url(${avatar})`,
     }
+
+    const isLoggedIn = useSelector<AppStoreType, boolean>(state => state.login.isLoggedIn)
+    const user = useSelector<AppStoreType, UserResponseType | null>(state => state.login.user)
+
+    if (!isLoggedIn) return <Navigate to={PATH.REGISTRATION}/>
+
+    if (!user) return <Navigate to={PATH.REGISTRATION}/>
 
     // type FormikErrorType = {
     //     email?: string
@@ -72,8 +79,12 @@ export const Profile = () => {
                 </div>
                 <div>
                     <form >
-                        <div className={style.imgAvatar} style={imageAva}></div>
+                        <div className={style.imgAvatar} style={imageAva}>
+
+                            {/*<img src={user.avatar} alt="img"/>*/}
+                        </div>
                         <label >Nickname</label>
+                        <h1>Hello {user.name}!</h1>
 
                         {/*<SuperInputText type={'text'}*/}
                         {/*                placeholder={'Enter your Nickname'}*/}
