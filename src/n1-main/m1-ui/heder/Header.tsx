@@ -21,31 +21,31 @@ export const Header = () => {
                 {/*<h1 className={s.title}>IT-incubator</h1>*/}
                 <div className={s.headerBlock}>
                     <div className={s.itemMenu}>
-                        <NavLink  to={PATH.LOGIN} className={s.active }> Main </NavLink>
+                        <NavLink  to={PATH.LOGIN} className={setActive }> Main </NavLink>
                     </div>
                     <div className={s.itemMenu}>
-                        <NavLink  to={PATH.LOGIN} className={s.active }> Login </NavLink>
+                        <NavLink  to={PATH.LOGIN} className={setActive }> Login </NavLink>
                     </div>
                     <div className={s.itemMenu}>
-                        <NavLink  to={PATH.REGISTRATION} className={s.active }> Register </NavLink>
+                        <NavLink  to={PATH.REGISTRATION} className={setActive }> Register </NavLink>
                     </div>
                     <div className={s.itemMenu}>
-                        <NavLink  to={PATH.NEW_PASSWORD} className={s.active }> Forgot </NavLink>
+                        <NavLink  to={PATH.NEW_PASSWORD} className={setActive }> Forgot </NavLink>
                     </div>
                     <div className={s.itemMenu}>
-                        <NavLink  to={PATH.PASSWORD_RECOVERY} className={s.active }> SetPassword </NavLink>
+                        <NavLink  to={PATH.PASSWORD_RECOVERY} className={setActive }> SetPassword </NavLink>
                     </div>
                     <div className={s.itemMenu}>
-                        <NavLink  to={PATH.PROFILE} className={s.active }> Profile </NavLink>
+                        <NavLink  to={PATH.PROFILE} className={setActive }> Profile </NavLink>
                     </div>
                     <div className={s.itemMenu}>
-                        <NavLink  to={PATH.CHECK} className={s.active }> Packs </NavLink>
+                        <NavLink  to={PATH.CHECK} className={setActive }> Packs </NavLink>
                     </div>
                     <div className={s.itemMenu}>
-                        <NavLink  to={PATH.TEST} className={s.active }> Cards </NavLink>
+                        <NavLink  to={PATH.TEST} className={setActive }> Cards </NavLink>
                     </div>
                     <div className={s.itemMenu}>
-                        <NavLink  to={PATH.TEST} className={s.active }> Error</NavLink>
+                        <NavLink  to={PATH.TEST} className={setActive }> Error</NavLink>
                     </div>
 
                 </div>
