@@ -33,7 +33,7 @@ export const EditableSpan: React.FC<ProfileStatusPropsType> = (props) => {
             {!editMode &&
                 <div>
                         <span onDoubleClick={activateEditMode}>
-                            {props.span}
+                            {props.span || 'none'}
                         </span>
                 </div>
             }

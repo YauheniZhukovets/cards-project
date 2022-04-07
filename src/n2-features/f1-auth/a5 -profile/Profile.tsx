@@ -16,8 +16,7 @@ export const Profile = () => {
         dispatch(logoutTC())
     }
 
-    if (!isLoggedIn) return <Navigate to={PATH.REGISTRATION}/>
-    /*if (!user) return <Navigate to={PATH.REGISTRATION}/>*/
+    if (!isLoggedIn) return <Navigate to={PATH.LOGIN}/>
 
     return (
         <div>

@@ -4,7 +4,7 @@ import {EditableSpan} from '../../../n1-main/m1-ui/common/c8-EditableSpan/Editab
 import {useDispatch, useSelector} from 'react-redux';
 import {AppStoreType} from '../../../n1-main/m2-bll/store';
 import {PATH} from '../../../n1-main/m1-ui/routes/RoutesRoot';
-import {NavLink} from 'react-router-dom';
+import {Navigate, NavLink} from 'react-router-dom';
 import {updateProfileTC} from '../../../n1-main/m2-bll/b1-reducers/profileReducer';
 import preload from '../../../n1-main/m1-ui/common/c0-Preloder/Spinner.svg';
 import {AppStatusType} from '../../../n1-main/m2-bll/b1-reducers/appReducer';
@@ -14,6 +14,7 @@ export const EditProfile = () => {
     const userName = useSelector<AppStoreType, string | undefined>(state => state.login.user?.name)
     const userEmail = useSelector<AppStoreType, string | undefined>(state => state.login.user?.email)
     const userAvatar = useSelector<AppStoreType, string | undefined>(state => state.login.user?.avatar)
+    const isLoggedIn = useSelector<AppStoreType, boolean>(state => state.login.isLoggedIn)
     const error = useSelector<AppStoreType, string | null>(state => state.login.error)
     const status = useSelector<AppStoreType, AppStatusType>(state => state.app.status)
 
@@ -23,6 +24,8 @@ export const EditProfile = () => {
     const updateNameClickHandler = () => {
         dispatch(updateProfileTC({name, avatar}))
     }
+
+    if (!isLoggedIn) return <Navigate to={PATH.LOGIN}/>
 
     return (
         <div>
@@ -47,7 +50,7 @@ export const EditProfile = () => {
                 <div>{userEmail}</div>
             </div>
             <div>
-                <NavLink to={PATH.PROFILE}><SuperButton>Cancel</SuperButton></NavLink>
+                <NavLink to={PATH.PROFILE}><SuperButton>Back</SuperButton></NavLink>
                 <SuperButton onClick={updateNameClickHandler} disabled={status === 'loading'}>Save</SuperButton>
             </div>
         </div>

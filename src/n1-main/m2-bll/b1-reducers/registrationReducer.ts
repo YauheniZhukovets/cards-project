@@ -5,6 +5,7 @@ import {setIsLoggedInAC, setIsLoggedInACType} from './loginReducer';
 
 const initialState: InitialStateType = {
     error: null,
+    isRegistered: false,
 }
 
 export const registrationReducer = (state: InitialStateType = initialState, action: ActionsRegistrationType): InitialStateType => {
@@ -21,6 +22,9 @@ export const registrationReducer = (state: InitialStateType = initialState, acti
 export const setRegistrationErrorAC = (error: string | null) => {
     return {type: 'registration/SET-REGISTRATION-ERROR', payload: {error}} as const
 }
+export const setRegistrationAC = (isRegistered: boolean) => {
+    return {type: 'registration/SET-REGISTRATION', payload: {isRegistered}} as const
+}
 
 
 //thunk
@@ -30,6 +34,7 @@ export const registrationTC = (data: RegistrationParamsType) => (dispatch: Dispa
         .then(() => {
             dispatch(setAppStatusAC('succeeded'))
             dispatch(setIsLoggedInAC(false))
+            dispatch(setRegistrationAC(true))
         })
         .catch((e) => {
             const error = e.response ? e.response.data.error : (e.message + ', more details in the console')
@@ -41,8 +46,14 @@ export const registrationTC = (data: RegistrationParamsType) => (dispatch: Dispa
 //type
 export type InitialStateType = {
     error: string | null
+    isRegistered: boolean
 }
 
 type SetRegistrationErrorACType = ReturnType<typeof setRegistrationErrorAC>
+type SetRegistrationACType = ReturnType<typeof setRegistrationAC>
 
-type ActionsRegistrationType = | SetRegistrationErrorACType | SetAppStatusACType | setIsLoggedInACType
+type ActionsRegistrationType =
+    | SetRegistrationErrorACType
+    | SetAppStatusACType
+    | setIsLoggedInACType
+    | SetRegistrationACType

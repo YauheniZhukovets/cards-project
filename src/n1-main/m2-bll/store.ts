@@ -1,5 +1,4 @@
 import {applyMiddleware, combineReducers, createStore} from 'redux';
-import {meReducer} from './b1-reducers/meReducer';
 import {profileReducer} from './b1-reducers/profileReducer';
 import {loginReducer} from './b1-reducers/loginReducer';
 import thunk from 'redux-thunk';
@@ -10,7 +9,6 @@ const reducers = combineReducers({
     app: appReducer,
     login: loginReducer,
     registration: registrationReducer,
-    me: meReducer,
     profile: profileReducer,
 })
 

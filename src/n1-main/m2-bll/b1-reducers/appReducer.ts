@@ -32,6 +32,7 @@ export const initializeMeAC = (isInitialize: boolean) => {
 export const authMeTC = () => (dispatch: Dispatch<ActionsAppType>) => {
     profileAPI.authMe()
         .then((res) => {
+            console.log(res)
             dispatch(addUserDateAC(res.data))
             dispatch(setIsLoggedInAC(true))
         })

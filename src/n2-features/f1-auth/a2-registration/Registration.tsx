@@ -19,7 +19,9 @@ export const Registration = () => {
 
     const dispatch = useDispatch()
     const status = useSelector<AppStoreType, AppStatusType>(state => state.app.status)
+    const isLoggedIn = useSelector<AppStoreType, boolean>(state => state.login.isLoggedIn)
     const error = useSelector<AppStoreType, null | string>(state => state.registration.error)
+    const isRegistered = useSelector<AppStoreType, boolean>(state => state.registration.isRegistered)
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -48,15 +50,15 @@ export const Registration = () => {
             return errors;
         },
         onSubmit: (values) => {
-            /*formik.resetForm()*/
             dispatch(registrationTC(values))
         },
     })
 
-    if (!!error) {
-        return <Navigate to={PATH.REGISTRATION}/>
+    if (isLoggedIn) {
+        return <Navigate to={PATH.PROFILE}/>
     }
-    if (status === 'succeeded') {
+
+    if (isRegistered) {
         return <Navigate to={PATH.LOGIN}/>
     }
 
@@ -67,7 +69,7 @@ export const Registration = () => {
                 <h1>it-incubator</h1>
                 <h2>Sign up</h2>
                 {!!error ? <div style={{color: 'red'}}>{error}</div>
-                    : status === 'loading' ? <img  src={preload} style={ {height:'30px'} } alt={'pic'}/>
+                    : status === 'loading' ? <img src={preload} style={{height: '30px'}} alt={'pic'}/>
                         : <div><br/></div>}
             </div>
 
