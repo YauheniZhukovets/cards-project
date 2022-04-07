@@ -1,6 +1,6 @@
 import {Dispatch} from 'redux';
 import {LoginAPI, LoginParamsType, UserResponseType} from '../../m3-dal/m1-API/loginAPI';
-import {setAppStatusAC, SetAppStatusACType} from './appReducer';
+import {initializeMeAC, InitializeMeACType, setAppStatusAC, SetAppStatusACType} from './appReducer';
 
 const initialState: InitialStateType = {
     isLoggedIn: false,
@@ -70,6 +70,9 @@ export const logoutTC = () => (dispatch: Dispatch<ActionsLoginType>) => {
             dispatch(setLoginErrorAC(error))
             dispatch(setAppStatusAC('failed'))
         })
+        .finally(()=>{
+        dispatch(initializeMeAC(true))
+    })
 }
 
 //type
@@ -90,3 +93,4 @@ type ActionsLoginType =
     | SetAppStatusACType
     | AddUserDateACType
     | DeleteUserDateACType
+    | InitializeMeACType

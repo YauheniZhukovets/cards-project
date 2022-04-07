@@ -26,6 +26,7 @@ export type UserResponseType = {
     email: string;
     name: string;
     avatar?: string;
+    token: string;
     publicCardPacksCount: number; // количество колод
     created: Date | null;
     updated: Date | null;

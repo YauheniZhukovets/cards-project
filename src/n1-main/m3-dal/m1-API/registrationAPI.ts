@@ -12,9 +12,3 @@ export type RegistrationParamsType = {
     password: string
     confirmPassword:string
 }
-
-
-
-
-
-
