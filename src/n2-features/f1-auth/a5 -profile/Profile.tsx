@@ -3,6 +3,7 @@ import {useSelector} from 'react-redux';
 import {AppStoreType} from '../../../n1-main/m2-bll/store';
 import {PATH} from '../../../n1-main/m1-ui/routes/RoutesRoot';
 import {Navigate, NavLink} from 'react-router-dom';
+import SuperButton from '../../../n1-main/m1-ui/common/c2-SuperButton/SuperButton';
 
 export const Profile = () => {
     const isLoggedIn = useSelector<AppStoreType, boolean>(state => state.login.isLoggedIn)
@@ -21,7 +22,7 @@ export const Profile = () => {
             <h3>{userName}</h3>
             <span>Front-end-developer</span>
             <div>
-                <NavLink to={PATH.EDIT_PROFILE}>Edit profile</NavLink>
+                <NavLink to={PATH.EDIT_PROFILE}><SuperButton>Edit profile</SuperButton></NavLink>
             </div>
         </div>
     );

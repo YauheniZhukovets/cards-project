@@ -33,7 +33,7 @@ export const EditProfile = () => {
                         : <div><br/></div>}
             </div>
             <div>
-                <img alt={'img'} src={userAvatar}/>
+                <img style={ {width:'100px', borderRadius: '50%'} } alt={'img'} src={userAvatar}/>
                 <div><b>Avatar url:</b></div>
                 <EditableSpan span={avatar} updateSpan={setAvatar}/>
             </div>
@@ -47,7 +47,7 @@ export const EditProfile = () => {
                 <div>{userEmail}</div>
             </div>
             <div>
-                <NavLink to={PATH.PROFILE}>Cancel</NavLink>
+                <NavLink to={PATH.PROFILE}><SuperButton>Cancel</SuperButton></NavLink>
                 <SuperButton onClick={updateNameClickHandler} disabled={status === 'loading'}>Save</SuperButton>
             </div>
         </div>
