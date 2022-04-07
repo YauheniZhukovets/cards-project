@@ -6,7 +6,8 @@ import {Registration} from '../../../n2-features/f1-auth/a2-registration/Registr
 import {NewPassword} from '../../../n2-features/f1-auth/a3-newPassword/NewPassword';
 import {PasswordRecovery} from '../../../n2-features/f1-auth/a4-passwordRecovery/PasswordRecovery';
 import {Profile} from '../../../n2-features/f1-auth/a5 -profile/Profile';
-
+import {EditProfile} from '../../../n2-features/f1-auth/a5 -profile/EditProfile';
+import {CheckEmail} from '../../../n2-features/f1-auth/a3-newPassword/CheckEmail';
 
 
 export const PATH = {
@@ -16,6 +17,8 @@ export const PATH = {
     NEW_PASSWORD: '/new-password',
     PASSWORD_RECOVERY: '/password-recovery',
     PROFILE: '/profile',
+    EDIT_PROFILE: '/edit-profile',
+    // CHECK:'/check',
 }
 
 export const RoutesRoot = () => {
@@ -28,7 +31,9 @@ export const RoutesRoot = () => {
                 <Route path={PATH.REGISTRATION} element={<Registration/>} />
                 <Route path={PATH.NEW_PASSWORD} element={<NewPassword/>} />
                 <Route path={PATH.PASSWORD_RECOVERY} element={<PasswordRecovery/>} />
-                <Route path={PATH.PROFILE} element={<Profile/>} />
+                {/*<Route path={PATH.PROFILE} element={<Profile/>} />*/}
+                {/*<Route path={PATH.CHECK} element={<CheckEmail/>} />*/}
+                <Route path={PATH.EDIT_PROFILE} element={<EditProfile/>} />
                 <Route path={'*'} element={<Error404/>} />
             </Routes>
         </div>

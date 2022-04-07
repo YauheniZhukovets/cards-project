@@ -1,4 +1,5 @@
 import React from 'react';
+import style from '../../../n1-main/m1-ui/styles/Login.module.css';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppStoreType} from '../../../n1-main/m2-bll/store';
 import {AppStatusType} from '../../../n1-main/m2-bll/b1-reducers/appReducer';
@@ -6,8 +7,9 @@ import {useFormik} from 'formik';
 import SuperInputText from '../../../n1-main/m1-ui/common/c1-SuperInputText/SuperInputText';
 import SuperButton from '../../../n1-main/m1-ui/common/c2-SuperButton/SuperButton';
 import {registrationTC} from '../../../n1-main/m2-bll/b1-reducers/registrationReducer';
-import {Navigate} from 'react-router-dom';
+import {Navigate, NavLink} from 'react-router-dom';
 import {PATH} from '../../../n1-main/m1-ui/routes/RoutesRoot';
+import preload from '../../../n1-main/m1-ui/common/c0-Preloder/Spinner.svg';
 
 export const Registration = () => {
     type FormikErrorType = {
@@ -60,50 +62,111 @@ export const Registration = () => {
     }
 
     return (
-        <div>
-
-            <div>
-                <h1>it-incubator</h1>
-                <h2>Sign up</h2>
-                {/*   {!!error ? <div style={{color: 'red'}}>{error}</div>
-                    : status === 'loading' ? <img  src={preload} style={ {height:'30px'} } alt={'pic'}/>
-                        : <div><br/></div>}*/}
-            </div>
-
-            <form onSubmit={formik.handleSubmit}>
-                <div>
-                    Email:
-                    <SuperInputText type={'email'}
-                                    placeholder={'Enter your email'}
-                                    {...formik.getFieldProps('email')}
-                                    error={formik.touched.email ? formik.errors.email : ''}
-                    />
+        <div className={style.mainContainer}>
+            <div className={style.container_log} >
+                <div className={style.title} >
+                    <h1>Register</h1>
+                </div>
+                <div className={style.subtitle}>
+                    <h2> Sing Up</h2>
+                    {!!error ? <div style={{color: 'red'}}>{error}</div>
+                        : status === 'loading' ? <img  src={preload} style={ {height:'30px'} } alt={'pic'}/>
+                            : <div><br/></div>}
                 </div>
                 <div>
-                    Password:
-                    <SuperInputText type={'password'}
-                                    placeholder={'Enter your password'}
-                                    {...formik.getFieldProps('password')}
-                                    error={formik.touched.password ? formik.errors.password : ''}
-                    />
-                </div>
+                    <form onSubmit={formik.handleSubmit}>
+                        <label >Email</label>
+                        <SuperInputText type={'email'}
+                                        placeholder={'Enter your email'}
+                                        {...formik.getFieldProps('email')}
+                                        error={formik.touched.email ? formik.errors.email : ''}
+                        />
 
-                <div>
-                    Confirm password:
-                    <SuperInputText type={'password'}
-                                    placeholder={'Enter your confirm password'}
-                                    {...formik.getFieldProps('confirmPassword')}
-                                    error={formik.touched.confirmPassword ? formik.errors.confirmPassword : ''}
-                    />
+                        {/*<input type="email"/>*/}
+                        <label >Password</label>
+                        <SuperInputText type={'password'}
+                                        placeholder={'Enter your password'}
+                                        {...formik.getFieldProps('password')}
+                                        error={formik.touched.password ? formik.errors.password : ''}
+                        />
+
+                        {/*<a href='#'><input className={style.eyes} type="password"/></a>*/}
+                        <label >Confirm password</label>
+                        <SuperInputText type={'password'}
+                                        placeholder={'Enter your confirm password'}
+                                        {...formik.getFieldProps('confirmPassword')}
+                                        error={formik.touched.confirmPassword ? formik.errors.confirmPassword : ''}
+                        />
+
+                        {/*<a href='#'><input className={style.eyes} type="password"/></a>*/}
+                    </form>
                 </div>
-                <div>
+                <div className={style.btnContainer}>
+                    <SuperButton type={'submit'} style={{background:'rgba(235, 235, 235, 0.66)', color:'#130d0d'}}
+                                 disabled={status === 'loading'}
+                    >
+                        Cancel
+                    </SuperButton>
                     <SuperButton type={'submit'}
                                  disabled={status === 'loading'}
                     >
-                        Sign up
+                        Register
                     </SuperButton>
+                    {/*<button className={style.btnDise}>Cancel</button>*/}
+                    {/*<button className={style.btn}>Register</button>*/}
                 </div>
-            </form>
+                <div className={style.aContainer}>
+                    <NavLink to={PATH.LOGIN} className={style.linkDown}> Sign in </NavLink>
+                </div>
+            </div>
         </div>
+        // <div>
+        //
+        //     <div>
+        //         <h1>it-incubator</h1>
+        //         <h2>Sign up</h2>
+        //         {!!error ? <div style={{color: 'red'}}>{error}</div>
+        //             : status === 'loading' ? <img  src={preload} style={ {height:'30px'} } alt={'pic'}/>
+        //                 : <div><br/></div>}
+        //     </div>
+        //
+        //     <form onSubmit={formik.handleSubmit}>
+        //         <div>
+        //             Email:
+        //             <SuperInputText type={'email'}
+        //                             placeholder={'Enter your email'}
+        //                             {...formik.getFieldProps('email')}
+        //                             error={formik.touched.email ? formik.errors.email : ''}
+        //             />
+        //         </div>
+        //         <div>
+        //             Password:
+        //             <SuperInputText type={'password'}
+        //                             placeholder={'Enter your password'}
+        //                             {...formik.getFieldProps('password')}
+        //                             error={formik.touched.password ? formik.errors.password : ''}
+        //             />
+        //         </div>
+        //
+        //         <div>
+        //             Confirm password:
+        //             <SuperInputText type={'password'}
+        //                             placeholder={'Enter your confirm password'}
+        //                             {...formik.getFieldProps('confirmPassword')}
+        //                             error={formik.touched.confirmPassword ? formik.errors.confirmPassword : ''}
+        //             />
+        //         </div>
+        //         <div>
+        //             <SuperButton type={'submit'}
+        //                          disabled={status === 'loading'}
+        //             >
+        //                 Sign up
+        //             </SuperButton>
+        //         </div>
+        //         <div>
+        //             <NavLink to={PATH.LOGIN}> <b> Sign in </b> </NavLink>
+        //         </div>
+        //     </form>
+        // </div>
     );
 };

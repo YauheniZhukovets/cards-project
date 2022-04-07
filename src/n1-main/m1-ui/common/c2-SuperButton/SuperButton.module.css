@@ -1,15 +1,30 @@
 .default {
     cursor: pointer;
-    border: 1px solid #cecece;
-    background: #f6f6f6;
-    box-shadow: inset 0 20px 20px rgba(255, 255, 255, 0.12);
-    border-radius: 8px;
-    padding: 5px 10px;
-    min-width: 50px;
+    /*border: 1px solid #cecece;*/
+    /*background: #f6f6f6;*/
+    /*box-shadow: inset 0 20px 20px rgba(255, 255, 255, 0.12);*/
+    /*border-radius: 8px;*/
+    /*padding: 5px 10px;*/
+    /*min-width: 50px;*/
+
+    height: 29px;
+    width: 120px;
+    background: rgba(190, 47, 65, 0.92);
+    box-shadow: 0px 3px 10px rgba(12, 5, 9, 0.84), inset 0px 1px 0px rgba(255, 255, 255, 0.42);
+    border-radius: 30px;
+    color: white;
+    margin:16px 15px 16px;
+    font-size: 16px;
 }
 
 .default:hover {
     box-shadow: inset 0 -20px 20px rgba(203, 187, 187, 0.2);
+
+    height: 25px;
+    width: 117px;
+    transform: scale(1);
+    transition: all 0.5s ease;
+    /*margin-left:10px;*/
 }
 
 .default:active {
@@ -17,6 +32,7 @@
     margin-bottom: -1px;
     zoom: 1;
     background: #d3d3d3;
+    color: rgba(190, 47, 65, 0.92);
 }
 
 .default:focus {
@@ -28,18 +44,31 @@
 }
 
 .red {
-    background: red;
+    /*background: red;*/
     cursor: pointer;
     border: 1px solid #cecece;
     box-shadow: inset 0 20px 20px #ec6953;
-    border-radius: 15px;
+    /*border-radius: 15px;*/
     padding: 5px 10px;
     min-width: 50px;
     min-height: 20px;
+
+    height: 29px;
+    width: 120px;
+    font-size: 16px;
+    background: rgba(232, 226, 226, 0.57);
+    /*box-shadow: 0px 3px 10px rgba(143, 33, 49, 0.84), inset 0px 1px 0px rgba(255, 255, 255, 0.42);*/
+    border-radius: 30px;
+    color: #130d0d;
+    margin:16px 15px 16px;
 }
 
 .red:hover {
     box-shadow: inset 0 -20px 20px #ec6953;
+    height: 25px;
+    width: 117px;
+    transform: scale(1);
+    transition: all 0.5s ease;
 }
 
 .red:active {
@@ -53,5 +82,5 @@
 }
 
 .red:disabled {
-
+    background: #8c8c8c;
 }

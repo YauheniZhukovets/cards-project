@@ -1,0 +1,52 @@
+import React, {ChangeEvent, useEffect, useState} from 'react';
+
+export type ProfileStatusPropsType = {
+    span: string | undefined
+    updateSpan: (span: any) => void
+}
+
+export const EditableSpan: React.FC<ProfileStatusPropsType> = (props) => {
+    const [editMode, setEditMode] = useState(false)
+    const [span, setSpan] = useState(props.span)
+
+    useEffect(() => {
+        setSpan(props.span)
+    }, [props.span])
+
+    const activateEditMode = () => {
+        setEditMode(true)
+    }
+
+    const deactivateEditMode = () => {
+        setEditMode(false)
+        if (span != null) {
+            props.updateSpan(span)
+        }
+    }
+
+    const onStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setSpan(e.currentTarget.value)
+    }
+
+    return (
+        <div>
+            {!editMode &&
+                <div>
+                        <span style={{fontSize: '8px'}} onDoubleClick={activateEditMode}>
+                            {props.span}
+                        </span>
+                </div>
+            }
+            {editMode &&
+                <div>
+                    <input
+                        autoFocus
+                        onChange={onStatusChange}
+                        onBlur={deactivateEditMode}
+                        type="text"
+                        value={span}/>
+                </div>
+            }
+        </div>
+    )
+}
