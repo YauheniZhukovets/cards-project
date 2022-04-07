@@ -19,7 +19,7 @@ export const loginReducer = (state: InitialStateType = initialState, action: Act
         case 'login/SET-USER-DATE': {
             return {...state, user: action.payload.user}
         }
-        case 'login/SET-USER-NULL': {
+        case 'login/DELETE-USER-DATE': {
             return {...state, user: null}
         }
         default:
@@ -37,8 +37,8 @@ export const setLoginErrorAC = (error: string | null) => {
 export const addUserDateAC = (user: UserResponseType) => {
     return {type: 'login/SET-USER-DATE', payload: {user}} as const
 }
-export const setUserNullAC = () => {
-    return {type: 'login/SET-USER-NULL'} as const
+export const deleteUserDateAC = () => {
+    return {type: 'login/DELETE-USER-DATE'} as const
 }
 
 //thunk
@@ -61,7 +61,7 @@ export const logoutTC = () => (dispatch: Dispatch<ActionsLoginType>) => {
     LoginAPI.logout()
         .then((res) => {
             console.log(res)
-            dispatch(setUserNullAC())
+            dispatch(deleteUserDateAC())
             dispatch(setAppStatusAC('succeeded'))
             dispatch(setIsLoggedInAC(false))
         })
@@ -82,11 +82,11 @@ export type InitialStateType = {
 export type setIsLoggedInACType = ReturnType<typeof setIsLoggedInAC>
 export type SetLoginErrorACType = ReturnType<typeof setLoginErrorAC>
 export type AddUserDateACType = ReturnType<typeof addUserDateAC>
-export type SetUserNullACType = ReturnType<typeof setUserNullAC>
+export type DeleteUserDateACType = ReturnType<typeof deleteUserDateAC>
 
 type ActionsLoginType =
     setIsLoggedInACType
     | SetLoginErrorACType
     | SetAppStatusACType
     | AddUserDateACType
-    | SetUserNullACType
+    | DeleteUserDateACType
