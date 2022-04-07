@@ -116,7 +116,7 @@ export const Profile = () => {
                     {/*    Save*/}
                     {/*</SuperButton>*/}
 
-                    <button className={style.btnDise}>Cancel</button>
+                    <button className={style.btnDise}>Cancel_</button>
                     <button className={style.btn}>Save</button>
                 </div>
             </div>
