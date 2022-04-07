@@ -1,7 +1,7 @@
 import {Dispatch} from 'redux';
 import {setAppStatusAC, SetAppStatusACType} from './appReducer';
 import {registrationAPI, RegistrationParamsType} from '../../m3-dal/m1-API/registrationAPI';
-import {setIsLoggedInAC, setIsLoggedInACType} from './loginReducer';
+import {setIsLoggedInACType} from './loginReducer';
 
 const initialState: InitialStateType = {
     error: null,
@@ -12,6 +12,9 @@ export const registrationReducer = (state: InitialStateType = initialState, acti
     switch (action.type) {
         case 'registration/SET-REGISTRATION-ERROR': {
             return {...state, error: action.payload.error}
+        }
+        case 'registration/SET-REGISTRATION': {
+            return {...state, isRegistered: action.payload.isRegistered}
         }
         default:
             return state
@@ -33,7 +36,6 @@ export const registrationTC = (data: RegistrationParamsType) => (dispatch: Dispa
     registrationAPI.registration(data)
         .then(() => {
             dispatch(setAppStatusAC('succeeded'))
-            dispatch(setIsLoggedInAC(false))
             dispatch(setRegistrationAC(true))
         })
         .catch((e) => {

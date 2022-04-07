@@ -61,7 +61,6 @@ export const Registration = () => {
     if (isRegistered) {
         return <Navigate to={PATH.LOGIN}/>
     }
-
     return (
         <div>
 
