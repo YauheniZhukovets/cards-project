@@ -4,6 +4,9 @@ import {AxiosResponse} from 'axios';
 export const LoginAPI = {
     login(data: LoginParamsType) {
         return instance.post<LoginParamsType, AxiosResponse<UserResponseType>>(`auth/login/`, data);
+    },
+    logout() {
+        return instance.delete<LogoutResponseType>('auth/me')
     }
 }
 
@@ -11,6 +14,11 @@ export type LoginParamsType = {
     email: string
     password: string
     rememberMe: boolean
+}
+
+export type LogoutResponseType = {
+    info: string
+    error?: string
 }
 
 export type UserResponseType = {

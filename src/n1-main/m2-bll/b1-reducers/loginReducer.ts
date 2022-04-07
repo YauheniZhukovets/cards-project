@@ -19,6 +19,9 @@ export const loginReducer = (state: InitialStateType = initialState, action: Act
         case 'login/SET-USER-DATE': {
             return {...state, user: action.payload.user}
         }
+        case 'login/SET-USER-NULL': {
+            return {...state, user: null}
+        }
         default:
             return state
     }
@@ -34,6 +37,9 @@ export const setLoginErrorAC = (error: string | null) => {
 export const addUserDateAC = (user: UserResponseType) => {
     return {type: 'login/SET-USER-DATE', payload: {user}} as const
 }
+export const setUserNullAC = () => {
+    return {type: 'login/SET-USER-NULL'} as const
+}
 
 //thunk
 export const loginTC = (data: LoginParamsType) => (dispatch: Dispatch<ActionsLoginType>) => {
@@ -43,6 +49,21 @@ export const loginTC = (data: LoginParamsType) => (dispatch: Dispatch<ActionsLog
             dispatch(addUserDateAC(res.data))
             dispatch(setAppStatusAC('succeeded'))
             dispatch(setIsLoggedInAC(true))
+        })
+        .catch((e) => {
+            const error = e.response ? e.response.data.error : (e.message + ', more details in the console')
+            dispatch(setLoginErrorAC(error))
+            dispatch(setAppStatusAC('failed'))
+        })
+}
+export const logoutTC = () => (dispatch: Dispatch<ActionsLoginType>) => {
+    dispatch(setAppStatusAC('loading'))
+    LoginAPI.logout()
+        .then((res) => {
+            console.log(res)
+            dispatch(setUserNullAC())
+            dispatch(setAppStatusAC('succeeded'))
+            dispatch(setIsLoggedInAC(false))
         })
         .catch((e) => {
             const error = e.response ? e.response.data.error : (e.message + ', more details in the console')
@@ -61,5 +82,11 @@ export type InitialStateType = {
 export type setIsLoggedInACType = ReturnType<typeof setIsLoggedInAC>
 export type SetLoginErrorACType = ReturnType<typeof setLoginErrorAC>
 export type AddUserDateACType = ReturnType<typeof addUserDateAC>
+export type SetUserNullACType = ReturnType<typeof setUserNullAC>
 
-type ActionsLoginType = setIsLoggedInACType | SetLoginErrorACType | SetAppStatusACType | AddUserDateACType
+type ActionsLoginType =
+    setIsLoggedInACType
+    | SetLoginErrorACType
+    | SetAppStatusACType
+    | AddUserDateACType
+    | SetUserNullACType
