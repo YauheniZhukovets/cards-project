@@ -50,9 +50,7 @@ export const Login = () => {
         },
     })
 
-    if (isLoggedIn) {
-        return <Navigate to={PATH.PROFILE}/>
-    }
+    if (isLoggedIn) return <Navigate to={PATH.PROFILE}/>
 
     return (
         <div>
