@@ -66,9 +66,9 @@ export const Registration = () => {
     return (
         <div className={style.mainContainer}>
             <div className={style.container_log}>
-                {/*    <div className={style.title}>
-                    <h1>Register</h1>
-                </div>*/}
+                <div className={style.title}>
+                    {/*<h1>Register</h1>*/}
+                </div>
                 <div className={style.subtitle}>
                     <h2> Sing Up</h2>
                 </div>

@@ -16,7 +16,7 @@
     /*position: absolute;*/
     width: 413px;
     min-height: 560px;
-    max-height: 591px;
+    max-height: 580px;
     left: 670px;
     top: 80px;
 
@@ -28,7 +28,8 @@
     box-shadow: -4px 5px 4px 1px rgba(157, 151, 151, 0.5);
 }
 .title{
-    width: 411px;
+    padding-top: 115px;
+    /*width: 411px;
     height: 100px;
     display: flex;
     justify-content: center;
@@ -36,13 +37,13 @@
     left: 559px;
     top: 85px;
 
-    /*font-family: 'Poppins';*/
+    !*font-family: 'Poppins';*!
     font-style: normal;
     font-weight: 411;
     font-size: 20px;
     line-height: 39px;
-    /* identical to box height */
-    color: #2D2E46;
+    !* identical to box height *!
+    color: #2D2E46;*/
 
 }
 .title_remember{
