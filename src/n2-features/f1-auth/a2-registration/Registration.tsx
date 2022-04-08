@@ -23,6 +23,7 @@ export const Registration = () => {
     const isLoggedIn = useSelector<AppStoreType, boolean>(state => state.login.isLoggedIn)
     const error = useSelector<AppStoreType, null | string>(state => state.registration.error)
     const isRegistered = useSelector<AppStoreType, boolean>(state => state.registration.isRegistered)
+
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -65,41 +66,34 @@ export const Registration = () => {
     return (
         <div className={style.mainContainer}>
             <div className={style.container_log}>
-                <div className={style.title}>
+                {/*    <div className={style.title}>
                     <h1>Register</h1>
-                </div>
+                </div>*/}
                 <div className={style.subtitle}>
                     <h2> Sing Up</h2>
-
                 </div>
-                <form onSubmit={formik.handleSubmit}>
-                    <div>
-                        <div>
-                            <label>Email</label>
-                            <SuperInputText type={'email'}
-                                            placeholder={'Enter your email'}
-                                            {...formik.getFieldProps('email')}
-                                            error={formik.touched.email ? formik.errors.email : ''}
-                            />
-                        </div>
+                <div>
+                    <form onSubmit={formik.handleSubmit}>
+                        <label>Email</label>
+                        <SuperInputText type={'email'}
+                                        placeholder={'Enter your email'}
+                                        {...formik.getFieldProps('email')}
+                                        error={formik.touched.email ? formik.errors.email : ''}
+                        />
                         {/*<input type="email"/>*/}
-                        <div>
-                            <label>Password</label>
-                            <SuperInputText type={'password'}
-                                            placeholder={'Enter your password'}
-                                            {...formik.getFieldProps('password')}
-                                            error={formik.touched.password ? formik.errors.password : ''}
-                            />
-                        </div>
+                        <label>Password</label>
+                        <SuperInputText type={'password'}
+                                        placeholder={'Enter your password'}
+                                        {...formik.getFieldProps('password')}
+                                        error={formik.touched.password ? formik.errors.password : ''}
+                        />
                         {/*<a href='#'><input className={style.eyes} type="password"/></a>*/}
-                        <div>
-                            <label>Confirm password</label>
-                            <SuperInputText type={'password'}
-                                            placeholder={'Enter your confirm password'}
-                                            {...formik.getFieldProps('confirmPassword')}
-                                            error={formik.touched.confirmPassword ? formik.errors.confirmPassword : ''}
-                            />
-                        </div>
+                        <label>Confirm password</label>
+                        <SuperInputText type={'password'}
+                                        placeholder={'Enter your confirm password'}
+                                        {...formik.getFieldProps('confirmPassword')}
+                                        error={formik.touched.confirmPassword ? formik.errors.confirmPassword : ''}
+                        />
                         {/*<a href='#'><input className={style.eyes} type="password"/></a>*/}
                         <div className={style.btnContainer}>
                             <SuperButton type={'submit'}
@@ -109,10 +103,9 @@ export const Registration = () => {
                             </SuperButton>
                             {/*<button className={style.btnDise}>Cancel</button>*/}
                             {/*<button className={style.btn}>Register</button>*/}
-
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
                 <div className={style.aContainer}>
                     <NavLink to={PATH.LOGIN} className={style.linkDown}> Sign in </NavLink>
                 </div>

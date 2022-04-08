@@ -16,7 +16,12 @@ export const App = () => {
 
     if (!isInitialize) {
         return (
-            <img src={preload} alt={'pic'}/>
+            <img style={{
+                display: 'block',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                padding: '30vh'
+            }} src={preload} alt={'pic'}/>
         );
     }
 
