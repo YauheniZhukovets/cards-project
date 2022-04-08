@@ -39,36 +39,9 @@ export const Profile = () => {
                     <NavLink to={PATH.EDIT_PROFILE}><SuperButton className={style.btn}>Edit
                         profile</SuperButton></NavLink>
                     <SuperButton className={style.btn} onClick={onClickLogoutHandler}>Log Out</SuperButton>
-                    {/*<button className={style.btnDise}>Cancel</button>*/}
-                    {/*<button className={style.btn}>Save</button>*/}
                 </div>
             </div>
-
-            {/*<span>ProfilePage</span>*/}
-            {/*<div>*/}
-            {/*    <img src={userAvatar} alt="img"/>*/}
-            {/*</div>*/}
-            {/*<h3>{userName}</h3>*/}
-            {/*<span>Front-end-developer</span>*/}
-            {/*<div>*/}
-            {/*    <NavLink to={PATH.EDIT_PROFILE}><SuperButton>Edit profile</SuperButton></NavLink>*/}
-            {/*</div>*/}
         </div>
-
-        /*<div>
-            <span>ProfilePage</span>
-            <div>
-                <img src={userAvatar} alt="img"/>
-            </div>
-            <h3>{userName}</h3>
-            <span>Front-end-developer</span>
-            <div>
-                <NavLink to={PATH.EDIT_PROFILE}><SuperButton>Edit profile</SuperButton></NavLink>
-            </div>
-            <div>
-                <SuperButton onClick={onClickLogoutHandler}>Log Out</SuperButton>
-            </div>
-        </div>*/
     );
 };
 

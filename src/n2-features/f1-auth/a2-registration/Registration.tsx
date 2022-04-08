@@ -67,7 +67,6 @@ export const Registration = () => {
         <div className={style.mainContainer}>
             <div className={style.container_log}>
                 <div className={style.title}>
-                    {/*<h1>Register</h1>*/}
                 </div>
                 <div className={style.subtitle}>
                     <h2> Sing Up</h2>
@@ -80,29 +79,24 @@ export const Registration = () => {
                                         {...formik.getFieldProps('email')}
                                         error={formik.touched.email ? formik.errors.email : ''}
                         />
-                        {/*<input type="email"/>*/}
                         <label>Password</label>
                         <SuperInputText type={'password'}
                                         placeholder={'Enter your password'}
                                         {...formik.getFieldProps('password')}
                                         error={formik.touched.password ? formik.errors.password : ''}
                         />
-                        {/*<a href='#'><input className={style.eyes} type="password"/></a>*/}
                         <label>Confirm password</label>
                         <SuperInputText type={'password'}
                                         placeholder={'Enter your confirm password'}
                                         {...formik.getFieldProps('confirmPassword')}
                                         error={formik.touched.confirmPassword ? formik.errors.confirmPassword : ''}
                         />
-                        {/*<a href='#'><input className={style.eyes} type="password"/></a>*/}
                         <div className={style.btnContainer}>
                             <SuperButton type={'submit'}
                                          disabled={status === 'loading'}
                             >
                                 Register
                             </SuperButton>
-                            {/*<button className={style.btnDise}>Cancel</button>*/}
-                            {/*<button className={style.btn}>Register</button>*/}
                         </div>
                     </form>
                 </div>
@@ -116,52 +110,5 @@ export const Registration = () => {
                 </div>
             </div>
         </div>
-        /*<div>
-            <div>
-                <h1>it-incubator</h1>
-                <h2>Sign up</h2>
-                {!!error ? <div style={{color: 'red'}}>{error}</div>
-                    : status === 'loading' ? <img src={preload} style={{height: '30px'}} alt={'pic'}/>
-                        : <div><br/></div>}
-            </div>
-
-            <form onSubmit={formik.handleSubmit}>
-                <div>
-                    Email:
-                    <SuperInputText type={'email'}
-                                    placeholder={'Enter your email'}
-                                    {...formik.getFieldProps('email')}
-                                    error={formik.touched.email ? formik.errors.email : ''}
-                    />
-                </div>
-                <div>
-                    Password:
-                    <SuperInputText type={'password'}
-                                    placeholder={'Enter your password'}
-                                    {...formik.getFieldProps('password')}
-                                    error={formik.touched.password ? formik.errors.password : ''}
-                    />
-                </div>
-
-                <div>
-                    Confirm password:
-                    <SuperInputText type={'password'}
-                                    placeholder={'Enter your confirm password'}
-                                    {...formik.getFieldProps('confirmPassword')}
-                                    error={formik.touched.confirmPassword ? formik.errors.confirmPassword : ''}
-                    />
-                </div>
-                <div>
-                    <SuperButton type={'submit'}
-                                 disabled={status === 'loading'}
-                    >
-                        Sign up
-                    </SuperButton>
-                </div>
-                <div>
-                    <NavLink to={PATH.LOGIN}> <b> Sign in </b> </NavLink>
-                </div>
-            </form>
-        </div>*/
     );
 };

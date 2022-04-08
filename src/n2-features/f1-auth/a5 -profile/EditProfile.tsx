@@ -44,7 +44,6 @@ export const EditProfile = () => {
                     <div className={style.avatarUrl}>
                         <span><b>NickName:</b></span><EditableSpan span={name} updateSpan={setName}/>
                     </div>
-                    {/*<br/>*/}
                     <div className={style.avatarUrl}>
                         <span><b>Email:</b></span>
                         <div>{userEmail}</div>
@@ -66,33 +65,6 @@ export const EditProfile = () => {
 
             </div>
         </div>
-
-        /*<div>
-            <div>
-                <h2>Personal Information</h2>
-                {!!error ? <div style={{color: 'red'}}>{error}</div>
-                    : status === 'loading' ? <img src={preload} style={{height: '30px'}} alt={'pic'}/>
-                        : <div><br/></div>}
-            </div>
-            <div>
-                <img style={ {width:'100px', borderRadius: '50%'} } alt={'img'} src={userAvatar}/>
-                <div><b>Avatar url:</b></div>
-                <EditableSpan span={avatar} updateSpan={setAvatar}/>
-            </div>
-            <br/>
-            <div>
-                <span><b>NickName:</b></span><EditableSpan span={name} updateSpan={setName}/>
-            </div>
-            <br/>
-            <div>
-                <span><b>Email:</b></span>
-                <div>{userEmail}</div>
-            </div>
-            <div>
-                <NavLink to={PATH.PROFILE}><SuperButton>Back</SuperButton></NavLink>
-                <SuperButton onClick={updateNameClickHandler} disabled={status === 'loading'}>Save</SuperButton>
-            </div>
-        </div>*/
     );
 };
 
