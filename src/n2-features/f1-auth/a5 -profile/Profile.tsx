@@ -25,50 +25,24 @@ export const Profile = () => {
                 <div className={style.title}>
                     <h2>ProfilePage</h2>
                 </div>
-                <div className={style.imgAvatar}>
-                    <img className={style.img} src={userAvatar} alt="img"/>
+                <div className={style.blockAvatar}>
+                    <div className={style.imgAvatar}>
+                        <img className={style.img} src={userAvatar} alt="img"/>
+                    </div>
+                    <div className={style.avatarUrl}>
+                        <div><b>Nickname</b></div>
+                        <h3>{userName}</h3>
+                        <h3>Front-end-developer</h3>
+                    </div>
+                    <div className={style.btnContainer}>
+                        <NavLink to={PATH.EDIT_PROFILE}><SuperButton className={style.btn}>Edit
+                            profile</SuperButton></NavLink>
+                        <SuperButton className={style.btn} onClick={onClickLogoutHandler}>Log Out</SuperButton>
+                    </div>
                 </div>
-                <div className={style.formContainer}>
-                    <form>
-                        <label>Nickname</label>
-                        <h1>{userName}</h1>
-                        <span>Front-end-developer</span>
-                    </form>
-                </div>
-                <div className={style.btnContainer}>
-                    <NavLink to={PATH.EDIT_PROFILE}><SuperButton className={style.btn}>Edit
-                        profile</SuperButton></NavLink>
-                    <SuperButton className={style.btn} onClick={onClickLogoutHandler}>Log Out</SuperButton>
-                    {/*<button className={style.btnDise}>Cancel</button>*/}
-                    {/*<button className={style.btn}>Save</button>*/}
-                </div>
-            </div>
 
-            {/*<span>ProfilePage</span>*/}
-            {/*<div>*/}
-            {/*    <img src={userAvatar} alt="img"/>*/}
-            {/*</div>*/}
-            {/*<h3>{userName}</h3>*/}
-            {/*<span>Front-end-developer</span>*/}
-            {/*<div>*/}
-            {/*    <NavLink to={PATH.EDIT_PROFILE}><SuperButton>Edit profile</SuperButton></NavLink>*/}
-            {/*</div>*/}
+            </div>
         </div>
-
-        /*<div>
-            <span>ProfilePage</span>
-            <div>
-                <img src={userAvatar} alt="img"/>
-            </div>
-            <h3>{userName}</h3>
-            <span>Front-end-developer</span>
-            <div>
-                <NavLink to={PATH.EDIT_PROFILE}><SuperButton>Edit profile</SuperButton></NavLink>
-            </div>
-            <div>
-                <SuperButton onClick={onClickLogoutHandler}>Log Out</SuperButton>
-            </div>
-        </div>*/
     );
 };
 
