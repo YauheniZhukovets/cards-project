@@ -5,6 +5,7 @@ import {PATH} from '../../../n1-main/m1-ui/routes/RoutesRoot';
 import {Navigate, NavLink} from 'react-router-dom';
 import SuperButton from '../../../n1-main/m1-ui/common/c2-SuperButton/SuperButton';
 import {logoutTC} from '../../../n1-main/m2-bll/b1-reducers/loginReducer';
+import style from '../../../n1-main/m1-ui/styles/Profile.module.css';
 
 export const Profile = () => {
     const dispatch = useDispatch()
@@ -19,7 +20,42 @@ export const Profile = () => {
     if (!isLoggedIn) return <Navigate to={PATH.LOGIN}/>
 
     return (
-        <div>
+        <div className={style.mainContainer}>
+            <div className={style.container_log}>
+                <div className={style.title}>
+                    <h2>ProfilePage</h2>
+                </div>
+                <div className={style.imgAvatar}>
+                    <img className={style.img} src={userAvatar} alt="img"/>
+                </div>
+                <div className={style.formContainer}>
+                    <form>
+                        <label>Nickname</label>
+                        <h1>{userName}</h1>
+                        <span>Front-end-developer</span>
+                    </form>
+                </div>
+                <div className={style.btnContainer}>
+                    <NavLink to={PATH.EDIT_PROFILE}><SuperButton className={style.btn}>Edit
+                        profile</SuperButton></NavLink>
+                    <SuperButton className={style.btn} onClick={onClickLogoutHandler}>Log Out</SuperButton>
+                    {/*<button className={style.btnDise}>Cancel</button>*/}
+                    {/*<button className={style.btn}>Save</button>*/}
+                </div>
+            </div>
+
+            {/*<span>ProfilePage</span>*/}
+            {/*<div>*/}
+            {/*    <img src={userAvatar} alt="img"/>*/}
+            {/*</div>*/}
+            {/*<h3>{userName}</h3>*/}
+            {/*<span>Front-end-developer</span>*/}
+            {/*<div>*/}
+            {/*    <NavLink to={PATH.EDIT_PROFILE}><SuperButton>Edit profile</SuperButton></NavLink>*/}
+            {/*</div>*/}
+        </div>
+
+        /*<div>
             <span>ProfilePage</span>
             <div>
                 <img src={userAvatar} alt="img"/>
@@ -30,9 +66,9 @@ export const Profile = () => {
                 <NavLink to={PATH.EDIT_PROFILE}><SuperButton>Edit profile</SuperButton></NavLink>
             </div>
             <div>
-                <SuperButton onClick={onClickLogoutHandler}>LogOut</SuperButton>
+                <SuperButton onClick={onClickLogoutHandler}>Log Out</SuperButton>
             </div>
-        </div>
+        </div>*/
     );
 };
 
