@@ -19,7 +19,7 @@
 
 .labelCheckBox:before {
     content: '';
-    background: #5b2b2b;
+    background: rgb(143, 33, 49);
     border-radius: 5px;
     width: 8px;
     height: 8px;
