@@ -46,7 +46,6 @@ export const Login = () => {
             return errors;
         },
         onSubmit: (values) => {
-            /*formik.resetForm()*/
             dispatch(loginTC(values))
         },
     })
