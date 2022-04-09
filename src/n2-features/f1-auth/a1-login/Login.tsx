@@ -95,13 +95,13 @@ export const Login = () => {
                     </form>
                 </div>
                 <div className={style.hContainer}>
-                    <h4 style={{color: 'black'}}>Don't have an account?</h4>
+                    <h4>Don't have an account?</h4>
                 </div>
                 <div className={style.aContainer}>
                     <NavLink to={PATH.REGISTRATION} className={style.linkUp}>Sign up</NavLink>
                 </div>
-                <div style={{alignContent: 'center'}}>
-                    {!!error ? <div style={{color: '#bd2727'}}>{error}</div>
+                <div className={style.errorBlock} style={{alignContent: 'center'}}>
+                    {!!error ? <div className={style.errorText} style={{color: '#bd2727'}}>{error}</div>
                         : status === 'loading' ? <img src={preload} style={{height: '30px'}} alt={'pic'}/>
                             : <div><br/></div>}
                 </div>
