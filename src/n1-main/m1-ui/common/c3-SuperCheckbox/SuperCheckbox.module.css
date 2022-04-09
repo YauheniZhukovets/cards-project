@@ -20,14 +20,14 @@
 .labelCheckBox:before {
     content: '';
     background: #5b2b2b;
-    border-radius: 5px;
+    border-radius: 2px;
     width: 8px;
     height: 8px;
     opacity: 0;
     transition: 0.3s;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 2px;
+    left:2px;
 }
 
 .checkbox:checked + .labelCheckBox:before {
