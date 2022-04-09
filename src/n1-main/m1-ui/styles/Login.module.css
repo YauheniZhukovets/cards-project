@@ -121,15 +121,15 @@ form input{
 
 }
 .link {
-    width: 380px;
+    width: 280px;
     height: 35px;
     left: 695px;
     top: 395px;
-    margin: 27px 0 0;
+    margin: 27px 49px 0;
 
 
     /*font-family: 'SF UI Display';*/
-    font-style: normal;
+    /*font-style: normal;*/
     font-weight: 400;
     font-size: 20px;
     line-height: 22px;
@@ -209,13 +209,14 @@ form input{
 
 
 .hContainer, .aContainer{
-    height: 50px;
+    height: 46px;
     width: 375px;
     display: flex;
     justify-content: center;
     align-items: center;
-    left: 0;
-    top: 0;
+    text-align: center;
+    margin-left: 15px;
+    color: #121213;
 }
 .img{
     width: 250px;
@@ -245,6 +246,15 @@ form input{
     border-radius: 50%;
     /*border: 1px solid white;*/
 
+}
+.errorBlock{
+    width: 400px;
+}
+.errorText{
+    height: 35px;
+    width: 408px;
+    text-align: center;
+    padding: 2px;
 }
 @media (max-width: 1570px) {
     .mainContainer{

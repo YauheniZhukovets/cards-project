@@ -83,6 +83,7 @@ h3{
     font-size: 17px;
 }
 
+
 form {
     display: flex;
     flex-direction: column;
@@ -93,6 +94,10 @@ form {
 }
 .avatarUrl{
     font-size: 20px;
+    width: 410px;
+}
+.span{
+    font-size: 12px;
 }
 
 form label {
@@ -117,9 +122,12 @@ form h1 {
 }
 
 form span {
+    width: 410px;
     text-align: center;
     font-size: 15px;
     color: #2D2E46;
+
+
 }
 
 .btnContainer {

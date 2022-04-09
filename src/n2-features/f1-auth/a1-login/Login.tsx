@@ -60,9 +60,6 @@ export const Login = () => {
                     <p><b>Email</b>: nya-admin@nya.nya</p>
                     <p><b>Password</b>: 1qazxcvBG</p>
                 </div>
-                {/*<div className={style.title} >*/}
-                {/*    <h1>Login</h1>*/}
-                {/*</div>*/}
                 <div className={style.subtitle}>
                     <h2> Sing in</h2>
                 </div>
@@ -98,79 +95,17 @@ export const Login = () => {
                     </form>
                 </div>
                 <div className={style.hContainer}>
-                    <h4 style={{color: 'black'}}>Don't have an account?</h4>
+                    <h4>Don't have an account?</h4>
                 </div>
                 <div className={style.aContainer}>
                     <NavLink to={PATH.REGISTRATION} className={style.linkUp}>Sign up</NavLink>
                 </div>
-                <div style={{alignContent: 'center'}}>
-                    {!!error ? <div style={{color: '#bd2727'}}>{error}</div>
+                <div className={style.errorBlock} style={{alignContent: 'center'}}>
+                    {!!error ? <div className={style.errorText} style={{color: '#bd2727'}}>{error}</div>
                         : status === 'loading' ? <img src={preload} style={{height: '30px'}} alt={'pic'}/>
                             : <div><br/></div>}
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
-        /*<div>
-            <div>
-                <p>To log in get registered or use common test account credentials:</p>
-                <p><b>Email</b>: nya-admin@nya.nya</p>
-                <p><b>Password</b>: 1qazxcvBG</p>
-            </div>
-            <div>
-                <h2>Sign in</h2>
-                {!!error ? <div style={{color: 'red'}}>{error}</div>
-                    : status === 'loading' ? <img src={preload} style={{height: '30px'}} alt={'pic'}/>
-                        : <div><br/></div>}
-            </div>
-
-            <form onSubmit={formik.handleSubmit}>
-                <div>
-                    email:
-                    <SuperInputText type={'email'}
-                                    placeholder={'Enter your email'}
-                                    {...formik.getFieldProps('email')}
-                                    error={formik.touched.email ? formik.errors.email : ''}
-                    />
-                </div>
-                <div>
-                    password:
-                    <SuperInputText type={'password'}
-                                    placeholder={'Enter your password'}
-                                    {...formik.getFieldProps('password')}
-                                    error={formik.touched.password ? formik.errors.password : ''}
-                    />
-                </div>
-                <div>
-                    <NavLink to={PATH.PASSWORD_RECOVERY}>Forgot password</NavLink>
-                </div>
-                <div>
-                    <SuperCheckbox type={'checkbox'}
-                                   {...formik.getFieldProps('rememberMe')}
-                    >
-                        Remember me:
-                    </SuperCheckbox>
-                </div>
-                <div>
-                    <SuperButton type={'submit'}
-                                 disabled={status === 'loading'}
-                    >
-                        Login
-                    </SuperButton>
-                </div>
-            </form>
-            <div>
-                <div>
-                    <NavLink to={PATH.REGISTRATION}><b> Sign up </b></NavLink>
-                </div>
-
-            </div>
-        </div>*/
     );
 };
