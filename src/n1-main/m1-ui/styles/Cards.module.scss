@@ -1,0 +1,73 @@
+.CardsContainer {
+    display: flex;
+    justify-content: center;
+    max-width: 1250px;
+    min-width: 800px;
+    background-color: white;
+    box-shadow: 0 8px 32px 0 rgba(34, 60, 80, 0.4);
+    border-radius: 10px;
+}
+
+.selectPacksButtonsContainer {
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.selectPacksButton {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 8px;
+}
+
+.selectPacksButtonUnActive {
+    border-bottom: 3px solid transparent;
+}
+
+.selectPacksButtonActive {
+    border-bottom: 3px solid #21268F;
+}
+
+.title {
+    margin: 15px 0;
+}
+
+.cardsBlock {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.cardsBlockWithCards {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 20px;
+}
+
+.CardsWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.titleCardsBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 10px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.CardsTableContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.noCardsTextContainer {
+    display: flex;
+    justify-content: center;
+}
