@@ -19,15 +19,13 @@ export const PATH = {
 }
 
 export const RoutesRoot = () => {
-
     return (
         <div>
             <Routes>
                 <Route path={'/'} element={<Profile/>}/>
                 <Route path={PATH.LOGIN} element={<Login/>}/>
                 <Route path={PATH.REGISTRATION} element={<Registration/>}/>
-                <Route path={PATH.NEW_PASSWORD} element={<NewPassword/>}/>
-                //password recovery ещё не сделан, сейчас переходит на 404
+                <Route path={PATH.NEW_PASSWORD} element={<NewPassword/>} />
                 <Route path={PATH.PASSWORD_RECOVERY} element={<Error404/>}/>
                 <Route path={PATH.PROFILE} element={<Profile/>}/>
                 <Route path={PATH.EDIT_PROFILE} element={<EditProfile/>}/>

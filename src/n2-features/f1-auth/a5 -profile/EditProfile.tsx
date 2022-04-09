@@ -4,7 +4,7 @@ import {EditableSpan} from '../../../n1-main/m1-ui/common/c8-EditableSpan/Editab
 import {useDispatch, useSelector} from 'react-redux';
 import {AppStoreType} from '../../../n1-main/m2-bll/store';
 import {PATH} from '../../../n1-main/m1-ui/routes/RoutesRoot';
-import {Navigate, NavLink} from 'react-router-dom';
+import {Navigate, useNavigate} from 'react-router-dom';
 import {updateProfileTC} from '../../../n1-main/m2-bll/b1-reducers/profileReducer';
 import preload from '../../../n1-main/m1-ui/common/c0-Preloder/Spinner.svg';
 import {AppStatusType} from '../../../n1-main/m2-bll/b1-reducers/appReducer';
@@ -12,6 +12,7 @@ import style from '../../../n1-main/m1-ui/styles/EditProfile.module.css';
 
 export const EditProfile = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const userName = useSelector<AppStoreType, string | undefined>(state => state.login.user?.name)
     const userEmail = useSelector<AppStoreType, string | undefined>(state => state.login.user?.email)
     const userAvatar = useSelector<AppStoreType, string | undefined>(state => state.login.user?.avatar)
@@ -21,8 +22,10 @@ export const EditProfile = () => {
     const [name, setName] = useState<string | undefined>(userName)
     const [avatar, setAvatar] = useState<string | undefined>(userAvatar)
 
+
     const updateNameClickHandler = () => {
         dispatch(updateProfileTC({name, avatar}))
+        navigate(PATH.PROFILE)
     }
 
     if (!isLoggedIn) return <Navigate to={PATH.LOGIN}/>
@@ -38,7 +41,7 @@ export const EditProfile = () => {
                          alt={'img'} src={userAvatar}/>
                 </div>
                 <div className={style.formContainer}>
-                    <form >
+                    <form>
                         <div className={style.avatarUrl}>
                             <div><b>Avatar url:</b></div>
                             <EditableSpan span={avatar} updateSpan={setAvatar}/>
@@ -53,11 +56,12 @@ export const EditProfile = () => {
                         </div>
                     </form>
                     <div className={style.btnContainer}>
-                        <NavLink to={PATH.PROFILE}><SuperButton
+                        {/*<NavLink to={PATH.PROFILE}><SuperButton
                             className={style.btn}
                             style={{ background: 'rgba(232, 226, 226, 0.6)', color:'#2D2E46' }}>Back
                         </SuperButton>
-                        </NavLink><SuperButton
+                        </NavLink>*/}
+                        <SuperButton
                             className={style.btn}
                             onClick={updateNameClickHandler}
                             disabled={status === 'loading'}>Save
@@ -65,7 +69,7 @@ export const EditProfile = () => {
                     </div>
                     <div>
                         {status === 'loading' ? <img src={preload} style={{height: '30px'}} alt={'pic'}/>
-                                : <div><br/></div>}
+                            : <div><br/></div>}
                     </div>
                 </div>
             </div>
