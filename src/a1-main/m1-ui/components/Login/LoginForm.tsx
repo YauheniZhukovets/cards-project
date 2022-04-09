@@ -1,0 +1,13 @@
+import React from 'react';
+
+import { Outlet } from 'react-router-dom';
+
+import s from 'styles/App.module.scss';
+import { ReturnComponentType } from 'types/ReturnComponentType';
+
+export const LoginForm = (): ReturnComponentType => (
+  <div className={s.loginBlock}>
+    <h1 className={s.titleBlock}>Playing Cards</h1>
+    <Outlet />
+  </div>
+);
