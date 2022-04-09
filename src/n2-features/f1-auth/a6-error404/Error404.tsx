@@ -8,7 +8,18 @@ import img404 from './error.png'
 export function Error404() {
     return (
         <div className={s.errorBlock}>
-            <div className={s.title}>Not Found</div>
+            <div className={s.nameContainer}>
+                <h2 className={s.nameText}>
+                    <span>N</span>
+                    <span>o</span>
+                    <span>t&nbsp;&nbsp;</span>
+                    <span>F</span>
+                    <span>o</span>
+                    <span>u</span>
+                    <span>n</span>
+                    <span>d</span>
+                </h2>
+            </div>
             <div className={s.btnBox}>
                 <NavLink to={PATH.PROFILE}><SuperButton className={s.btn}>
                     Go to homepage
