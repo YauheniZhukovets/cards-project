@@ -40,7 +40,6 @@ export const Profile = () => {
                         <SuperButton className={style.btn} onClick={onClickLogoutHandler}>Log Out</SuperButton>
                     </div>
                 </div>
-
             </div>
         </div>
     );
