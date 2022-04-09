@@ -4,6 +4,9 @@ import {AxiosResponse} from 'axios';
 export const LoginAPI = {
     login(data: LoginParamsType) {
         return instance.post<LoginParamsType, AxiosResponse<UserResponseType>>(`auth/login/`, data);
+    },
+    logout() {
+        return instance.delete<LogoutResponseType>('auth/me')
     }
 }
 
@@ -13,11 +16,17 @@ export type LoginParamsType = {
     rememberMe: boolean
 }
 
+export type LogoutResponseType = {
+    info: string
+    error?: string
+}
+
 export type UserResponseType = {
     _id: string;
     email: string;
     name: string;
     avatar?: string;
+    token: string;
     publicCardPacksCount: number; // количество колод
     created: Date | null;
     updated: Date | null;

@@ -3,6 +3,7 @@ import React, {ChangeEvent, useEffect, useState} from 'react';
 export type ProfileStatusPropsType = {
     span: string | undefined
     updateSpan: (span: any) => void
+
 }
 
 export const EditableSpan: React.FC<ProfileStatusPropsType> = (props) => {
@@ -29,11 +30,11 @@ export const EditableSpan: React.FC<ProfileStatusPropsType> = (props) => {
     }
 
     return (
-        <div>
+        <div >
             {!editMode &&
-                <div>
-                        <span style={{fontSize: '8px'}} onDoubleClick={activateEditMode}>
-                            {props.span}
+                <div  >
+                        <span style={{width:'400px', height:'30px', fontSize:'12px'}}  onDoubleClick={activateEditMode}>
+                            {props.span || 'none'}
                         </span>
                 </div>
             }

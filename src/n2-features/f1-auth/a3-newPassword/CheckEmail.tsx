@@ -1,9 +1,9 @@
 import React from 'react';
 import style from '../../../n1-main/m1-ui/styles/Login.module.css';
 import imgM from "../a3-password/mail.png";
-const images = [
+/*const images = [
     { url: `${imgM}` },
-];
+];*/
 export const CheckEmail = () => {
     const imageIco = {
         backgroundImage: `url(${imgM})`,
@@ -17,7 +17,7 @@ export const CheckEmail = () => {
 
                 <div>
                     <form >
-                        <div className={style.img} style={imageIco}></div>
+                        <div className={style.img} style={imageIco}> </div>
                         <div className={style.subtitle}>
                             <h2> Check Email</h2>
                         </div>

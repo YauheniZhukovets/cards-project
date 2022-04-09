@@ -16,7 +16,7 @@
     /*position: absolute;*/
     width: 413px;
     min-height: 560px;
-    max-height: 561px;
+    max-height: 580px;
     left: 670px;
     top: 80px;
 
@@ -28,7 +28,8 @@
     box-shadow: -4px 5px 4px 1px rgba(157, 151, 151, 0.5);
 }
 .title{
-    width: 411px;
+    padding-top: 115px;
+    /*width: 411px;
     height: 100px;
     display: flex;
     justify-content: center;
@@ -36,13 +37,13 @@
     left: 559px;
     top: 85px;
 
-    /*font-family: 'Poppins';*/
+    !*font-family: 'Poppins';*!
     font-style: normal;
     font-weight: 411;
     font-size: 20px;
     line-height: 39px;
-    /* identical to box height */
-    color: #2D2E46;
+    !* identical to box height *!
+    color: #2D2E46;*/
 
 }
 .title_remember{
@@ -51,7 +52,7 @@
 
     top: 85px;
     text-align: center;
-    margin: 10px 5px 0px;
+    margin: 10px 5px 0;
 
     font-style: normal;
     font-weight: 400;
@@ -120,15 +121,15 @@ form input{
 
 }
 .link {
-    width: 380px;
+    width: 280px;
     height: 35px;
     left: 695px;
     top: 395px;
-    margin: 27px 0px 0px;
+    margin: 27px 49px 0;
 
 
-    font-family: 'SF UI Display';
-    font-style: normal;
+    /*font-family: 'SF UI Display';*/
+    /*font-style: normal;*/
     font-weight: 400;
     font-size: 20px;
     line-height: 22px;
@@ -146,13 +147,13 @@ form input{
 .linkUp{
     text-align: center;
     color: rgb(66, 47, 190);
-    margin: 0px 0px 15px;
+    margin: 0 0 15px;
     font-size: 20px;
 }
 .linkDown{
     text-align: center;
     color: rgb(66, 47, 190);
-    margin: 15px 0px 15px;
+    margin: 15px 0 15px;
     font-size: 20px;
 }
 .linkUp:hover{
@@ -168,15 +169,15 @@ form input{
     display: flex;
     justify-content: center;
     align-items: center;
-    left: 0%;
-    top: 0%;
+    left: 0;
+    top: 0;
 
 }
 .btn{
     height: 29px;
     width: 120px;
     background: rgba(190, 47, 65, 0.92);
-    box-shadow: 0px 3px 10px rgba(12, 5, 9, 0.84), inset 0px 1px 0px rgba(255, 255, 255, 0.42);
+    box-shadow: 0 3px 10px rgba(12, 5, 9, 0.84), inset 0 1px 0 rgba(255, 255, 255, 0.42);
     border-radius: 30px;
     color: white;
     margin:16px 15px 16px;
@@ -193,7 +194,7 @@ form input{
     width: 120px;
     font-size: 16px;
     background: rgba(235, 235, 235, 0.66);
-    box-shadow: 0px 3px 10px rgba(143, 33, 49, 0.84), inset 0px 1px 0px rgba(255, 255, 255, 0.42);
+    box-shadow: 0 3px 10px rgba(143, 33, 49, 0.84), inset 0 1px 0 rgba(255, 255, 255, 0.42);
     border-radius: 30px;
     color: #130d0d;
     margin:16px 15px 16px;
@@ -208,13 +209,14 @@ form input{
 
 
 .hContainer, .aContainer{
-    height: 50px;
+    height: 46px;
     width: 375px;
     display: flex;
     justify-content: center;
     align-items: center;
-    left: 0%;
-    top: 0%;
+    text-align: center;
+    margin-left: 15px;
+    color: #121213;
 }
 .img{
     width: 250px;
@@ -244,6 +246,15 @@ form input{
     border-radius: 50%;
     /*border: 1px solid white;*/
 
+}
+.errorBlock{
+    width: 400px;
+}
+.errorText{
+    height: 35px;
+    width: 408px;
+    text-align: center;
+    padding: 2px;
 }
 @media (max-width: 1570px) {
     .mainContainer{
