@@ -46,7 +46,7 @@ export const authMeTC = () => (dispatch: Dispatch<ActionsAppType>) => {
         })
 }
 
-//type
+//type test
 export type AppStatusType = 'idle' | 'loading' | 'succeeded' | 'failed'
 
 export type InitialStateType = {
