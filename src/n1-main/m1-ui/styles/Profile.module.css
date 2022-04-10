@@ -148,7 +148,7 @@ b{
     background-position: center;
     position: relative;
     border-radius: 50%;
-    border: 1px solid white;
+    border: 1px solid rgba(255, 255, 255, 0);
 
 }
 .img{

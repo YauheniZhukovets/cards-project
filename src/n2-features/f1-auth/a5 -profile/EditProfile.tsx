@@ -44,7 +44,7 @@ export const EditProfile = () => {
                     <form>
                         <div className={style.avatarUrl}>
                             <div><b>Avatar url:</b></div>
-                            <EditableSpan span={avatar} updateSpan={setAvatar}/>
+                            <EditableSpan  span={avatar} updateSpan={setAvatar}/>
                         </div>
                         <div className={style.avatarUrl}>
                             <div><b>NickName:</b></div>
@@ -52,7 +52,7 @@ export const EditProfile = () => {
                         </div>
                         <div className={style.avatarUrl}>
                             <div><b>Email:</b></div>
-                            <span>{userEmail}</span>
+                            <span className={style.span}>{userEmail}</span>
                         </div>
                     </form>
                     <div className={style.btnContainer}>
