@@ -1,5 +1,5 @@
 import { ReportHandler } from 'web-vitals';
-
+//test
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const reportWebVitals = (onPerfEntry?: ReportHandler) => {
   if (onPerfEntry && onPerfEntry instanceof Function) {
