@@ -6,6 +6,7 @@ import {Registration} from '../../../n2-features/f1-auth/a2-registration/Registr
 import {NewPassword} from '../../../n2-features/f1-auth/a3-newPassword/NewPassword';
 import {Profile} from '../../../n2-features/f1-auth/a5 -profile/Profile';
 import {EditProfile} from '../../../n2-features/f1-auth/a5 -profile/EditProfile';
+import {PackList} from '../../../n2-features/f2-cards/Packs/PackList';
 
 
 export const PATH = {
@@ -15,7 +16,8 @@ export const PATH = {
     NEW_PASSWORD: '/new-password',
     PASSWORD_RECOVERY: '/password-recovery',
     PROFILE: '/profile',
-    EDIT_PROFILE: '/edit-profile'
+    EDIT_PROFILE: '/edit-profile',
+    PACK_LIST: '/pack-list',
 }
 
 export const RoutesRoot = () => {
@@ -29,6 +31,7 @@ export const RoutesRoot = () => {
                 <Route path={PATH.PASSWORD_RECOVERY} element={<Error404/>}/>
                 <Route path={PATH.PROFILE} element={<Profile/>}/>
                 <Route path={PATH.EDIT_PROFILE} element={<EditProfile/>}/>
+                <Route path={PATH.PACK_LIST} element={<PackList/>}/>
                 <Route path={'*'} element={<Error404/>}/>
             </Routes>
         </div>
