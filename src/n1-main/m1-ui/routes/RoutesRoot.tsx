@@ -6,8 +6,6 @@ import {Registration} from '../../../n2-features/f1-auth/a2-registration/Registr
 import {NewPassword} from '../../../n2-features/f1-auth/a3-newPassword/NewPassword';
 import {Profile} from '../../../n2-features/f1-auth/a5 -profile/Profile';
 import {EditProfile} from '../../../n2-features/f1-auth/a5 -profile/EditProfile';
-import { PacksCardsTable } from '../../../n2-features/f1-auth/a7 -packs-cards/PackCardsTable';
-import {CardsTable} from "../../../n2-features/f1-auth/a8 -cards-table/CardsTable";
 
 
 export const PATH = {
@@ -17,9 +15,7 @@ export const PATH = {
     NEW_PASSWORD: '/new-password',
     PASSWORD_RECOVERY: '/password-recovery',
     PROFILE: '/profile',
-    EDIT_PROFILE: '/edit-profile',
-    CARDS:'/packs-cards-table',
-    CARDS_TABLE:'/cards-table'
+    EDIT_PROFILE: '/edit-profile'
 }
 
 export const RoutesRoot = () => {
@@ -32,8 +28,6 @@ export const RoutesRoot = () => {
                 <Route path={PATH.NEW_PASSWORD} element={<NewPassword/>} />
                 <Route path={PATH.PASSWORD_RECOVERY} element={<Error404/>}/>
                 <Route path={PATH.PROFILE} element={<Profile/>}/>
-                <Route path={PATH.CARDS} element={<PacksCardsTable />} />
-                <Route path={PATH.CARDS_TABLE} element={<CardsTable />} />
                 <Route path={PATH.EDIT_PROFILE} element={<EditProfile/>}/>
                 <Route path={'*'} element={<Error404/>}/>
             </Routes>

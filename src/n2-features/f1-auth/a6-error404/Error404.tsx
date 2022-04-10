@@ -3,21 +3,30 @@ import {NavLink} from 'react-router-dom';
 import s from './Error404.module.css'
 import SuperButton from '../../../n1-main/m1-ui/common/c2-SuperButton/SuperButton';
 import {PATH} from '../../../n1-main/m1-ui/routes/RoutesRoot';
-import style from '../../../n1-main/m1-ui/styles/EditProfile.module.css';
-import img404 from './404.png'
+import img404 from './error.png'
 
 export function Error404() {
     return (
         <div className={s.errorBlock}>
-            <img src={img404} alt="404"/>
-            <div>Not Found</div>
-            <div>
-                <NavLink to={PATH.PROFILE}><SuperButton
-                    className={style.btn}
-                    style={{background: 'rgba(232, 226, 226, 0.6)', color: '#2D2E46'}}>Go to homepage
+            <div className={s.nameContainer}>
+                <h2 className={s.nameText}>
+                    <span>N</span>
+                    <span>o</span>
+                    <span>t&nbsp;&nbsp;</span>
+                    <span>F</span>
+                    <span>o</span>
+                    <span>u</span>
+                    <span>n</span>
+                    <span>d</span>
+                </h2>
+            </div>
+            <div className={s.btnBox}>
+                <NavLink to={PATH.PROFILE}><SuperButton className={s.btn}>
+                    Go to homepage
                 </SuperButton>
                 </NavLink>
             </div>
+            <img src={img404} alt="404"/>
 
         </div>
     )
