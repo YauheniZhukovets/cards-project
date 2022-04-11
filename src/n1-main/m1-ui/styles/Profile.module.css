@@ -173,19 +173,6 @@ b{
     padding: 1px;
     /*border: 1px solid white;*/
 }
-
-.wrapper {
-    display: flex;
-    gap: 1rem;
-    margin-top: 30px;
-}
-.pagination {}
-
-.pagination li {
-    padding: 2px 7px;
-    cursor: pointer;
-}
-
 @media (max-width: 1570px) {
     .mainContainer{
         left: 23%;

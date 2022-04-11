@@ -4,7 +4,8 @@ import {Main} from '../Main';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppStoreType} from '../../m2-bll/store';
 import {authMeTC} from '../../m2-bll/b1-reducers/appReducer';
-import preload from '../common/c0-Preloder/Spinner.svg';
+import {Loading} from '../common/c0-Preloder/Loading';
+import {RoutesRoot} from '../routes/RoutesRoot';
 
 export const App = () => {
     const dispatch = useDispatch()
@@ -12,22 +13,16 @@ export const App = () => {
 
     useEffect(() => {
         dispatch(authMeTC())
-    }, [])
+    },[dispatch])
 
     if (!isInitialize) {
-        return (
-            <img style={{
-                display: 'block',
-                marginLeft: 'auto',
-                marginRight: 'auto',
-                padding: '30vh'
-            }} src={preload} alt={'pic'}/>
-        );
+        return <Loading/>
     }
 
     return (
         <div className="App">
             <Main/>
+            <RoutesRoot/>
         </div>
     );
 }

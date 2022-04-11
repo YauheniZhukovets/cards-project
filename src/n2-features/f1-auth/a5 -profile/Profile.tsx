@@ -6,28 +6,7 @@ import {Navigate, NavLink} from 'react-router-dom';
 import SuperButton from '../../../n1-main/m1-ui/common/c2-SuperButton/SuperButton';
 import {logoutTC} from '../../../n1-main/m2-bll/b1-reducers/loginReducer';
 import style from '../../../n1-main/m1-ui/styles/Profile.module.css';
-import { Search } from '../a7-search/Search';
-import SuperRadio from "../../../n1-main/m1-ui/common/c6-SuperRadio/SuperRadio";
-import {PaginationSelect} from "../a8-selector/PaginationSelect";
-import {DoubleRange} from "../a8-selector/doubleRange/DoubleRange";
-
-// import {
-//     changePaginationValue,
-//     fetchPacksTC,
-// } from "../../../n1-main/m2-bll/reducers/packsReducer/packsReducer";
-// import {
-//     appStatusSelector,
-//     isLoggedInSelector,
-//     maxSelector,
-//     minSelector,
-//     packNameSelector,
-//     selectCurrentPage,
-//     selectPageSize,
-//     selectTotalPacksCount,
-//     sortByPacksSortValueSelector,
-//     sortedPackValueSelector,
-// } from "../../../n1-main/m2-bll/selectors/selectAppStatus";
-
+import {Header} from '../../../n1-main/m1-ui/heder/Header';
 
 export const Profile = () => {
     const dispatch = useDispatch()
@@ -39,14 +18,11 @@ export const Profile = () => {
         dispatch(logoutTC())
     }
 
-    // const pageSize = useSelector(selectPageSize);
-    // const currentPage = useSelector(selectCurrentPage);
-    // const totalPacks = useSelector(selectTotalPacksCount);
-
     if (!isLoggedIn) return <Navigate to={PATH.LOGIN}/>
 
     return (
         <div className={style.mainContainer}>
+            <Header/>
             <div className={style.container_log}>
                 <div className={style.title}>
                     <h2>ProfilePage</h2>
@@ -65,20 +41,7 @@ export const Profile = () => {
                             profile</SuperButton></NavLink>
                         <SuperButton className={style.btn} onClick={onClickLogoutHandler}>Log Out</SuperButton>
                     </div>
-                    <DoubleRange/>
-                    {/*<SuperRadio/>*/}
                 </div>
-                <div className={style.wrapper}>
-                    <Search/>
-                    <div className={style.pagination}>
-
-                    </div>
-                    {/*<PaginationSelect  pageSize={pageSize}*/}
-                    {/*                   currentPage={currentPage}*/}
-                    {/*                   totalPacks={totalPacks}*/}
-                    {/*                   changePaginationValue={changePaginationValue}/>*/}
-                </div>
-
             </div>
         </div>
     );
