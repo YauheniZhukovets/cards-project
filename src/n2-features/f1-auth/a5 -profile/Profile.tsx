@@ -6,6 +6,9 @@ import {Navigate, NavLink} from 'react-router-dom';
 import SuperButton from '../../../n1-main/m1-ui/common/c2-SuperButton/SuperButton';
 import {logoutTC} from '../../../n1-main/m2-bll/b1-reducers/loginReducer';
 import style from '../../../n1-main/m1-ui/styles/Profile.module.css';
+import { Search } from '../a7-search/Search';
+import SuperRadio from "../../../n1-main/m1-ui/common/c6-SuperRadio/SuperRadio";
+import SuperRange from "../../../n1-main/m1-ui/common/c7-SuperRange/SuperRange";
 
 export const Profile = () => {
     const dispatch = useDispatch()
@@ -39,7 +42,9 @@ export const Profile = () => {
                             profile</SuperButton></NavLink>
                         <SuperButton className={style.btn} onClick={onClickLogoutHandler}>Log Out</SuperButton>
                     </div>
+                    <SuperRadio/>
                 </div>
+                <Search/>
             </div>
         </div>
     );
