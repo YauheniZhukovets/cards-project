@@ -8,6 +8,7 @@ export const PackTable = () => {
     const packs = useSelector<AppStoreType, PackType []>(state => state.packs.cardPacks)
 
     return (
+
         <>
             {packs && packs.map(pack => <Pack key={pack._id} pack={pack}/>)}
         </>

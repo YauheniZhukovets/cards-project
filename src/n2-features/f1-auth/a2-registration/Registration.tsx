@@ -21,7 +21,7 @@ export const Registration = () => {
     const dispatch = useDispatch()
     const status = useSelector<AppStoreType, AppStatusType>(state => state.app.status)
     const isLoggedIn = useSelector<AppStoreType, boolean>(state => state.login.isLoggedIn)
-    const error = useSelector<AppStoreType, null | string>(state => state.registration.error)
+    const error = useSelector<AppStoreType, null | string>(state => state.app.error)
     const isRegistered = useSelector<AppStoreType, boolean>(state => state.registration.isRegistered)
 
     const formik = useFormik({

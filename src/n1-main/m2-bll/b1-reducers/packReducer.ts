@@ -1,6 +1,7 @@
 import {Dispatch} from 'redux';
 import {PacksAPI, PacksResponseType, PackType} from '../../m3-dal/m1-API/packsAPI';
-import {AppStoreType} from '../store';
+import {AppStoreType, AppThunkType} from '../store';
+import {setAppStatusAC, SetAppStatusACType, setErrorAC, SetErrorACType} from './appReducer';
 
 const initialState: InitialStateType = {
     cardPacks: [],
@@ -36,21 +37,73 @@ export const setPacksAC = (data: PacksResponseType) => {
 
 //thunk
 export const fetchPacksTC = () => (dispatch: Dispatch<ActionsPacksType>, getState: () => AppStoreType) => {
+    dispatch(setAppStatusAC('loading'))
     let {packName, min, max, sortPacks, page, pageCount, user_id, myPacks} = getState().packs
     let myUserId = getState().login.user!._id
 
     user_id = myPacks ? myUserId : user_id
-    let payload = {packName, min, max, sortPacks, page, pageCount, user_id}
+    const payload = {packName, min, max, sortPacks, page, pageCount, user_id}
 
     PacksAPI.getPacks(payload)
         .then((res) => {
             dispatch(setPacksAC(res.data))
+            dispatch(setAppStatusAC('succeeded'))
         })
         .catch((e) => {
             const error = e.response ? e.response.data.error : (e.message + ', more details in the console')
-            console.log(error)
+            dispatch(setErrorAC(error))
+            dispatch(setAppStatusAC('failed'))
         })
 }
+export const addPackTC = (packName: string): AppThunkType => (dispatch) => {
+    dispatch(setAppStatusAC('loading'))
+    const payload = {
+        name: packName,
+        deckCover: '',
+        private: false
+    }
+    PacksAPI.addPack(payload)
+        .then(() => {
+            dispatch(fetchPacksTC())
+            dispatch(setAppStatusAC('succeeded'))
+        })
+        .catch((e) => {
+            const error = e.response ? e.response.data.error : (e.message + ', more details in the console')
+            dispatch(setErrorAC(error))
+            dispatch(setAppStatusAC('failed'))
+        })
+}
+export const deletePackTC = (packId: string): AppThunkType => (dispatch) => {
+    dispatch(setAppStatusAC('loading'))
+    PacksAPI.deletePack(packId)
+        .then(() => {
+            dispatch(fetchPacksTC())
+            dispatch(setAppStatusAC('succeeded'))
+        })
+        .catch((e) => {
+            const error = e.response ? e.response.data.error : (e.message + ', more details in the console')
+            dispatch(setErrorAC(error))
+            dispatch(setAppStatusAC('failed'))
+        })
+}
+export const updatePackTC = (packId: string): AppThunkType => (dispatch) => {
+    dispatch(setAppStatusAC('loading'))
+    const payload = {
+        _id: packId,
+        name: "!!Changed name!!"
+    }
+    PacksAPI.updatePack(payload)
+        .then(() => {
+            dispatch(fetchPacksTC())
+            dispatch(setAppStatusAC('succeeded'))
+        })
+        .catch((e) => {
+            const error = e.response ? e.response.data.error : (e.message + ', more details in the console')
+            dispatch(setErrorAC(error))
+            dispatch(setAppStatusAC('failed'))
+        })
+}
+
 
 //type
 export type InitialStateType = {
@@ -70,5 +123,4 @@ export type InitialStateType = {
 
 type GetPacksACType = ReturnType<typeof setPacksAC>
 
-type ActionsPacksType =
-    | GetPacksACType
+export type ActionsPacksType = GetPacksACType | SetErrorACType | SetAppStatusACType

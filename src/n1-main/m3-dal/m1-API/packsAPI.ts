@@ -2,7 +2,16 @@ import {instance} from '../instance';
 
 export const PacksAPI = {
     getPacks(params: Partial<PackParamsType>) {
-        return instance.get<PacksResponseType>('cards/pack/', {params: {...params}})
+        return instance.get<PacksResponseType>('cards/pack/', {params: params})
+    },
+    addPack(cardsPack: AddPackParamsType) {
+        return instance.post('cards/pack/', {cardsPack})
+    },
+    deletePack(packId: string) {
+        return instance.delete('cards/pack/', {params: {id: packId}})
+    },
+    updatePack(cardsPack:UpdatePackParamsType) {
+        return instance.put('cards/pack/', {cardsPack})
     }
 }
 
@@ -43,4 +52,15 @@ export type PackType = {
     user_name: string
     __v: number
     _id: string
+}
+
+export type AddPackParamsType = {
+    name: string
+    deckCover: string
+    private: boolean
+}
+
+export type UpdatePackParamsType = {
+    _id: string
+    name: string
 }

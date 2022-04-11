@@ -12,7 +12,6 @@ export const Profile = () => {
     const userName = useSelector<AppStoreType, string | undefined>(state => state.login.user?.name)
     const userAvatar = useSelector<AppStoreType, string | undefined>(state => state.login.user?.avatar)
 
-
     if (!isLoggedIn) return <Navigate to={PATH.LOGIN}/>
 
     return (

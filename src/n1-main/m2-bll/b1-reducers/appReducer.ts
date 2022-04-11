@@ -5,6 +5,7 @@ import {profileAPI} from '../../m3-dal/m1-API/profileAPI';
 const initialState: InitialStateType = {
     status: 'idle',
     isInitialize: false,
+    error: null
 }
 
 export const appReducer = (state: InitialStateType = initialState, action: ActionsAppType): InitialStateType => {
@@ -14,6 +15,9 @@ export const appReducer = (state: InitialStateType = initialState, action: Actio
         }
         case 'app/INITIALIZE-ME': {
             return {...state, isInitialize: action.payload.isInitialize}
+        }
+        case 'app/SET-ERROR': {
+            return {...state, error: action.payload.error}
         }
         default:
             return state
@@ -27,6 +31,9 @@ export const setAppStatusAC = (status: AppStatusType) => {
 export const initializeMeAC = (isInitialize: boolean) => {
     return {type: 'app/INITIALIZE-ME', payload: {isInitialize}} as const
 }
+export const setErrorAC = (error: string) => {
+    return {type: 'app/SET-ERROR', payload: {error}} as const
+}
 
 //thunk
 export const authMeTC = () => (dispatch: Dispatch<ActionsAppType>) => {
@@ -38,9 +45,9 @@ export const authMeTC = () => (dispatch: Dispatch<ActionsAppType>) => {
         })
         .catch((e) => {
             const error = e.response ? e.response.data.error : (e.message + ', more details in the console')
-            console.error(error)
+            setErrorAC(error)
         })
-        .finally(()=>{
+        .finally(() => {
             dispatch(initializeMeAC(true))
         })
 }
@@ -51,9 +58,11 @@ export type AppStatusType = 'idle' | 'loading' | 'succeeded' | 'failed'
 export type InitialStateType = {
     status: AppStatusType
     isInitialize: boolean
+    error: string | null
 }
 
 export type SetAppStatusACType = ReturnType<typeof setAppStatusAC>
 export type InitializeMeACType = ReturnType<typeof initializeMeAC>
+export type SetErrorACType = ReturnType<typeof setErrorAC>
 
-type ActionsAppType = SetAppStatusACType | AddUserDateACType | setIsLoggedInACType | InitializeMeACType
+export type ActionsAppType = SetAppStatusACType | SetErrorACType | AddUserDateACType | setIsLoggedInACType | InitializeMeACType
