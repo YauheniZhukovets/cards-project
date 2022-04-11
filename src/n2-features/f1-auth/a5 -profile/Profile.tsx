@@ -6,6 +6,7 @@ import {Navigate, NavLink} from 'react-router-dom';
 import SuperButton from '../../../n1-main/m1-ui/common/c2-SuperButton/SuperButton';
 import {logoutTC} from '../../../n1-main/m2-bll/b1-reducers/loginReducer';
 import style from '../../../n1-main/m1-ui/styles/Profile.module.css';
+import {Header} from '../../../n1-main/m1-ui/heder/Header';
 
 export const Profile = () => {
     const dispatch = useDispatch()
@@ -21,6 +22,7 @@ export const Profile = () => {
 
     return (
         <div className={style.mainContainer}>
+            <Header/>
             <div className={style.container_log}>
                 <div className={style.title}>
                     <h2>ProfilePage</h2>

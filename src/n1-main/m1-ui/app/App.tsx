@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {AppStoreType} from '../../m2-bll/store';
 import {authMeTC} from '../../m2-bll/b1-reducers/appReducer';
 import {Loading} from '../common/c0-Preloder/Loading';
+import {RoutesRoot} from '../routes/RoutesRoot';
 
 export const App = () => {
     const dispatch = useDispatch()
@@ -21,6 +22,7 @@ export const App = () => {
     return (
         <div className="App">
             <Main/>
+            <RoutesRoot/>
         </div>
     );
 }

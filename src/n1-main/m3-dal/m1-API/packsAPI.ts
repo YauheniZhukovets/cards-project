@@ -1,13 +1,23 @@
 import {instance} from '../instance';
-import {AxiosResponse} from 'axios';
 
 export const PacksAPI = {
-    getPacks() {
-        return instance.get<AxiosResponse<PacksResponseType>>('cards/pack/')
+    getPacks(params: Partial<PackParamsType>) {
+        return instance.get<PacksResponseType>('cards/pack/', {params: {...params}})
     }
 }
+
+export type PackParamsType = {
+    packName: string
+    min: number
+    max: number
+    sortPacks: string
+    page: number
+    pageCount: number
+    user_id: string
+}
+
 export type PacksResponseType = {
-    cardPacks: CardsPacksType []
+    cardPacks: PackType []
     cardPacksTotalCount: number
     maxCardsCount: number
     minCardsCount: number
@@ -17,7 +27,7 @@ export type PacksResponseType = {
     tokenDeathTime: number
 }
 
-export type CardsPacksType = {
+export type PackType = {
     cardsCount: number
     created: string
     grade: number

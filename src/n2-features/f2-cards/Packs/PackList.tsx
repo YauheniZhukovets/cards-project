@@ -1,10 +1,30 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {fetchPacksTC} from '../../../n1-main/m2-bll/b1-reducers/packReducer';
+import {AppStoreType} from '../../../n1-main/m2-bll/store';
+import {PATH} from '../../../n1-main/m1-ui/routes/RoutesRoot';
+import {Navigate} from 'react-router-dom';
+import {Header} from '../../../n1-main/m1-ui/heder/Header';
+import {PackTable} from './PackTable/PackTable';
 
 export const PackList = () => {
-    return (
-        <div>
+    const dispatch = useDispatch()
+    const isLoggedIn = useSelector<AppStoreType, boolean>(state => state.login.isLoggedIn)
 
-        </div>
+    useEffect(() => {
+        dispatch(fetchPacksTC())
+    }, [dispatch])
+
+    if (!isLoggedIn) {
+        return <Navigate to={PATH.LOGIN}/>
+    }
+
+    return (
+        <>
+            <Header/>
+            <h2>Pack List</h2>
+            <PackTable/>
+        </>
     );
 };
 
