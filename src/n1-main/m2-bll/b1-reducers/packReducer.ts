@@ -10,7 +10,7 @@ const initialState: InitialStateType = {
     maxCardsCount: 0,
     page: 1,
     pageCount: 10,
-    myPacks: false,
+    myPacks: 'All',
     sortPacks: '0updated',
     min: 0,
     max: 0,
@@ -24,6 +24,10 @@ export const packReducer = (state: InitialStateType = initialState, action: Acti
         case 'pack/SET-PACKS': {
             return {...state, ...action.payload}
         }
+        case 'pack/SET-MY-PACKS': {
+            debugger
+            return {...state, myPacks: action.payload.value}
+        }
         default:
             return state
     }
@@ -33,6 +37,9 @@ export const packReducer = (state: InitialStateType = initialState, action: Acti
 export const setPacksAC = (data: PacksResponseType) => {
     return {type: 'pack/SET-PACKS', payload: data} as const
 }
+export const setMyPacksAC = (value: MyPackType) => {
+    return {type: 'pack/SET-MY-PACKS', payload: {value}} as const
+}
 
 
 //thunk
@@ -41,7 +48,7 @@ export const fetchPacksTC = () => (dispatch: Dispatch<ActionsPacksType>, getStat
     let {packName, min, max, sortPacks, page, pageCount, user_id, myPacks} = getState().packs
     let myUserId = getState().login.user!._id
 
-    user_id = myPacks ? myUserId : user_id
+    user_id = myPacks === 'My' ? myUserId : user_id
     const payload = {packName, min, max, sortPacks, page, pageCount, user_id}
 
     PacksAPI.getPacks(payload)
@@ -90,7 +97,7 @@ export const updatePackTC = (packId: string): AppThunkType => (dispatch) => {
     dispatch(setAppStatusAC('loading'))
     const payload = {
         _id: packId,
-        name: "!!Changed name!!"
+        name: '!!Changed name!!'
     }
     PacksAPI.updatePack(payload)
         .then(() => {
@@ -113,14 +120,16 @@ export type InitialStateType = {
     maxCardsCount: number,
     page: number,
     pageCount: number,
-    myPacks: boolean,
+    myPacks: MyPackType,
     sortPacks: string,
     min: number,
     max: number,
     packName: string,
     user_id: string,
 }
+export type MyPackType = 'All' | 'My'
 
 type GetPacksACType = ReturnType<typeof setPacksAC>
+type SetMyPacksACType = ReturnType<typeof setMyPacksAC>
 
-export type ActionsPacksType = GetPacksACType | SetErrorACType | SetAppStatusACType
+export type ActionsPacksType = GetPacksACType | SetErrorACType | SetAppStatusACType | SetMyPacksACType
