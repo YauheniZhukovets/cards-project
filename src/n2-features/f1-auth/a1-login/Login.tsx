@@ -84,7 +84,7 @@ export const Login = () => {
                                 remember me
                             </SuperCheckbox>
                         </div>
-                        <NavLink to={PATH.PASSWORD_RECOVERY} className={style.link}>Forgot Password?</NavLink>
+                        <NavLink to={PATH.FORGOT} className={style.link}>Forgot Password?</NavLink>
                         <div className={style.btnContainer}>
                             <SuperButton type={'submit'}
                                          disabled={status === 'loading'}

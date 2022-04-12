@@ -7,17 +7,17 @@ import {NewPassword} from '../../../n2-features/f1-auth/a3-newPassword/NewPasswo
 import {Profile} from '../../../n2-features/f1-auth/a5 -profile/Profile';
 import {EditProfile} from '../../../n2-features/f1-auth/a5 -profile/EditProfile';
 import {PackList} from '../../../n2-features/f2-cards/Packs/PackList';
+import {Forgot} from '../../../n2-features/f1-auth/a4-forgot/Forgot';
 
 
 export const PATH = {
-    TEST: '/test',
     LOGIN: '/login',
-    REGISTRATION: '/registration',
-    NEW_PASSWORD: '/new-password',
-    PASSWORD_RECOVERY: '/password-recovery',
+    REGISTRATION: '/register',
+    NEW_PASSWORD: '/set-new-password',
+    FORGOT: '/forgot',
     PROFILE: '/profile',
     EDIT_PROFILE: '/edit-profile',
-    PACK_LIST: '/pack-list',
+    PACKS: '/packs',
 }
 
 export const RoutesRoot = () => {
@@ -28,10 +28,10 @@ export const RoutesRoot = () => {
                 <Route path={PATH.LOGIN} element={<Login/>}/>
                 <Route path={PATH.REGISTRATION} element={<Registration/>}/>
                 <Route path={PATH.NEW_PASSWORD} element={<NewPassword/>} />
-                <Route path={PATH.PASSWORD_RECOVERY} element={<Error404/>}/>
+                <Route path={PATH.FORGOT} element={<Forgot/>}/>
                 <Route path={PATH.PROFILE} element={<Profile/>}/>
                 <Route path={PATH.EDIT_PROFILE} element={<EditProfile/>}/>
-                <Route path={PATH.PACK_LIST} element={<PackList/>}/>
+                <Route path={PATH.PACKS} element={<PackList/>}/>
                 <Route path={'*'} element={<Error404/>}/>
             </Routes>
         </div>

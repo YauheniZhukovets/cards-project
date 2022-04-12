@@ -39,7 +39,6 @@ export const setErrorAC = (error: string) => {
 export const authMeTC = () => (dispatch: Dispatch<ActionsAppType>) => {
     profileAPI.authMe()
         .then((res) => {
-            console.log(res)
             dispatch(addUserDateAC(res.data))
             dispatch(setIsLoggedInAC(true))
         })
