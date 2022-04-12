@@ -25,7 +25,6 @@ export const packReducer = (state: InitialStateType = initialState, action: Acti
             return {...state, ...action.payload}
         }
         case 'pack/SET-MY-PACKS': {
-            debugger
             return {...state, myPacks: action.payload.value}
         }
         default:
