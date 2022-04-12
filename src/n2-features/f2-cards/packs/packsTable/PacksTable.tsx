@@ -4,7 +4,7 @@ import {AppStoreType} from '../../../../n1-main/m2-bll/store';
 import {PackType} from '../../../../n1-main/m3-dal/m1-API/packsAPI';
 import {Pack} from './Pack';
 
-export const PackTable = () => {
+export const PacksTable = () => {
     const packs = useSelector<AppStoreType, PackType []>(state => state.packs.cardPacks)
 
     return (
