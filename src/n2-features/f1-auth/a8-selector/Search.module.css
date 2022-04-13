@@ -1,6 +1,7 @@
 .searchWrapper {
     height: 36px;
     position: relative;
+    /*margin-right: 20px;*/
 }
 
 .searchWrapper input {

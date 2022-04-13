@@ -1,0 +1,24 @@
+.item {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 10px;
+    margin: 0 200px 0;
+
+}
+
+.nameItem {
+    width: 250px;
+}
+
+.cardsCount {
+    width: 40px;
+}
+
+.updated {
+    width: 140px;
+}
+
+.buttons {
+
+}

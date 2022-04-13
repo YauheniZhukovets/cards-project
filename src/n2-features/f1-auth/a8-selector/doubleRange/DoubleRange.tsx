@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Range, getTrackBackground } from "react-range";
 import { useDispatch, useSelector } from "react-redux";
-import { rangeValueAC } from "../../../../m2-bll/b1-reducers/packReducer";
-import { AppStoreType } from "../../../../m2-bll/store";
-// const min=1
-// const max=200
+// import { rangeValueAC } from "../../../../m2-bll/b1-reducers/packReducer";
+// import { AppStoreType } from "../../../../m2-bll/store";
+const min=1
+const max=200
 export const DoubleRange = () => {
   const dispatch = useDispatch();
 
-  const min = useSelector<AppStoreType>(state=> state.packs.min)
-  const max = useSelector<AppStoreType>(state=> state.packs.max)
+  // const min = useSelector<AppStoreType>(state=> state.packs.min)
+  // const max = useSelector<AppStoreType>(state=> state.packs.max)
 
   const [values, setValues] = useState([min, max]);
 
-  const sendInputValue = (value: number[]) => {
-    dispatch(rangeValueAC(value[0], value[1]));
-  };
+  // const sendInputValue = (value: number[]) => {
+  //   dispatch(rangeValueAC(value[0], value[1]));
+  // };
 
   useEffect(() => {
     setValues([min, max]);
@@ -30,7 +30,7 @@ export const DoubleRange = () => {
       min={0}
       max={200}
       onChange={(values) => setValues(values)}
-      onFinalChange={sendInputValue}
+      // onFinalChange={sendInputValue}
 
       renderTrack={({ props, children }) => (
         <div

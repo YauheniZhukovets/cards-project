@@ -1,10 +1,10 @@
 import {applyMiddleware, combineReducers, createStore} from 'redux';
-import {profileReducer} from './b1-reducers/profileReducer';
-import {loginReducer} from './b1-reducers/loginReducer';
-import thunk from 'redux-thunk';
-import {appReducer} from './b1-reducers/appReducer';
-import {registrationReducer} from './b1-reducers/registrationReducer';
-import {packReducer} from './b1-reducers/packReducer';
+import {ActionsProfileType, profileReducer} from './b1-reducers/profileReducer';
+import {ActionsLoginType, loginReducer} from './b1-reducers/loginReducer';
+import thunk, {ThunkAction} from 'redux-thunk';
+import {ActionsAppType, appReducer} from './b1-reducers/appReducer';
+import {ActionsRegistrationType, registrationReducer} from './b1-reducers/registrationReducer';
+import {ActionsPacksType, packReducer} from './b1-reducers/packReducer';
 
 const reducers = combineReducers({
     app: appReducer,
@@ -16,6 +16,15 @@ const reducers = combineReducers({
 
 export const store = createStore(reducers, applyMiddleware(thunk))
 export type AppStoreType = ReturnType<typeof reducers>
+
+export type AppStoreActionType =
+    ActionsAppType
+    | ActionsLoginType
+    | ActionsPacksType
+    | ActionsProfileType
+    | ActionsRegistrationType
+
+export type AppThunkType<ReturnType = void> = ThunkAction<ReturnType, AppStoreType, unknown, AppStoreActionType>
 
 //@ts-ignore
 window.store = store
