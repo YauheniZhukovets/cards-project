@@ -46,7 +46,7 @@ export const DoubleRange = () => {
             ref={props.ref}
             style={{
               height: "5px",
-              width: "80%",
+              width: "100%",
               borderRadius: "4px",
               background: getTrackBackground({
                   //@ts-ignore
