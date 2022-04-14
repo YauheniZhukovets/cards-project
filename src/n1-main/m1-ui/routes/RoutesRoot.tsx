@@ -6,7 +6,7 @@ import {Registration} from '../../../n2-features/f1-auth/a2-registration/Registr
 import {NewPassword} from '../../../n2-features/f1-auth/a3-newPassword/NewPassword';
 import {Profile} from '../../../n2-features/f1-auth/a5 -profile/Profile';
 import {EditProfile} from '../../../n2-features/f1-auth/a5 -profile/EditProfile';
-import {PackList} from '../../../n2-features/f2-cards/packs/PackList';
+
 import {Forgot} from '../../../n2-features/f1-auth/a4-forgot/Forgot';
 import {CardsList} from '../../../n2-features/f2-cards/cards/CardsList';
 
@@ -33,7 +33,6 @@ export const RoutesRoot = () => {
                 <Route path={PATH.FORGOT} element={<Forgot/>}/>
                 <Route path={PATH.PROFILE} element={<Profile/>}/>
                 <Route path={PATH.EDIT_PROFILE} element={<EditProfile/>}/>
-                <Route path={PATH.PACKS} element={<PackList/>}/>
                 <Route path={PATH.CARDS + '/:packId'} element={<CardsList/>}/>
                 <Route path={'*'} element={<Error404/>}/>
             </Routes>
