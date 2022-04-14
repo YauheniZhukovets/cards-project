@@ -2,6 +2,7 @@ import React from 'react';
 import {PackType} from '../../../../n1-main/m3-dal/m1-API/packsAPI';
 import {Pack} from './Pack';
 
+
 export type PacksTablePropsType = {
     packs: PackType []
 }
