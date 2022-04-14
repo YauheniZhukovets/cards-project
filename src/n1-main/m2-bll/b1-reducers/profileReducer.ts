@@ -1,12 +1,11 @@
 import {Dispatch} from 'redux';
-import {setAppStatusAC, SetAppStatusACType} from './appReducer';
+import {setAppStatusAC, SetAppStatusACType, setErrorAC, SetErrorACType} from './appReducer';
 import {addUserDateAC, AddUserDateACType} from './loginReducer';
 import {profileAPI, ProfileParamsType} from '../../m3-dal/m1-API/profileAPI';
 
 const initState = {
     name: null,
     avatar: null,
-    error: null
 }
 
 export const profileReducer = (state: InitialStateType = initState, action: ActionsProfileType): InitialStateType => {
@@ -16,9 +15,6 @@ export const profileReducer = (state: InitialStateType = initState, action: Acti
         }
         case 'profile/UPDATE-AVATAR': {
             return {...state, name: action.payload.avatar}
-        }
-        case 'registration/SET-PROFILE-ERROR': {
-            return {...state, error: action.payload.error}
         }
         default:
             return state
@@ -32,15 +28,12 @@ export const updateNameAC = (name: string) => {
 export const updateAvatarAC = (avatar: string) => {
     return {type: 'profile/UPDATE-AVATAR', payload: {avatar}} as const
 }
-export const setProfileErrorAC = (error: string | null) => {
-    return {type: 'registration/SET-PROFILE-ERROR', payload: {error}} as const
-}
+
 
 //type
 type InitialStateType = {
     name: string | null
     avatar: string | null
-    error: string | null
 }
 
 //thunk
@@ -53,19 +46,18 @@ export const updateProfileTC = (data: ProfileParamsType) => (dispatch: Dispatch<
         })
         .catch((e) => {
             const error = e.response ? e.response.data.error : (e.message + ', more details in the console')
-            dispatch(setProfileErrorAC(error))
+            dispatch(setErrorAC(error))
             dispatch(setAppStatusAC('failed'))
         })
 }
 
 
-type ActionsProfileType =
+export type ActionsProfileType =
     UpdateNameACType
     | UpdateAvatarACType
     | SetAppStatusACType
-    | SetProfileErrorACType
     | AddUserDateACType
+    | SetErrorACType
 
 type UpdateNameACType = ReturnType<typeof updateNameAC>
 type UpdateAvatarACType = ReturnType<typeof updateAvatarAC>
-type SetProfileErrorACType = ReturnType<typeof setProfileErrorAC>

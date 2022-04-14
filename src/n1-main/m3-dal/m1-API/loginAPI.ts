@@ -6,7 +6,7 @@ export const LoginAPI = {
         return instance.post<LoginParamsType, AxiosResponse<UserResponseType>>(`auth/login/`, data);
     },
     logout() {
-        return instance.delete<LogoutResponseType>('auth/me')
+        return instance.delete<AxiosResponse<LogoutResponseType>>('auth/me')
     }
 }
 

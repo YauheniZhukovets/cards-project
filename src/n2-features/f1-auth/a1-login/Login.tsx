@@ -21,14 +21,14 @@ export const Login = () => {
 
     const dispatch = useDispatch()
     const isLoggedIn = useSelector<AppStoreType, boolean>(state => state.login.isLoggedIn)
-    const error = useSelector<AppStoreType, string | null>(state => state.login.error)
+    const error = useSelector<AppStoreType, string | null>(state => state.app.error)
     const status = useSelector<AppStoreType, AppStatusType>(state => state.app.status)
 
     const formik = useFormik({
         initialValues: {
-            email: '',
-            password: '',
-            rememberMe: false
+            email: 'nya-admin@nya.nya',
+            password: '1qazxcvBG',
+            rememberMe: true
         },
         validate: (values) => {
             const errors: FormikErrorType = {};
@@ -84,7 +84,7 @@ export const Login = () => {
                                 remember me
                             </SuperCheckbox>
                         </div>
-                        <NavLink to={PATH.PASSWORD_RECOVERY} className={style.link}>Forgot Password?</NavLink>
+                        <NavLink to={PATH.FORGOT} className={style.link}>Forgot Password?</NavLink>
                         <div className={style.btnContainer}>
                             <SuperButton type={'submit'}
                                          disabled={status === 'loading'}

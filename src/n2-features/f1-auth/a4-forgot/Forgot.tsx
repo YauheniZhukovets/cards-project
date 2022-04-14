@@ -1,10 +1,9 @@
 import React from 'react';
 
-export const Main = () => {
+export const Forgot = () => {
     return (
         <div>
-            {/* <Header/>*/}
+            <span>Forgot</span>
         </div>
     );
 };
-

@@ -4,6 +4,7 @@
 
 .lable {
     padding: 0 5px;
+    color: white;
 }
 
 .labelRadioCheckBox {
@@ -23,7 +24,7 @@
 
 .labelRadioCheckBox:before {
     content: '';
-    background: #1c1e25;
+    background: #fc0505;
     width: 8px;
     height: 8px;
     opacity: 0;
