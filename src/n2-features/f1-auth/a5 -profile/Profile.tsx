@@ -27,39 +27,42 @@ export const Profile = () => {
                     {/*<div className={style.title}>*/}
                     {/*    <h2>ProfilePage</h2>*/}
                     {/*</div>*/}
-                    <div className={style.blockAvatar}>
-                        <Tilt>
-                            <div className={style.imgAvatar}>
-                                <img className={style.img} src={userAvatar} alt="img"/>
+                    <Tilt>
+                        <div className={style.blockAvatar}>
+                            <Tilt>
+                                <div className={style.imgAvatar}>
+                                    <img className={style.img} src={userAvatar} alt="img"/>
+                                </div>
+                            </Tilt>
+
+                            <div className={style.avatarUrl}>
+                                <div><b>Nickname</b></div>
+                                <h3>{userName}</h3>
+                                <h3>Front-end-developer</h3>
                             </div>
-                        </Tilt>
+                            <div className={style.descriptionForDoubleRangeSlider}>Cards count in a pack</div>
+                            <div className={style.DoubleRangeSliderContainer}>
+                                {/*<DoubleRange/>*/}
+                            </div>
+                            <div className={style.btnContainer}>
+                                <NavLink to={PATH.EDIT_PROFILE}><SuperButton className={style.btn}>Edit
+                                    profile</SuperButton></NavLink>
+                            </div>
+                        </div>
+                    </Tilt>
 
-                        <div className={style.avatarUrl}>
-                            <div><b>Nickname</b></div>
-                            <h3>{userName}</h3>
-                            <h3>Front-end-developer</h3>
-                        </div>
-                        <div className={style.descriptionForDoubleRangeSlider}>Cards count in a pack</div>
-                        <div className={style.DoubleRangeSliderContainer}>
-                            <DoubleRange/>
-                        </div>
-                        <div className={style.btnContainer}>
-                            <NavLink to={PATH.EDIT_PROFILE}><SuperButton className={style.btn}>Edit
-                                profile</SuperButton></NavLink>
-                        </div>
-                    </div>
-                    <div className={style.packsBlock} >
-                        <h1 className={style.titleCardsBlock}>My Packs list</h1>
-                        <div className={style.searchAddBlock}>
-                            <Search/>
-                            <SuperButton className={style.btnContainer}> Add Pack</SuperButton>
-                        </div>
-                        <div className={style.mainTable}>
-                            <PacksTableHeader/>
-                            <PacksTable/>
-                        </div>
+                    {/*<div className={style.packsBlock} >*/}
+                    {/*    <h1 className={style.titleCardsBlock}>My Packs list</h1>*/}
+                    {/*    <div className={style.searchAddBlock}>*/}
+                    {/*        <Search/>*/}
+                    {/*        <SuperButton className={style.btnContainer}> Add Pack</SuperButton>*/}
+                    {/*    </div>*/}
+                    {/*    /!*<div className={style.mainTable}>*!/*/}
+                    {/*    /!*    <PacksTableHeader/>*!/*/}
+                    {/*    /!*    <PacksTable/>*!/*/}
+                    {/*    /!*</div>*!/*/}
 
-                    </div>
+                    {/*</div>*/}
                 </div>
 
             </div>
