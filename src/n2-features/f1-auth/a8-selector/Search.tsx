@@ -9,7 +9,7 @@ import { PacksActionCreators } from './action-creators';
 
 const time: number = 400;
 
-export const Search: FC = () => {
+export const Search = React.memo(() => {
     const dispatch = useDispatch();
 
     const [searchValue, setSearchValue] = useState('');
@@ -36,6 +36,6 @@ export const Search: FC = () => {
             <img className={style.searchIcon} src={searchIcon} alt="search_icon" />
         </div>
     );
-};
+});
 
 

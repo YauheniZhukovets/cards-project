@@ -122,6 +122,19 @@ export const updatePackTC = (packId: string): AppThunkType => (dispatch) => {
             dispatch(setAppStatusAC('failed'))
         })
 }
+export const searchPacksCardsTC = (value?: string)=>{
+    return (dispatch:Dispatch)=>{
+        return PacksAPI.searchPacs(value)
+            .then((res)=>{
+                dispatch(setPacksAC(res.data))
+            })
+            .catch((e) => {
+                const error = e.response ? e.response.data.error : (e.message + ', Some error occurred')
+                dispatch(setErrorAC(error))
+                dispatch(setAppStatusAC('failed'))
+            })
+    }
+}
 
 
 //type

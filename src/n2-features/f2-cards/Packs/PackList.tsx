@@ -13,7 +13,7 @@ import style from "../../../n1-main/m1-ui/styles/PackPage.module.css";
 import {DoubleRange} from "../../f1-auth/a8-selector/doubleRange/DoubleRange";
 
 
-export const PackList = () => {
+export const PackList =React.memo (() => {
     const dispatch = useDispatch()
     const isLoggedIn = useSelector<AppStoreType, boolean>(state => state.login.isLoggedIn)
     const myPacks = useSelector<AppStoreType, MyPackType>(state => state.packs.myPacks)
@@ -77,5 +77,5 @@ export const PackList = () => {
         //     <PacksTable/>
         // </>
     );
-};
+});
 
