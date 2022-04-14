@@ -31,9 +31,9 @@ export const packReducer = (state: InitialStateType = initialState, action: Acti
         case "CARDS/PACKS/RANGE-VALUE": {
             return {...state, min: action.min, max: action.max};
         }
-        // case "pack/CHANGE_SEARCH_PACK_NAME": {
-        //     return {...state, ...action.packName};
-        // }
+        case "CARDS/PACKS/SET-PACK-CARDS": {
+            return {...state, cardPacks:action.cardPacks};
+        }
         default:
             return state
     }
@@ -49,8 +49,8 @@ export const setMyPacksAC = (value: MyPackType) => {
 export const rangeValueAC = (min: number, max: number) => {
     return { type: "CARDS/PACKS/RANGE-VALUE", min, max } as const;
 };
-export const setMyPackNameAC = (value: MyPackType) => {
-    return {type: 'pack/CHANGE_SEARCH_PACK_NAME',packName: {value}} as const
+export const setPackCardsAC= (cardPacks: PackType [] ) => {
+    return {type: 'CARDS/PACKS/SET-PACK-CARDS', cardPacks} as const
 }
 
 
@@ -126,7 +126,7 @@ export const searchPacksCardsTC = (value?: string)=>{
     return (dispatch:Dispatch)=>{
         return PacksAPI.searchPacs(value)
             .then((res)=>{
-                dispatch(setPacksAC(res.data))
+                dispatch(setPackCardsAC(res.data.cardPacks))
             })
             .catch((e) => {
                 const error = e.response ? e.response.data.error : (e.message + ', Some error occurred')
@@ -157,5 +157,6 @@ export type MyPackType = 'All' | 'My'
 type GetPacksACType = ReturnType<typeof setPacksAC>
 type SetMyPacksACType = ReturnType<typeof setMyPacksAC>
 type rangeValueACType = ReturnType<typeof rangeValueAC>;
+type setPackCardsAC = ReturnType<typeof setPackCardsAC>;
 
-export type ActionsPacksType = GetPacksACType | SetErrorACType | SetAppStatusACType | SetMyPacksACType | rangeValueACType
+export type ActionsPacksType = GetPacksACType | SetErrorACType | SetAppStatusACType | SetMyPacksACType | rangeValueACType | setPackCardsAC

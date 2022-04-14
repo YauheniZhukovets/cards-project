@@ -8,7 +8,7 @@ import {Header} from '../../../n1-main/m1-ui/heder/Header';
 import {PacksTable} from './packsTable/PacksTable';
 import SuperButton from '../../../n1-main/m1-ui/common/c2-SuperButton/SuperButton';
 import {Sidebar} from "../../../n1-main/m1-ui/Sidebar/Sidebar";
-import {Search} from "../../f1-auth/a8-selector/Search";
+import {Search} from "../../f1-auth/a7-search/Search";
 import style from "../../../n1-main/m1-ui/styles/PackPage.module.css";
 import {DoubleRange} from "../../f1-auth/a8-selector/doubleRange/DoubleRange";
 

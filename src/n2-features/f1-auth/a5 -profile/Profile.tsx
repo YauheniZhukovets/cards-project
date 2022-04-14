@@ -7,8 +7,9 @@ import SuperButton from '../../../n1-main/m1-ui/common/c2-SuperButton/SuperButto
 import style from '../../../n1-main/m1-ui/styles/Profile.module.css';
 import {Header} from '../../../n1-main/m1-ui/heder/Header';
 import {DoubleRange} from "../a8-selector/doubleRange/DoubleRange";
-import {Search} from "../a8-selector/Search";
+import {Search} from "../a7-search/Search";
 import {PacksTable} from "../../f2-cards/Packs/packsTable/PacksTable";
+import Tilt from 'react-parallax-tilt';
 
 export const Profile = () => {
     const isLoggedIn = useSelector<AppStoreType, boolean>(state => state.login.isLoggedIn)
@@ -26,9 +27,12 @@ export const Profile = () => {
                     {/*    <h2>ProfilePage</h2>*/}
                     {/*</div>*/}
                     <div className={style.blockAvatar}>
-                        <div className={style.imgAvatar}>
-                            <img className={style.img} src={userAvatar} alt="img"/>
-                        </div>
+                        <Tilt>
+                            <div className={style.imgAvatar}>
+                                <img className={style.img} src={userAvatar} alt="img"/>
+                            </div>
+                        </Tilt>
+
                         <div className={style.avatarUrl}>
                             <div><b>Nickname</b></div>
                             <h3>{userName}</h3>

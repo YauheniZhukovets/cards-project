@@ -1,12 +1,10 @@
 import React, { ChangeEvent, FC,  useEffect, useState } from 'react';
-
-
 import { useDispatch } from 'react-redux';
-
 import style from './Search.module.css';
 import searchIcon from './search-svgrepo-com.svg';
 import {useDebounce} from "use-debounce";
 import {searchPacksCardsTC} from "../../../n1-main/m2-bll/b1-reducers/packReducer";
+import {useUpdateEffect} from "usehooks-ts";
 
 
 export type SearchPacksPropsType={
@@ -15,7 +13,7 @@ export type SearchPacksPropsType={
 
 
 
-export const Search: FC = ({...props}:SearchPacksPropsType) => {
+export const Search = ({...props}:SearchPacksPropsType) => {
     const dispatch = useDispatch();
 
     const [searchValue, setSearchValue] = useState('');
@@ -23,7 +21,7 @@ export const Search: FC = ({...props}:SearchPacksPropsType) => {
     const onChangeHandler = (e:ChangeEvent<HTMLInputElement>)=>{
         setSearchValue(e.currentTarget.value)
     }
-    useEffect(() => {
+    useUpdateEffect(() => {
         dispatch(searchPacksCardsTC(searchValue));
     }, [deboucedSearchValue]);
 
