@@ -14,6 +14,9 @@ export const CardsList = () => {
     const dispatch = useDispatch()
     const isLoggedIn = useSelector<AppStoreType, boolean>(state => state.login.isLoggedIn)
     const cards = useSelector<AppStoreType, CardType []>(state => state.cards.cards)
+    const packsUserId = useSelector<AppStoreType, string>(state => state.cards.packUserId)
+    const myUserId = useSelector<AppStoreType, string | undefined>(state => state.login.user?._id)
+
 
     const {packId} = useParams<{ packId: string }>()
 
@@ -40,7 +43,10 @@ export const CardsList = () => {
             <Sidebar/>
             <NavLink to={PATH.PACKS}>Back</NavLink>
             <h2>Cards</h2>
-            <SuperButton onClick={onClickAddNewPackHandler}>Add new card</SuperButton>
+            <div>
+                {myUserId === packsUserId && <SuperButton onClick={onClickAddNewPackHandler}>Add new card</SuperButton>}
+            </div>
+
             <CardsTable cards={cards}/>
         </>
     );
