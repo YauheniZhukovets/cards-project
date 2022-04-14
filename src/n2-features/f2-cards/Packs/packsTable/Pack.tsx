@@ -34,9 +34,9 @@ export const Pack: React.FC<PackPropsType> = ({pack}) => {
             <div className={s.updated}>{pack.updated.slice(0, 10)}</div>
             <div className={s.buttons}>{myUserId === pack.user_id &&
                 <>
-                    <button onClick={onClickDeletePackHandler}>Delete</button>
-                    <button onClick={onClickUpdatePackHandler}>Edit</button>
-                    <button>Learn</button>
+                    <button className={s.btn}  onClick={onClickDeletePackHandler}>Delete</button>
+                    <button  className={s.btn} onClick={onClickUpdatePackHandler}>Edit</button>
+                    <button className={s.btn} >Learn</button>
                 </>
             }
             </div>

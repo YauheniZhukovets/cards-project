@@ -10,6 +10,7 @@ import {DoubleRange} from "../a8-selector/doubleRange/DoubleRange";
 import {Search} from "../a7-search/Search";
 import {PacksTable} from "../../f2-cards/Packs/packsTable/PacksTable";
 import Tilt from 'react-parallax-tilt';
+import {PacksTableHeader} from "../../f2-cards/Packs/PacksTableHeader";
 
 export const Profile = () => {
     const isLoggedIn = useSelector<AppStoreType, boolean>(state => state.login.isLoggedIn)
@@ -54,6 +55,7 @@ export const Profile = () => {
                             <SuperButton className={style.btnContainer}> Add Pack</SuperButton>
                         </div>
                         <div className={style.mainTable}>
+                            <PacksTableHeader/>
                             <PacksTable/>
                         </div>
 

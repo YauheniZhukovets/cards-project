@@ -54,16 +54,11 @@ export const PackList =React.memo (() => {
                                         onClick={onClickAddNewPackHandler}>
                                          Add new Pack
                            </SuperButton>
-
                         </div>
-
                         <div className={style.mainTable}>
                             <PacksTableHeader/>
-
-
                             <PacksTable/>
                         </div>
-
                     </div>
                 </div>
 

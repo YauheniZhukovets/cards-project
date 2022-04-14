@@ -8,7 +8,7 @@
     display: flex;
     height: 100%;
     width: 100%;
-    background-color: #ffa31a;
+    background-color: #ff1a57;
     border-radius: 50px;
     overflow: hidden;
 }
@@ -78,12 +78,14 @@
 
 .tableHeaderWrapper {
     color: white;
-    background-color: #292929;
+    background-color: rgba(28, 30, 37, 0.49);
+    box-shadow: 0 3px 10px rgb(143, 33, 49), inset 0 1px 0 rgba(255, 255, 255, 0.42);
     height: 48px;
     line-height: 2;
     top: 0;
     left: 0;
     position: sticky;
+    border-radius: 5px;
 }
 .tableHeader {
     display: grid;
@@ -103,8 +105,8 @@
 
 .items {
     display: grid;
-    grid-template-areas: "1 2 3 4 5";
-    grid-template-columns: 25% 10% 15% 30% 18%;
+    grid-template-areas: "1 2 3 4 ";
+    grid-template-columns: 39% 9% 25%  27%;
     align-items: start;
     color: black;
     background-color: #ffffff;
