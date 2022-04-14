@@ -5,7 +5,7 @@ import {AppStoreType} from '../../../../n1-main/m2-bll/store';
 import {AppStatusType} from '../../../../n1-main/m2-bll/b1-reducers/appReducer';
 import {Loading} from '../../../../n1-main/m1-ui/common/c0-Preloder/Loading';
 import {deleteCardTC, updateCardTC} from '../../../../n1-main/m2-bll/b1-reducers/cardReducer';
-import s from './Card.module.css'
+import s from './Card.module.css';
 
 export type CardPropsType = {
     card: CardType

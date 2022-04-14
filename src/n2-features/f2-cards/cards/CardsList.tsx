@@ -4,11 +4,11 @@ import {Sidebar} from '../../../n1-main/m1-ui/Sidebar/Sidebar';
 import {Navigate, NavLink, useParams} from 'react-router-dom';
 import {PATH} from '../../../n1-main/m1-ui/routes/RoutesRoot';
 import SuperButton from '../../../n1-main/m1-ui/common/c2-SuperButton/SuperButton';
-import {CardsTable} from './cardsTable/CardsTable';
 import {addCardTC, fetchCardsTC} from '../../../n1-main/m2-bll/b1-reducers/cardReducer';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppStoreType} from '../../../n1-main/m2-bll/store';
 import {CardType} from '../../../n1-main/m3-dal/m1-API/cardsAPI';
+import {CardsTable} from './cardsTable/CardsTable';
 
 export const CardsList = () => {
     const dispatch = useDispatch()
