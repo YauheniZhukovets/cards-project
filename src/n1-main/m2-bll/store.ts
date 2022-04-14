@@ -5,13 +5,15 @@ import thunk, {ThunkAction} from 'redux-thunk';
 import {ActionsAppType, appReducer} from './b1-reducers/appReducer';
 import {ActionsRegistrationType, registrationReducer} from './b1-reducers/registrationReducer';
 import {ActionsPacksType, packReducer} from './b1-reducers/packReducer';
+import {ActionsCardsType, cardReducer} from './b1-reducers/cardReducer';
 
 const reducers = combineReducers({
     app: appReducer,
     login: loginReducer,
     registration: registrationReducer,
     profile: profileReducer,
-    packs: packReducer
+    packs: packReducer,
+    cards: cardReducer
 })
 
 export const store = createStore(reducers, applyMiddleware(thunk))
@@ -23,6 +25,7 @@ export type AppStoreActionType =
     | ActionsPacksType
     | ActionsProfileType
     | ActionsRegistrationType
+    | ActionsCardsType
 
 export type AppThunkType<ReturnType = void> = ThunkAction<ReturnType, AppStoreType, unknown, AppStoreActionType>
 

@@ -1,30 +1,48 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {Header} from '../../../n1-main/m1-ui/heder/Header';
+import {Sidebar} from '../../../n1-main/m1-ui/Sidebar/Sidebar';
+import {Navigate, NavLink, useParams} from 'react-router-dom';
+import {PATH} from '../../../n1-main/m1-ui/routes/RoutesRoot';
+import SuperButton from '../../../n1-main/m1-ui/common/c2-SuperButton/SuperButton';
+import {CardsTable} from './cardsTable/CardsTable';
+import {addCardTC, fetchCardsTC} from '../../../n1-main/m2-bll/b1-reducers/cardReducer';
+import {useDispatch, useSelector} from 'react-redux';
+import {AppStoreType} from '../../../n1-main/m2-bll/store';
+import {CardType} from '../../../n1-main/m3-dal/m1-API/cardsAPI';
 
 export const CardsList = () => {
-    /*    const dispatch = useDispatch()
-        const isLoggedIn = useSelector<AppStoreType, boolean>(state => state.login.isLoggedIn)
-        const myPacks = useSelector<AppStoreType, MyPackType>(state => state.packs.myPacks)
+    const dispatch = useDispatch()
+    const isLoggedIn = useSelector<AppStoreType, boolean>(state => state.login.isLoggedIn)
+    const cards = useSelector<AppStoreType, CardType []>(state => state.cards.cards)
 
-        useEffect(() => {
-            dispatch(fetchPacksTC())
-        }, [dispatch,myPacks])
+    const {packId} = useParams<{ packId: string }>()
 
-        const onClickAddNewPackHandler = () => {
-            dispatch(addPackTC('!!!!New pack!!!'))
+    useEffect(() => {
+        if (packId) {
+            dispatch(fetchCardsTC(packId))
         }
+    }, [dispatch, packId])
 
-        if (!isLoggedIn) {
-            return <Navigate to={PATH.LOGIN}/>
-        }*/
 
-    return /*(
+    const onClickAddNewPackHandler = () => {
+        if (packId) {
+            dispatch(addCardTC(packId))
+        }
+    }
+
+    if (!isLoggedIn) {
+        return <Navigate to={PATH.LOGIN}/>
+    }
+
+    return (
         <>
             <Header/>
             <Sidebar/>
-            <h2>Pack List</h2>
-            <SuperButton onClick={onClickAddNewPackHandler}>Add new pack</SuperButton>
-            <CardsTable/>
+            <NavLink to={PATH.PACKS}>Back</NavLink>
+            <h2>Cards</h2>
+            <SuperButton onClick={onClickAddNewPackHandler}>Add new card</SuperButton>
+            <CardsTable cards={cards}/>
         </>
-    );*/
+    );
 };
 

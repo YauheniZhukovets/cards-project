@@ -1,12 +1,16 @@
 import React from 'react';
+import {CardType} from '../../../../n1-main/m3-dal/m1-API/cardsAPI';
+import { Card } from './Card';
 
-export const CardsTable = () => {
-    /* const packs = useSelector<AppStoreType, PackType []>(state => state.packs.cardPacks)*/
+export type CardsTablePropsType = {
+    cards: CardType []
+}
+
+export const CardsTable: React.FC<CardsTablePropsType> = ({cards}) => {
 
     return (
-
         <>
-            {/*{packs && packs.map(pack => <Card key={pack._id} pack={pack}/>)}*/}
+            {cards && cards.map(card => <Card key={card._id}  card={card}/>)}
         </>
     );
 };

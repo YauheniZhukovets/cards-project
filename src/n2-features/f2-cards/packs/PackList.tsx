@@ -8,9 +8,11 @@ import {Header} from '../../../n1-main/m1-ui/heder/Header';
 import {PacksTable} from './packsTable/PacksTable';
 import SuperButton from '../../../n1-main/m1-ui/common/c2-SuperButton/SuperButton';
 import {Sidebar} from '../../../n1-main/m1-ui/Sidebar/Sidebar';
+import {PackType} from '../../../n1-main/m3-dal/m1-API/packsAPI';
 
 export const PackList = () => {
     const dispatch = useDispatch()
+    const packs = useSelector<AppStoreType, PackType []>(state => state.packs.cardPacks)
     const isLoggedIn = useSelector<AppStoreType, boolean>(state => state.login.isLoggedIn)
     const myPacks = useSelector<AppStoreType, MyPackType>(state => state.packs.myPacks)
 
@@ -32,7 +34,7 @@ export const PackList = () => {
             <Sidebar/>
             <h2>Pack List</h2>
             <SuperButton onClick={onClickAddNewPackHandler}>Add new pack</SuperButton>
-            <PacksTable/>
+            <PacksTable packs={packs}/>
         </>
     );
 };
