@@ -17,7 +17,6 @@ export const CardsList = () => {
     const packsUserId = useSelector<AppStoreType, string>(state => state.cards.packUserId)
     const myUserId = useSelector<AppStoreType, string | undefined>(state => state.login.user?._id)
 
-
     const {packId} = useParams<{ packId: string }>()
 
     useEffect(() => {

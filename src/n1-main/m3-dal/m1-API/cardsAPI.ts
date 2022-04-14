@@ -50,14 +50,14 @@ export type CardType = {
 
 export type AddCardParamsType = {
     cardsPack_id: string
-    question: string // если не отправить будет таким
-    answer: string // если не отправить будет таким
-    grade: number // 0..5, не обязателен
-    shots: number //не обязателен
-    answerImg: string // не обязателен
-    questionImg: string // не обязателен
-    questionVideo: string // не обязателен
-    answerVideo: string // не обязателен
+    question: string
+    answer: string
+    grade: number
+    shots: number
+    answerImg: string
+    questionImg: string
+    questionVideo: string
+    answerVideo: string
 }
 
 export type UpdateCardParamsType = {
