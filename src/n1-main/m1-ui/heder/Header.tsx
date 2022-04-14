@@ -18,9 +18,23 @@ export const Header = () => {
 
     return (
         <nav>
-            <NavLink className={setActive} to={PATH.PACKS}>PackList</NavLink>
-            <NavLink className={setActive} to={PATH.PROFILE}>ProfilePage</NavLink>
-            <SuperButton className={style.btn} onClick={onClickLogoutHandler}>Log Out</SuperButton>
+            <div className={s.header}>
+                <div className={s.headerContainer}>
+                    {/*<h1 className={s.title}>IT-incubator</h1>*/}
+                    <div className={s.headerBlock}>
+                        <div className={s.itemMenu}>
+                            <NavLink className={setActive} to={PATH.PACKS}>PackList</NavLink>
+                        </div>
+                        <div className={s.itemMenu}>
+                            <NavLink className={setActive} to={PATH.PROFILE}>ProfilePage</NavLink>
+                        </div>
+                        <div className={s.itemMenuBtn}>
+                            <SuperButton className={style.btn} onClick={onClickLogoutHandler}>Log Out</SuperButton>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </nav>
+
     );
 }

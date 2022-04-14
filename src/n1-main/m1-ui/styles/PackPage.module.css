@@ -28,12 +28,12 @@
 
     /*overflow: hidden;*/
 
-    /*background: rgba(249, 249, 254, 0.6);*/
+    background: rgba(249, 249, 254, 0.6);
     /*border: 1px solid rgba(42, 2, 2, 0.9);*/
-    /*border-radius: 8px;*/
-    /*-webkit-box-shadow: -4px 5px 4px 1px rgba(157, 151, 151, 0.5);*/
-    /*-moz-box-shadow: -4px 5px 4px 1px rgba(157, 151, 151, 0.5);*/
-    /*box-shadow: -4px 5px 4px 1px rgba(157, 151, 151, 0.5);*/
+    border-radius: 8px;
+    -webkit-box-shadow: -4px 5px 4px 1px rgba(157, 151, 151, 0.5);
+    -moz-box-shadow: -4px 5px 4px 1px rgba(157, 151, 151, 0.5);
+    box-shadow: -4px 5px 4px 1px rgba(157, 151, 151, 0.5);
 }
 .title{
     width: 100%;
@@ -58,7 +58,7 @@ h2{
 }
 h3{
     color: #bbbefa;
-    font-size: 17px;
+    font-size: 16px;
 }
 
 
@@ -117,6 +117,7 @@ h3{
 }
 b{
     color: #c4fabb;
+    font-size: 17px;
 }
 
 .eyes{
@@ -136,7 +137,7 @@ b{
 .btnContainer{
     margin: 3px 67px 20px 67px;
     height: 33px;
-    width: 120px;
+    width: 168px;
     padding: 10px;
 
     /*border: 1px #5cdecb;*/
@@ -144,7 +145,7 @@ b{
 }
 .btn{
     height: 29px;
-    width: 90px;
+    width: 100px;
     background: rgba(190, 47, 65, 0.92);
     box-shadow: 0 3px 10px rgba(12, 5, 9, 0.84), inset 0 1px 0 rgba(255, 255, 255, 0.42);
     border-radius: 30px;
@@ -152,22 +153,11 @@ b{
     margin:8px 12px 10px;
 }
 .btn:hover{
-    height: 29px;
-    width: 97px;
+    height: 32px;
+    width: 100px;
     transform: scale(1);
     transition: all 1s ease;
     margin-left:10px;
-}
-.btn:active{
-    height: 29px;
-    width: 85px;
-    background: rgba(232, 230, 230, 0.92);
-    box-shadow: 0 3px 10px rgba(12, 5, 9, 0.84), inset 0 1px 0 rgba(255, 255, 255, 0.42);
-    border-radius: 30px;
-    color: #c73636;
-    font-size: 12px;
-    margin:8px 12px 10px;
-
 }
 .btnDise{
     height: 29px;
