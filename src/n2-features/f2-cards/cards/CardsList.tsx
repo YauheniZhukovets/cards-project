@@ -1,4 +1,3 @@
-
 import React, {useEffect} from 'react';
 import {Header} from '../../../n1-main/m1-ui/heder/Header';
 import {Sidebar} from '../../../n1-main/m1-ui/Sidebar/Sidebar';
@@ -51,3 +50,4 @@ export const CardsList = () => {
         </>
     );
 };
+

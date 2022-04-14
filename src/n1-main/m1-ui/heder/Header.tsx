@@ -18,6 +18,7 @@ export const Header = () => {
 
     return (
         <nav>
+            <NavLink className={setActive} to={PATH.PACKS}>PackList</NavLink>
             <NavLink className={setActive} to={PATH.PROFILE}>ProfilePage</NavLink>
             <SuperButton className={style.btn} onClick={onClickLogoutHandler}>Log Out</SuperButton>
         </nav>
