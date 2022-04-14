@@ -10,6 +10,7 @@ export const PacksTable = () => {
     return (
 
         <>
+
             {packs && packs.map(pack => <Pack key={pack._id} pack={pack}/>)}
         </>
     );

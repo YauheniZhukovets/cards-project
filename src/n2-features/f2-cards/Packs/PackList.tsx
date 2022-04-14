@@ -11,6 +11,7 @@ import {Sidebar} from "../../../n1-main/m1-ui/Sidebar/Sidebar";
 import {Search} from "../../f1-auth/a7-search/Search";
 import style from "../../../n1-main/m1-ui/styles/PackPage.module.css";
 import {DoubleRange} from "../../f1-auth/a8-selector/doubleRange/DoubleRange";
+import {PacksTableHeader} from "./PacksTableHeader";
 
 
 export const PackList =React.memo (() => {
@@ -55,7 +56,11 @@ export const PackList =React.memo (() => {
                            </SuperButton>
 
                         </div>
+
                         <div className={style.mainTable}>
+                            <PacksTableHeader/>
+
+
                             <PacksTable/>
                         </div>
 
