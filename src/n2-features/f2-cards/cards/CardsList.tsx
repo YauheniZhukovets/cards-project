@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import {Header} from '../../../n1-main/m1-ui/heder/Header';
-import {Sidebar} from '../../../n1-main/m1-ui/Sidebar/Sidebar';
 import {Navigate, NavLink, useParams} from 'react-router-dom';
 import {PATH} from '../../../n1-main/m1-ui/routes/RoutesRoot';
 import SuperButton from '../../../n1-main/m1-ui/common/c2-SuperButton/SuperButton';
@@ -39,7 +38,6 @@ export const CardsList = () => {
     return (
         <>
             <Header/>
-            <Sidebar/>
             <NavLink to={PATH.PACKS}>Back</NavLink>
             <h2>Cards</h2>
             <div>
