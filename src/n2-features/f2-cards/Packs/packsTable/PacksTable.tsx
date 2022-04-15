@@ -1,4 +1,4 @@
-import packsS from './PacksList.module.css';
+import packsS from './PacksTable.module.css';
 import React, {useCallback, useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {setPacksSortAC} from '../../../../n1-main/m2-bll/b1-reducers/packReducer';
