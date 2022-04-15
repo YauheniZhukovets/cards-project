@@ -3,7 +3,6 @@ import styles from './Pagination.module.css';
 import {useSelector} from 'react-redux';
 import {AppStoreType} from '../../../m2-bll/store';
 
-
 type PropsType = {
     totalCount: number
     pageSize: number
@@ -47,7 +46,6 @@ export const Pagination = ({totalCount, pageSize, currentPage, onChangedPage}: P
             </span>
         );
     })
-
 
     //Functions Buttons
     const firstPageHandler = () => onChangedPage(1);
