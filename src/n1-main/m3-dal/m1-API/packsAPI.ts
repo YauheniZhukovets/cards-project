@@ -13,10 +13,6 @@ export const PacksAPI = {
     updatePack(cardsPack:UpdatePackParamsType) {
         return instance.put('cards/pack/', {cardsPack})
     },
-    searchPacs(packName?:string){
-        return instance.get<PacksResponseType>(`cards/pack?packName=${packName}`)
-    }
-
 }
 
 export type PackParamsType = {

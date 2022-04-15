@@ -1,28 +1,29 @@
 import {instance} from '../instance';
 
 export const CardsAPI = {
-    getPacks(params: Partial<PackParamsType>) {
-        return instance.get<CardsResponseType>('cards/pack/', {params: params})
+    getCards(params: Partial<CardParamsType>) {
+        return instance.get<CardsResponseType>('cards/card/', {params: params})
     },
-    addPack(cardsPack: AddPackParamsType) {
-        return instance.post('cards/pack/', {cardsPack})
+    addCard(card: Partial<AddCardParamsType>) {
+        return instance.post('cards/card/', {card})
     },
-    deletePack(packId: string) {
-        return instance.delete('cards/pack/', {params: {id: packId}})
+    deleteCard(cardId: string) {
+        return instance.delete('cards/card/', {params: {id: cardId}})
     },
-    updatePack(cardsPack:UpdatePackParamsType) {
-        return instance.put('cards/pack/', {cardsPack})
+    updateCard(card: Partial<UpdateCardParamsType>) {
+        return instance.put('cards/card/', {card})
     }
 }
 
-export type PackParamsType = {
-    packName: string
+export type CardParamsType = {
+    cardAnswer: string
+    cardQuestion: string
+    cardsPack_id: string
     min: number
     max: number
-    sortPacks: string
+    sortCards: string
     page: number
     pageCount: number
-    user_id: string
 }
 
 export type CardsResponseType = {
@@ -47,13 +48,20 @@ export type CardType = {
     _id: string
 }
 
-export type AddPackParamsType = {
-    name: string
-    deckCover: string
-    private: boolean
+export type AddCardParamsType = {
+    cardsPack_id: string
+    question: string
+    answer: string
+    grade: number
+    shots: number
+    answerImg: string
+    questionImg: string
+    questionVideo: string
+    answerVideo: string
 }
 
-export type UpdatePackParamsType = {
+export type UpdateCardParamsType = {
     _id: string
-    name: string
+    question: string
+    comments: string
 }

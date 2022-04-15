@@ -2,17 +2,21 @@
     display: inline-block;
     position: relative;
     margin: 5px;
-    border: 1px solid #9f9f9f;
+    border: 2px solid rgba(63, 7, 14, 0.92);
     border-radius: 3px;
     background: transparent;
+
 }
 
 .selectWrapper:hover {
-    box-shadow: 0 0 3px gray;
+    box-shadow: 0 0 3px #4db99c;
+    border: 2px solid rgba(190, 47, 65);
 }
 
 
 .selectWrapper select {
+    color: rgba(190, 47, 65);
+    font-weight: bolder;
     height: 28px;
     padding: 0 20px 0 7px;
     background-color: transparent;
@@ -32,6 +36,8 @@
     right: 4px;
     bottom: 5px;
     border: 8px solid;
-    border-color: transparent transparent #8c8c8c transparent;
+    border-color: transparent transparent #0a0101 transparent;
     border-right: 0;
+
+
 }

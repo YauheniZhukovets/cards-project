@@ -1,30 +1,51 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {addPackTC, fetchPacksTC, MyPackType} from '../../../n1-main/m2-bll/b1-reducers/packReducer';
+import {
+    addPackTC,
+    changeCurrentPageAC,
+    fetchPacksTC,
+    MyPackType,
+    setPageCountAC
+} from '../../../n1-main/m2-bll/b1-reducers/packReducer';
 import {AppStoreType} from '../../../n1-main/m2-bll/store';
 import {PATH} from '../../../n1-main/m1-ui/routes/RoutesRoot';
-import {Navigate, NavLink} from 'react-router-dom';
+import {Navigate} from 'react-router-dom';
 import {Header} from '../../../n1-main/m1-ui/heder/Header';
-import {PacksTable} from './packsTable/PacksTable';
 import SuperButton from '../../../n1-main/m1-ui/common/c2-SuperButton/SuperButton';
-import {Sidebar} from "../../../n1-main/m1-ui/Sidebar/Sidebar";
-import {Search} from "../../f1-auth/a7-search/Search";
-import style from "../../../n1-main/m1-ui/styles/PackPage.module.css";
-import {DoubleRange} from "../../f1-auth/a8-selector/doubleRange/DoubleRange";
-import {PacksTableHeader} from "./PacksTableHeader";
+import {Sidebar} from '../../../n1-main/m1-ui/sidebar/Sidebar';
+import {PackType} from '../../../n1-main/m3-dal/m1-API/packsAPI';
+import style from '../../../n1-main/m1-ui/styles/PackPage.module.css';
+import {PacksTable} from './packsTable/PacksTable';
+import {PacksSearch} from '../../../n1-main/m1-ui/common/c10-Search/PacksSearch';
+import {Pagination} from '../../../n1-main/m1-ui/common/c12-Pagination/Pagination';
+import {PageSizeSelector} from '../../../n1-main/m1-ui/common/c11-PageSizeSelector/PageSizeSelector';
 
-
-export const PackList =React.memo (() => {
+export const PackList = () => {
     const dispatch = useDispatch()
+    const packs = useSelector<AppStoreType, PackType []>(state => state.packs.cardPacks)
     const isLoggedIn = useSelector<AppStoreType, boolean>(state => state.login.isLoggedIn)
     const myPacks = useSelector<AppStoreType, MyPackType>(state => state.packs.myPacks)
+    const page = useSelector<AppStoreType, number>(state => state.packs.page)
+    const packName = useSelector<AppStoreType, string>(state => state.packs.packName)
+    const cardPacksTotalCount = useSelector<AppStoreType, number>(state => state.packs.cardPacksTotalCount)
+    const pageCount = useSelector<AppStoreType, number>(state => state.packs.pageCount)
+    const sortPack = useSelector<AppStoreType, string>(state => state.packs.sortPacks)
+
 
     useEffect(() => {
         dispatch(fetchPacksTC())
-    }, [dispatch,myPacks])
+    }, [dispatch, myPacks, page, packName, pageCount, sortPack])
 
     const onClickAddNewPackHandler = () => {
         dispatch(addPackTC('!!!!New pack!!!'))
+    }
+
+    const onChangedPage = (newPage: number) => {
+        if (newPage !== page) dispatch(changeCurrentPageAC(newPage))
+    }
+
+    const pageSizeHandler = (value: number) => {
+        dispatch(setPageCountAC(value))
     }
 
     if (!isLoggedIn) {
@@ -43,39 +64,43 @@ export const PackList =React.memo (() => {
                         </div>
                         <div className={style.descriptionForDoubleRangeSlider}>Cards count in a pack</div>
                         <div className={style.DoubleRangeSliderContainer}>
-                            <DoubleRange/>
+                            {/*<SuperDoubleRange/>*/}
                         </div>
                     </div>
-                    <div className={style.packsBlock} >
+                    <div className={style.packsBlock}>
                         <h1 className={style.titleCardsBlock}> Pack list</h1>
                         <div className={style.searchAddBlock}>
-                            <Search/>
-                           <SuperButton className={style.btnContainer}
-                                        onClick={onClickAddNewPackHandler}>
-                                         Add new Pack
-                           </SuperButton>
+                            <PacksSearch/>
+                            <SuperButton className={style.btnContainer}
+                                         onClick={onClickAddNewPackHandler}>
+                                Add new Pack
+                            </SuperButton>
                         </div>
                         <div className={style.mainTable}>
-                            <PacksTableHeader/>
-                            <PacksTable/>
+                            <PacksTable packs={packs}/>
+                            <div className={style.paginationWrapper}>
+                                {
+                                    cardPacksTotalCount < pageCount
+                                        ? <></>
+                                        : <>
+                                            <Pagination totalCount={cardPacksTotalCount}
+                                                        pageSize={pageCount}
+                                                        currentPage={page}
+                                                        onChangedPage={onChangedPage}
+                                            />
+                                            <PageSizeSelector pageCount={pageCount}
+                                                              handler={pageSizeHandler}
+                                            />
+                                        </>
+                                }
+                            </div>
                         </div>
                     </div>
+
                 </div>
 
             </div>
         </div>
-
-        // <>
-        //     <Header/>
-        //     <Sidebar/>
-        //     <h2>Pack List</h2>
-        //     <div style={{width:'300px'}}  >
-        //         <Search/>
-        //         <SuperButton onClick={onClickAddNewPackHandler}>Add new pack</SuperButton>
-        //     </div>
-        //
-        //     <PacksTable/>
-        // </>
     );
-});
+};
 
