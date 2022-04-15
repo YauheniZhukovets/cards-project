@@ -29,7 +29,7 @@ export const PacksTableHeader = () => {
         dispatch(setPacksSortAC(cardsValue));
     }, [dispatch, cardsValue]);
 
-    const lastUpdatedHandler = useCallback(() => {
+    const lastUpdatedSortHandler = useCallback(() => {
         if (lastUpdatedValue === '1updated') {
             setLastUpdatedValue(() => '0updated');
         } else {
@@ -39,33 +39,25 @@ export const PacksTableHeader = () => {
     }, [dispatch, lastUpdatedValue]);
 
     return (
-        <div
-            className={packsS.tableHeaderWrapper}
-        >
-            <div
-                className={packsS.tableHeader}
-            >
-                <div
-                    onClick={nameSortHandler}
-                    /*className={s.tableLine}*/
-                >
+        <div className={packsS.tableHeaderWrapper}>
+            <div className={packsS.tableHeader}>
+                <div onClick={nameSortHandler}
+                    /*className={s.tableLine}*/>
                     Name
                 </div>
-                <div
-                    onClick={cardsSortHandler}
-                     /*className={s.tableLine}*/
-                >
+
+                <div onClick={cardsSortHandler}
+                    /*className={s.tableLine}*/>
                     Cards
                 </div>
-                <div
-                    onClick={lastUpdatedHandler}
-                  /*  className={s.tableLine}*/
-                >
+
+                <div onClick={lastUpdatedSortHandler}
+                    /*  className={s.tableLine}*/>
                     Last Updated
                 </div>
-                <div
-                 /*   className={s.tableLine}*/
-                >Actions
+
+                <div/*   className={s.tableLine}*/>
+                    Actions
                 </div>
             </div>
         </div>
