@@ -9,15 +9,6 @@
 
 .nameItem {
     width: 250px;
-    color: rgb(190, 47, 65);
-}
-.nameItem:hover {
-    width: 250px;
-    color: rgba(9, 1, 3);
-}
-.nameItem:active {
-    width: 250px;
-    color: aqua;
 }
 
 .cardsCount {
