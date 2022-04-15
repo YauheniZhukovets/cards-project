@@ -14,6 +14,7 @@ export const CardsSearch = () => {
     };
     let onClickHandler = () => {
         dispatch(setFilteredCardsAC(event));
+
     }
     return (
         <div className={s.wrap}>
