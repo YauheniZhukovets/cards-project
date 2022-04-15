@@ -1,7 +1,10 @@
 import React, {ChangeEvent, useState} from 'react';
 import s from './PackSearch.module.css'
+import {useDispatch} from 'react-redux';
+import {setFilteredCardsAC} from '../../../m2-bll/b1-reducers/cardReducer';
 
 export const CardsSearch = () => {
+    const dispatch = useDispatch()
 
     let [event, setEvent] = useState<string>('')
 
@@ -10,7 +13,7 @@ export const CardsSearch = () => {
 
     };
     let onClickHandler = () => {
-        /*      dispatch(setFilterReducerAC(event));dispatch(changeCurrentPageCardsAC(1))*/
+        dispatch(setFilteredCardsAC(event));
     }
     return (
         <div className={s.wrap}>

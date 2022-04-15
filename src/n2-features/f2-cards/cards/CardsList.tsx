@@ -8,6 +8,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {AppStoreType} from '../../../n1-main/m2-bll/store';
 import {CardType} from '../../../n1-main/m3-dal/m1-API/cardsAPI';
 import {CardsTable} from './cardsTable/CardsTable';
+import {CardsSearch} from '../../../n1-main/m1-ui/common/c10-Search/CardsSearch';
 
 export const CardsList = () => {
     const dispatch = useDispatch()
@@ -15,6 +16,7 @@ export const CardsList = () => {
     const cards = useSelector<AppStoreType, CardType []>(state => state.cards.cards)
     const packsUserId = useSelector<AppStoreType, string>(state => state.cards.packUserId)
     const myUserId = useSelector<AppStoreType, string | undefined>(state => state.login.user?._id)
+    const cardQuestion = useSelector<AppStoreType, string>(state => state.cards.cardQuestion)
 
     const {packId} = useParams<{ packId: string }>()
 
@@ -22,7 +24,7 @@ export const CardsList = () => {
         if (packId) {
             dispatch(fetchCardsTC(packId))
         }
-    }, [dispatch, packId])
+    }, [dispatch, packId, cardQuestion])
 
 
     const onClickAddNewPackHandler = () => {
@@ -40,6 +42,7 @@ export const CardsList = () => {
             <Header/>
             <NavLink to={PATH.PACKS}>Back</NavLink>
             <h2>Cards</h2>
+            <CardsSearch/>
             <div>
                 {myUserId === packsUserId && <SuperButton onClick={onClickAddNewPackHandler}>Add new card</SuperButton>}
             </div>
