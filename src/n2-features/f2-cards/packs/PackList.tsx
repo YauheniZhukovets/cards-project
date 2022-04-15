@@ -16,7 +16,6 @@ import {Sidebar} from '../../../n1-main/m1-ui/sidebar/Sidebar';
 import {PackType} from '../../../n1-main/m3-dal/m1-API/packsAPI';
 import style from '../../../n1-main/m1-ui/styles/PackPage.module.css';
 import {PacksTable} from './packsTable/PacksTable';
-import {PacksTableHeader} from './PacksTableHeader';
 import {PacksSearch} from '../../../n1-main/m1-ui/common/c10-Search/PacksSearch';
 import {Pagination} from '../../../n1-main/m1-ui/common/c12-Pagination/Pagination';
 import {PageSizeSelector} from '../../../n1-main/m1-ui/common/c11-PageSizeSelector/PageSizeSelector';
@@ -35,7 +34,7 @@ export const PackList = () => {
 
     useEffect(() => {
         dispatch(fetchPacksTC())
-    }, [dispatch, myPacks, page, packName, pageCount,sortPack])
+    }, [dispatch, myPacks, page, packName, pageCount, sortPack])
 
     const onClickAddNewPackHandler = () => {
         dispatch(addPackTC('!!!!New pack!!!'))
@@ -78,7 +77,6 @@ export const PackList = () => {
                             </SuperButton>
                         </div>
                         <div className={style.mainTable}>
-                            <PacksTableHeader/>
                             <PacksTable packs={packs}/>
                             <div className={style.paginationWrapper}>
                                 {
