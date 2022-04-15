@@ -12,7 +12,7 @@ export const PacksAPI = {
     },
     updatePack(cardsPack:UpdatePackParamsType) {
         return instance.put('cards/pack/', {cardsPack})
-    }
+    },
 }
 
 export type PackParamsType = {

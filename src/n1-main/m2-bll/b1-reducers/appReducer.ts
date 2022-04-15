@@ -1,5 +1,5 @@
 import {Dispatch} from 'redux';
-import {addUserDateAC, AddUserDateACType, setIsLoggedInAC, setIsLoggedInACType} from './loginReducer';
+import {addUserDateAC, AddUserDateACType, setIsLoggedInAC, SetIsLoggedInACType} from './loginReducer';
 import {profileAPI} from '../../m3-dal/m1-API/profileAPI';
 
 const initialState: InitialStateType = {
@@ -64,4 +64,9 @@ export type SetAppStatusACType = ReturnType<typeof setAppStatusAC>
 export type InitializeMeACType = ReturnType<typeof initializeMeAC>
 export type SetErrorACType = ReturnType<typeof setErrorAC>
 
-export type ActionsAppType = SetAppStatusACType | SetErrorACType | AddUserDateACType | setIsLoggedInACType | InitializeMeACType
+export type ActionsAppType =
+    SetAppStatusACType
+    | SetErrorACType
+    | AddUserDateACType
+    | SetIsLoggedInACType
+    | InitializeMeACType

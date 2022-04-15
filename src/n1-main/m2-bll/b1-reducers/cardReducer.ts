@@ -24,6 +24,9 @@ export const cardReducer = (state: InitialStateType = initialState, action: Acti
         case 'card/SET-CARDS': {
             return {...state, ...action.payload}
         }
+        case 'cards/SET-FILTERED-CARDS': {
+            return {...state, cardQuestion: action.payload.cardQuestion}
+        }
         default:
             return state
     }
@@ -32,6 +35,9 @@ export const cardReducer = (state: InitialStateType = initialState, action: Acti
 //action
 export const setCardsAC = (data: CardsResponseType) => {
     return {type: 'card/SET-CARDS', payload: data} as const
+}
+export const setFilteredCardsAC = (cardQuestion: string) => {
+    return {type: 'cards/SET-FILTERED-CARDS', payload: {cardQuestion}} as const
 }
 
 //thunk
@@ -118,5 +124,6 @@ export type InitialStateType = {
 }
 
 type GetCardsACType = ReturnType<typeof setCardsAC>
+type SetFilteredCardsACType = ReturnType<typeof setFilteredCardsAC>
 
-export type ActionsCardsType = GetCardsACType | SetErrorACType | SetAppStatusACType
+export type ActionsCardsType = GetCardsACType | SetErrorACType | SetAppStatusACType | SetFilteredCardsACType

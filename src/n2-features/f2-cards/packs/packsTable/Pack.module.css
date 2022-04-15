@@ -3,7 +3,7 @@
     justify-content: start;
     align-items: center;
     padding: 10px;
-    margin: 0 300px 0;
+    margin: 0 10px 0;
 
 }
 
@@ -21,4 +21,17 @@
 
 .buttons {
     width: 150px;
+}
+.btn{
+    background: rgba(190, 47, 65, 0.98);
+    box-shadow: 0 3px 10px rgba(12, 5, 9, 0.84), inset 0 1px 0 rgba(255, 255, 255, 0.42);
+    border-radius: 30px;
+    color: white;
+    margin:0 2px 0 0;
+}
+.btn:active{
+    background: rgba(239, 235, 235, 0.92);
+    box-shadow: 0 3px 10px rgba(12, 5, 9, 0.84), inset 0 1px 0 rgba(255, 255, 255, 0.42);
+    border-radius: 30px;
+    color: black;
 }

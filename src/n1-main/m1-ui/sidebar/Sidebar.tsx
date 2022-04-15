@@ -6,7 +6,7 @@ import {MyPackType, setMyPacksAC} from '../../m2-bll/b1-reducers/packReducer';
 
 const options = ['My', 'All']
 
-export const Sidebar = () => {
+export const Sidebar = React.memo( () => {
     const dispatch = useDispatch()
     const myPacks = useSelector<AppStoreType, MyPackType>(state => state.packs.myPacks)
     const [value, onChangeOption] = useState(myPacks)
@@ -27,4 +27,4 @@ export const Sidebar = () => {
             />
         </div>
     );
-};
+});
