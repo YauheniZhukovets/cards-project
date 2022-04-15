@@ -9,15 +9,6 @@
 
 .nameItem {
     width: 250px;
-    color: rgb(190, 47, 65);
-}
-.nameItem:hover {
-    width: 250px;
-    color: rgba(9, 1, 3);
-}
-.nameItem:active {
-    width: 250px;
-    color: aqua;
 }
 
 .cardsCount {
@@ -32,8 +23,6 @@
     width: 150px;
 }
 .btn{
-    /*height: 29px;*/
-    /*width: 90px;*/
     background: rgba(190, 47, 65, 0.98);
     box-shadow: 0 3px 10px rgba(12, 5, 9, 0.84), inset 0 1px 0 rgba(255, 255, 255, 0.42);
     border-radius: 30px;
