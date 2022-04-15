@@ -1,5 +1,4 @@
 import packsS from './PacksListTable.module.css';
-/*import s from "../../../../../f1-main/m1-ui/components/common/table/cardsListTable.module.css";*/
 import React, {useCallback, useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {setPacksSortAC} from '../../../n1-main/m2-bll/b1-reducers/packReducer';
@@ -41,22 +40,19 @@ export const PacksTableHeader = () => {
     return (
         <div className={packsS.tableHeaderWrapper}>
             <div className={packsS.tableHeader}>
-                <div onClick={nameSortHandler}
-                    /*className={s.tableLine}*/>
+                <div onClick={nameSortHandler}>
                     Name
                 </div>
 
-                <div onClick={cardsSortHandler}
-                    /*className={s.tableLine}*/>
+                <div onClick={cardsSortHandler}>
                     Cards
                 </div>
 
-                <div onClick={lastUpdatedSortHandler}
-                    /*  className={s.tableLine}*/>
+                <div onClick={lastUpdatedSortHandler}>
                     Last Updated
                 </div>
 
-                <div/*   className={s.tableLine}*/>
+                <div>
                     Actions
                 </div>
             </div>
