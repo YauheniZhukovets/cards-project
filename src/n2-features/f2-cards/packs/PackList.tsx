@@ -19,7 +19,7 @@ import {PacksTable} from './packsTable/PacksTable';
 import {PacksSearch} from '../../../n1-main/m1-ui/common/c10-Search/PacksSearch';
 import {Pagination} from '../../../n1-main/m1-ui/common/c12-Pagination/Pagination';
 import {PageSizeSelector} from '../../../n1-main/m1-ui/common/c11-PageSizeSelector/PageSizeSelector';
-
+// ,
 export const PackList = () => {
     const dispatch = useDispatch()
     const packs = useSelector<AppStoreType, PackType []>(state => state.packs.cardPacks)
