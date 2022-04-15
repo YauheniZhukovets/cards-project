@@ -81,12 +81,12 @@ export type InitialStateType = {
     user: UserResponseType | null
 }
 
-export type setIsLoggedInACType = ReturnType<typeof setIsLoggedInAC>
+export type SetIsLoggedInACType = ReturnType<typeof setIsLoggedInAC>
 export type AddUserDateACType = ReturnType<typeof addUserDateAC>
 export type DeleteUserDateACType = ReturnType<typeof deleteUserDateAC>
 
 export type ActionsLoginType =
-    setIsLoggedInACType
+    SetIsLoggedInACType
     | SetAppStatusACType
     | AddUserDateACType
     | DeleteUserDateACType

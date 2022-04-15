@@ -56,11 +56,6 @@ export const EditProfile = () => {
                         </div>
                     </form>
                     <div className={style.btnContainer}>
-                        {/*<NavLink to={PATH.PROFILE}><SuperButton
-                            className={style.btn}
-                            style={{ background: 'rgba(232, 226, 226, 0.6)', color:'#2D2E46' }}>Back
-                        </SuperButton>
-                        </NavLink>*/}
                         <SuperButton
                             className={style.btn}
                             onClick={updateNameClickHandler}

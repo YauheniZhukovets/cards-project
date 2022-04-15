@@ -8,6 +8,9 @@ export type PacksTablePropsType = {
 
 export const PacksTable: React.FC<PacksTablePropsType> = ({packs}) => {
 
+
+
+
     return (
         <div style={ {height: '440px'} }>
             {packs && packs.map(pack => <Pack key={pack._id} pack={pack}/>)}

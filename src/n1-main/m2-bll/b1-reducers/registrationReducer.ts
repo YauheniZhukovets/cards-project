@@ -1,7 +1,7 @@
 import {Dispatch} from 'redux';
 import {setAppStatusAC, SetAppStatusACType, setErrorAC, SetErrorACType} from './appReducer';
 import {registrationAPI, RegistrationParamsType} from '../../m3-dal/m1-API/registrationAPI';
-import {setIsLoggedInACType} from './loginReducer';
+import {SetIsLoggedInACType} from './loginReducer';
 
 const initialState: InitialStateType = {
     isRegistered: false,
@@ -46,6 +46,6 @@ type SetRegistrationACType = ReturnType<typeof setRegistrationAC>
 
 export type ActionsRegistrationType =
     | SetAppStatusACType
-    | setIsLoggedInACType
+    | SetIsLoggedInACType
     | SetRegistrationACType
     | SetErrorACType

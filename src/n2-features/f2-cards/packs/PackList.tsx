@@ -17,9 +17,9 @@ import {PackType} from '../../../n1-main/m3-dal/m1-API/packsAPI';
 import style from '../../../n1-main/m1-ui/styles/PackPage.module.css';
 import {PacksTable} from './packsTable/PacksTable';
 import {PacksTableHeader} from './PacksTableHeader';
-import {PacksSearch} from '../../../n1-main/m1-ui/common/c11-Search/PacksSearch';
-import {Pagination} from '../../../n1-main/m1-ui/common/c13-Pagination/Pagination';
-import {PageSizeSelector} from '../../../n1-main/m1-ui/common/c12-PageSizeSelector/PageSizeSelector';
+import {PacksSearch} from '../../../n1-main/m1-ui/common/c10-Search/PacksSearch';
+import {Pagination} from '../../../n1-main/m1-ui/common/c12-Pagination/Pagination';
+import {PageSizeSelector} from '../../../n1-main/m1-ui/common/c11-PageSizeSelector/PageSizeSelector';
 
 export const PackList = () => {
     const dispatch = useDispatch()
@@ -30,10 +30,12 @@ export const PackList = () => {
     const packName = useSelector<AppStoreType, string>(state => state.packs.packName)
     const cardPacksTotalCount = useSelector<AppStoreType, number>(state => state.packs.cardPacksTotalCount)
     const pageCount = useSelector<AppStoreType, number>(state => state.packs.pageCount)
+    const sortPack = useSelector<AppStoreType, string>(state => state.packs.sortPacks)
+
 
     useEffect(() => {
         dispatch(fetchPacksTC())
-    }, [dispatch, myPacks, page, packName, pageCount])
+    }, [dispatch, myPacks, page, packName, pageCount,sortPack])
 
     const onClickAddNewPackHandler = () => {
         dispatch(addPackTC('!!!!New pack!!!'))

@@ -29,7 +29,6 @@ export const updateAvatarAC = (avatar: string) => {
     return {type: 'profile/UPDATE-AVATAR', payload: {avatar}} as const
 }
 
-
 //type
 type InitialStateType = {
     name: string | null
@@ -50,7 +49,6 @@ export const updateProfileTC = (data: ProfileParamsType) => (dispatch: Dispatch<
             dispatch(setAppStatusAC('failed'))
         })
 }
-
 
 export type ActionsProfileType =
     UpdateNameACType

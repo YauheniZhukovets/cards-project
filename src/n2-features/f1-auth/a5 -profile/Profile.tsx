@@ -21,9 +21,6 @@ export const Profile = () => {
             <Header/>
             <div className={style.mainContainer}>
                 <div className={style.container_log}>
-                    {/*<div className={style.title}>*/}
-                    {/*    <h2>ProfilePage</h2>*/}
-                    {/*</div>*/}
                     <Tilt>
                         <div className={style.blockAvatar}>
                             <Tilt>
@@ -31,7 +28,6 @@ export const Profile = () => {
                                     <img className={style.img} src={userAvatar} alt="img"/>
                                 </div>
                             </Tilt>
-
                             <div className={style.avatarUrl}>
                                 <div><b>Nickname</b></div>
                                 <h3>{userName}</h3>
@@ -39,7 +35,6 @@ export const Profile = () => {
                             </div>
                             <div className={style.descriptionForDoubleRangeSlider}>Cards count in a pack</div>
                             <div className={style.DoubleRangeSliderContainer}>
-                                {/*<DoubleRange/>*/}
                             </div>
                             <div className={style.btnContainer}>
                                 <NavLink to={PATH.EDIT_PROFILE}><SuperButton className={style.btn}>Edit
@@ -47,19 +42,6 @@ export const Profile = () => {
                             </div>
                         </div>
                     </Tilt>
-
-                    {/*<div className={style.packsBlock} >*/}
-                    {/*    <h1 className={style.titleCardsBlock}>My Packs list</h1>*/}
-                    {/*    <div className={style.searchAddBlock}>*/}
-                    {/*        <Search/>*/}
-                    {/*        <SuperButton className={style.btnContainer}> Add Pack</SuperButton>*/}
-                    {/*    </div>*/}
-                    {/*    /!*<div className={style.mainTable}>*!/*/}
-                    {/*    /!*    <c10-PacksTableHeader/>*!/*/}
-                    {/*    /!*    <PacksTable/>*!/*/}
-                    {/*    /!*</div>*!/*/}
-
-                    {/*</div>*/}
                 </div>
 
             </div>

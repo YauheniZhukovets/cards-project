@@ -18,7 +18,6 @@ const initialState: InitialStateType = {
     user_id: '',
 }
 
-
 export const packReducer = (state: InitialStateType = initialState, action: ActionsPacksType): InitialStateType => {
     switch (action.type) {
         case 'pack/SET-PACKS': {
@@ -26,9 +25,6 @@ export const packReducer = (state: InitialStateType = initialState, action: Acti
         }
         case 'pack/SET-MY-PACKS': {
             return {...state, myPacks: action.payload.value, min: 0}
-        }
-        case 'pack/PACKS/RANGE-VALUE': {
-            return {...state, min: action.payload.min, max: action.payload.max};
         }
         case 'pack/SET-FILTERED-PACKS': {
             return {...state, packName: action.payload.packName}
@@ -39,6 +35,8 @@ export const packReducer = (state: InitialStateType = initialState, action: Acti
         case 'pack/SET-PAGE-COUNT': {
             return {...state, pageCount: action.payload.pageCount}
         }
+        case 'pack/SET-PACKS-SORT':
+            return {...state, sortPacks: action.payload.sortPacks}
         default:
             return state
     }
@@ -51,9 +49,6 @@ export const setPacksAC = (data: PacksResponseType) => {
 export const setMyPacksAC = (value: MyPackType) => {
     return {type: 'pack/SET-MY-PACKS', payload: {value}} as const
 }
-export const rangeValueAC = (min: number, max: number) => {
-    return {type: 'pack/PACKS/RANGE-VALUE', payload: {min, max}} as const;
-}
 export const setFilteredPacksAC = (packName: string) => {
     return {type: 'pack/SET-FILTERED-PACKS', payload: {packName}} as const
 }
@@ -63,7 +58,9 @@ export const changeCurrentPageAC = (page: number) => {
 export const setPageCountAC = (pageCount: number) => {
     return {type: 'pack/SET-PAGE-COUNT', payload: {pageCount}} as const
 }
-
+export const setPacksSortAC = (sortPacks: string) => {
+    return {type: 'pack/SET-PACKS-SORT', payload: {sortPacks}} as const
+}
 
 //thunk
 export const fetchPacksTC = () => (dispatch: Dispatch<ActionsPacksType>, getState: () => AppStoreType) => {
@@ -154,17 +151,17 @@ export type MyPackType = 'All' | 'My'
 
 type GetPacksACType = ReturnType<typeof setPacksAC>
 type SetMyPacksACType = ReturnType<typeof setMyPacksAC>
-type rangeValueACType = ReturnType<typeof rangeValueAC>;
 type setFilteredPacksACType = ReturnType<typeof setFilteredPacksAC>
 type ChangeCurrentPageACType = ReturnType<typeof changeCurrentPageAC>
 type SetPageCountACType = ReturnType<typeof setPageCountAC>
+type SortPacksACType = ReturnType<typeof setPacksSortAC>
 
 export type ActionsPacksType =
     GetPacksACType
     | SetErrorACType
     | SetAppStatusACType
     | SetMyPacksACType
-    | rangeValueACType
     | setFilteredPacksACType
     | ChangeCurrentPageACType
     | SetPageCountACType
+    | SortPacksACType
