@@ -27,7 +27,7 @@
 }
 
 .currentPage {
-    background: #21268F;
+    background: rgba(3, 3, 17, 0.74);
     border-radius: 2px;
     color: #F2F5F7;
     user-select: none;

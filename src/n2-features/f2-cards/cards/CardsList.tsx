@@ -9,6 +9,8 @@ import {AppStoreType} from '../../../n1-main/m2-bll/store';
 import {CardType} from '../../../n1-main/m3-dal/m1-API/cardsAPI';
 import {CardsTable} from './cardsTable/CardsTable';
 import {CardsSearch} from '../../../n1-main/m1-ui/common/c10-Search/CardsSearch';
+import style from "../../../n1-main/m1-ui/styles/CardsPage.module.css";
+import Tilt from "react-parallax-tilt";
 
 export const CardsList = () => {
     const dispatch = useDispatch()
@@ -38,17 +40,41 @@ export const CardsList = () => {
     }
 
     return (
-        <>
+        <div>
             <Header/>
-            <NavLink to={PATH.PACKS}>Back</NavLink>
-            <h2>Cards</h2>
-            <CardsSearch/>
-            <div>
-                {myUserId === packsUserId && <SuperButton onClick={onClickAddNewPackHandler}>Add new card</SuperButton>}
-            </div>
+            <div className={style.mainContainer}>
+                <div className={style.container_log}>
+                    <div className={style.blockAvatar}>
+                        <div className={style.btnContainer}>
+                            <NavLink to={PATH.PACKS}><SuperButton className={style.btn}>Back</SuperButton></NavLink>
+                        </div>
+                    </div>
+                    <div className={style.packsBlock}>
+                        <h1 className={style.titleCardsBlock}> Cards</h1>
+                        <div className={style.searchAddBlock}>
+                            <CardsSearch/>
+                            {myUserId === packsUserId && <SuperButton onClick={onClickAddNewPackHandler}>Add new card</SuperButton>}
 
-            <CardsTable cards={cards}/>
-        </>
+                        </div>
+                        <div className={style.mainTable}>
+                            <CardsTable cards={cards}/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        // <>
+        //     <Header/>
+        //     <NavLink to={PATH.PACKS}>Back</NavLink>
+        //     <h2>Cards</h2>
+        //     <CardsSearch/>
+        //     <div>
+        //         {myUserId === packsUserId && <SuperButton onClick={onClickAddNewPackHandler}>Add new card</SuperButton>}
+        //     </div>
+        //
+        //     <CardsTable cards={cards}/>
+        // </>
     );
 };
 

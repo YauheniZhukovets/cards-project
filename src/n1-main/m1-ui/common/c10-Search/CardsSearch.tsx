@@ -1,5 +1,5 @@
 import React, {ChangeEvent, useState} from 'react';
-import s from './PackSearch.module.css'
+import s from './CardsSearch.module.css'
 import {useDispatch} from 'react-redux';
 import {setFilteredCardsAC} from '../../../m2-bll/b1-reducers/cardReducer';
 

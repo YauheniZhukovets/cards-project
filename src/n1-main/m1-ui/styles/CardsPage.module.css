@@ -81,8 +81,8 @@ h3{
     border-radius: 2px;
     /*width: 230px;*/
     padding: 5px;
-    background: rgba(28, 30, 37, 0.49);
-    box-shadow: 0 3px 10px rgb(143, 33, 49), inset 0 1px 0 rgba(255, 255, 255, 0.42);
+    /*background: rgba(28, 30, 37, 0.49);*/
+    /*box-shadow: 0 3px 10px rgb(143, 33, 49), inset 0 1px 0 rgba(255, 255, 255, 0.42);*/
 }
 
 .packsBlock{
@@ -116,6 +116,7 @@ h3{
 
 }
 .mainTable{
+    margin-top: 20px;
 
 }
 b{

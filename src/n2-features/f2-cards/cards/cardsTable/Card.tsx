@@ -34,8 +34,8 @@ export const Card: React.FC<CardPropsType> = ({card}) => {
             <div className={s.updated}>{card.updated.slice(0, 10)}</div>
             <div className={s.buttons}>{myUserId === card.user_id &&
                 <>
-                    <button onClick={onClickDeleteCardHandler}>Delete</button>
-                    <button onClick={onClickUpdateCardHandler}>Edit</button>
+                    <button className={s.btn} onClick={onClickDeleteCardHandler}>Delete</button>
+                    <button  className={s.btn} onClick={onClickUpdateCardHandler}>Edit</button>
                 </>
             }
             </div>
