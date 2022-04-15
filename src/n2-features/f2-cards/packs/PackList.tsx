@@ -12,13 +12,14 @@ import {PATH} from '../../../n1-main/m1-ui/routes/RoutesRoot';
 import {Navigate} from 'react-router-dom';
 import {Header} from '../../../n1-main/m1-ui/heder/Header';
 import SuperButton from '../../../n1-main/m1-ui/common/c2-SuperButton/SuperButton';
-import {Sidebar} from '../../../n1-main/m1-ui/sidebar/Sidebar';
+
 import {PackType} from '../../../n1-main/m3-dal/m1-API/packsAPI';
 import style from '../../../n1-main/m1-ui/styles/PackPage.module.css';
 import {PacksTable} from './packsTable/PacksTable';
 import {PacksSearch} from '../../../n1-main/m1-ui/common/c10-Search/PacksSearch';
 import {Pagination} from '../../../n1-main/m1-ui/common/c12-Pagination/Pagination';
 import {PageSizeSelector} from '../../../n1-main/m1-ui/common/c11-PageSizeSelector/PageSizeSelector';
+import {Sidebar} from '../../../n1-main/m1-ui/Sidebar/Sidebar';
 // ,
 export const PackList = () => {
     const dispatch = useDispatch()
