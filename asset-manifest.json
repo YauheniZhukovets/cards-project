@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/cards-project/static/css/main.df74c407.css",
-    "main.js": "/cards-project/static/js/main.31eb90a5.js",
+    "main.css": "/cards-project/static/css/main.17fb52c7.css",
+    "main.js": "/cards-project/static/js/main.6b2a95c2.js",
     "static/js/787.d2ce132a.chunk.js": "/cards-project/static/js/787.d2ce132a.chunk.js",
     "static/media/tekstura.jpg": "/cards-project/static/media/tekstura.b178d9b7c6c2483d1f40.jpg",
     "static/media/error.png": "/cards-project/static/media/error.e61f2dd093ea0852f31d.png",
     "static/media/Spinner.svg": "/cards-project/static/media/Spinner.6fe9a62926760892b05a6a2fa92b8b6b.svg",
     "static/media/IconSearch.svg": "/cards-project/static/media/IconSearch.8d9366f474f099b342e7.svg",
     "index.html": "/cards-project/index.html",
-    "main.df74c407.css.map": "/cards-project/static/css/main.df74c407.css.map",
-    "main.31eb90a5.js.map": "/cards-project/static/js/main.31eb90a5.js.map",
+    "main.17fb52c7.css.map": "/cards-project/static/css/main.17fb52c7.css.map",
+    "main.6b2a95c2.js.map": "/cards-project/static/js/main.6b2a95c2.js.map",
     "787.d2ce132a.chunk.js.map": "/cards-project/static/js/787.d2ce132a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.df74c407.css",
-    "static/js/main.31eb90a5.js"
+    "static/css/main.17fb52c7.css",
+    "static/js/main.6b2a95c2.js"
   ]
 }
