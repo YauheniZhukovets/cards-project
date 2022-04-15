@@ -39,6 +39,7 @@
     border-radius: 30px;
     color: white;
     margin:0 2px 0 0;
+    /*.*/
 }
 .btn:active{
     background: rgba(239, 235, 235, 0.92);
