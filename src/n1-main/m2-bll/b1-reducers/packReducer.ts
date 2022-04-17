@@ -18,6 +18,7 @@ const initialState: InitialStateType = {
     user_id: '',
 }
 
+
 export const packReducer = (state: InitialStateType = initialState, action: ActionsPacksType): InitialStateType => {
     switch (action.type) {
         case 'pack/SET-PACKS': {
@@ -131,6 +132,7 @@ export const updatePackTC = (packId: string): AppThunkType => (dispatch) => {
             dispatch(setAppStatusAC('failed'))
         })
 }
+
 
 //type
 export type InitialStateType = {
