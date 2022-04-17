@@ -1,7 +1,7 @@
 import React from 'react';
 import {CardType} from '../../../../n1-main/m3-dal/m1-API/cardsAPI';
 import {Card} from './Card';
-import packsS from "../../packs/packsTable/PacksTable.module.css";
+import packsS from "./CardsTable.module.css";
 
 
 

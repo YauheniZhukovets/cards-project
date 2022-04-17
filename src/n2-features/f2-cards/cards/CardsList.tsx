@@ -53,7 +53,7 @@ export const CardsList = () => {
                         <h1 className={style.titleCardsBlock}> Cards</h1>
                         <div className={style.searchAddBlock}>
                             <CardsSearch/>
-                            {myUserId === packsUserId && <SuperButton onClick={onClickAddNewPackHandler}>Add new card</SuperButton>}
+                            {myUserId === packsUserId && <SuperButton style={{marginLeft:'20px'}} onClick={onClickAddNewPackHandler}>Add new card</SuperButton>}
 
                         </div>
                         <div className={style.mainTable}>
