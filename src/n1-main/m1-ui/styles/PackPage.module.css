@@ -123,17 +123,16 @@ b{
     font-size: 17px;
 }
 
-.eyes{
+.containerCheckBox {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+}
 
-    width: 100%; /* Ширина поля */
-    /*padding: 7px; !* Поля *!*/
-    box-sizing: border-box; /* Алгоритм расчёта ширины */
-    box-shadow: inset 0 1px 5px rgba(0,0,0,0.2); /* Тень внутри */
-    border-bottom-color: rgba(255, 255, 255, 0.87);/* Параметры рамки */
-    color: #251e1e; /* Цвет текста */
-    background: url(/src/n2-features/f1-auth/a1-login/eye.png) no-repeat 345px 50%;/* Картинка пользователя */
-    padding-right: 30px;
-
+.containerCheckBox span {
+    color: black;
+    font-size: 13px;
+    margin-bottom: 3px;
 }
 
 

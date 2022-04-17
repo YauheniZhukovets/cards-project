@@ -13,6 +13,7 @@ import style from "../../../n1-main/m1-ui/styles/CardsPage.module.css";
 import Modal from "../../../n1-main/m1-ui/Modal/Modal";
 import SuperTextArea from "../../../n1-main/m1-ui/SuperTextArea/SuperTextArea";
 import ModalButtonsWrap from "../../../n1-main/m1-ui/Modal/ModalButtonsWrap";
+import {PackFrame} from "../../../n1-main/m1-ui/common/PackFrame/PackFrame";
 
 
 
@@ -56,26 +57,28 @@ export const CardsList = () => {
     return (
         <div>
             <Header/>
-            <div className={style.mainContainer}>
-                <div className={style.container_log}>
-                    <div className={style.blockAvatar}>
-                        <div className={style.btnContainer}>
-                            <NavLink to={PATH.PACKS}><SuperButton className={style.btn}>Back</SuperButton></NavLink>
+            <PackFrame>
+                <div className={style.mainContainer}>
+                    <div className={style.container_log}>
+                        <div className={style.blockAvatar}>
+                            <div className={style.btnContainer}>
+                                <NavLink to={PATH.PACKS}><SuperButton className={style.btn}>Back</SuperButton></NavLink>
+                            </div>
                         </div>
-                    </div>
-                    <div className={style.packsBlock}>
-                        <h1 className={style.titleCardsBlock}> Cards</h1>
-                        <div className={style.searchAddBlock}>
-                            <CardsSearch/>
-                            {myUserId === packsUserId && <SuperButton style={{marginLeft:'20px'}} onClick={onClickAddNewPackHandler}>Add new card</SuperButton>}
+                        <div className={style.packsBlock}>
+                            <h1 className={style.titleCardsBlock}> Cards</h1>
+                            <div className={style.searchAddBlock}>
+                                <CardsSearch/>
+                                {myUserId === packsUserId && <SuperButton style={{marginLeft:'20px'}} onClick={onClickAddNewPackHandler}>Add new card</SuperButton>}
 
-                        </div>
-                        <div className={style.mainTable}>
-                            <CardsTable cards={cards}/>
+                            </div>
+                            <div className={style.mainTable}>
+                                <CardsTable cards={cards}/>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+        </PackFrame>
             <Modal title={'Card Info'} show={isModalAdd} closeModal={closeModal}>
                 <div className={style.textArea}>
                     <label>Question</label>
