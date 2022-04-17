@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Header} from '../../../n1-main/m1-ui/heder/Header';
 import {Navigate, NavLink, useParams} from 'react-router-dom';
 import {PATH} from '../../../n1-main/m1-ui/routes/RoutesRoot';
@@ -10,7 +10,12 @@ import {CardType} from '../../../n1-main/m3-dal/m1-API/cardsAPI';
 import {CardsTable} from './cardsTable/CardsTable';
 import {CardsSearch} from '../../../n1-main/m1-ui/common/c10-Search/CardsSearch';
 import style from "../../../n1-main/m1-ui/styles/CardsPage.module.css";
-import Tilt from "react-parallax-tilt";
+import Modal from "../../../n1-main/m1-ui/Modal/Modal";
+import SuperTextArea from "../../../n1-main/m1-ui/SuperTextArea/SuperTextArea";
+import ModalButtonsWrap from "../../../n1-main/m1-ui/Modal/ModalButtonsWrap";
+
+
+
 
 export const CardsList = () => {
     const dispatch = useDispatch()
@@ -19,6 +24,12 @@ export const CardsList = () => {
     const packsUserId = useSelector<AppStoreType, string>(state => state.cards.packUserId)
     const myUserId = useSelector<AppStoreType, string | undefined>(state => state.login.user?._id)
     const cardQuestion = useSelector<AppStoreType, string>(state => state.cards.cardQuestion)
+    const [isModalAdd, setIsModalAdd] = useState<boolean>(false)
+    // const showModal = () => setIsModalAdd(true);
+    const closeModal = () => setIsModalAdd(false);
+
+    const [newCardQuestion, setNewCardQuestion] = useState<string>('');
+    const [newCardAnswer, setNewCardAnswer] = useState<string>('');
 
     const {packId} = useParams<{ packId: string }>()
 
@@ -32,6 +43,9 @@ export const CardsList = () => {
     const onClickAddNewPackHandler = () => {
         if (packId) {
             dispatch(addCardTC(packId))
+            setNewCardQuestion('')
+            setNewCardAnswer('')
+            closeModal()
         }
     }
 
@@ -62,6 +76,19 @@ export const CardsList = () => {
                     </div>
                 </div>
             </div>
+            <Modal title={'Card Info'} show={isModalAdd} closeModal={closeModal}>
+                <div className={style.textArea}>
+                    <label>Question</label>
+                    <SuperTextArea value={newCardQuestion} onChangeText={setNewCardQuestion}/>
+                </div>
+                <div className={style.textArea}>
+                    <label>Answer</label>
+                    <SuperTextArea value={newCardAnswer} onChangeText={setNewCardAnswer}/>
+                </div>
+                <ModalButtonsWrap closeModal={closeModal}>
+                    <SuperButton onClick={onClickAddNewPackHandler}>Save</SuperButton>
+                </ModalButtonsWrap>
+            </Modal>
         </div>
 
         // <>
