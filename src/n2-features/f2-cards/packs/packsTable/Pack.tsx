@@ -39,9 +39,12 @@ export const Pack: React.FC<PackPropsType> = ({pack}) => {
                 <>
                     <button className={s.btn} onClick={onClickDeletePackHandler}>Delete</button>
                     <button className={s.btn} onClick={onClickUpdatePackHandler}>Edit</button>
-                    <button className={s.btn}>Learn</button>
                 </>
+
             }
+                <NavLink to={`/learn/${pack._id}`}>
+                    <button className={s.btn} disabled={!pack.cardsCount}>Learn</button>
+                </NavLink>
             </div>
         </div>
     );
