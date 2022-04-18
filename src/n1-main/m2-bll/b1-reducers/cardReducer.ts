@@ -3,7 +3,7 @@ import {AppStoreType, AppThunkType} from '../store';
 import {setAppStatusAC, SetAppStatusACType, setErrorAC, SetErrorACType} from './appReducer';
 import {CardsAPI, CardsResponseType, CardType} from '../../m3-dal/m1-API/cardsAPI';
 
-const initialState: InitialStateType = {
+const initialState: InitialCardsStateType = {
     cards: [],
     cardsTotalCount: 0,
     maxGrade: 5,
@@ -19,7 +19,7 @@ const initialState: InitialStateType = {
     cardsPack_id: '',
 }
 
-export const cardReducer = (state: InitialStateType = initialState, action: ActionsCardsType): InitialStateType => {
+export const cardReducer = (state: InitialCardsStateType = initialState, action: ActionsCardsType): InitialCardsStateType => {
     switch (action.type) {
         case 'card/SET-CARDS': {
             return {...state, ...action.payload}
@@ -107,7 +107,7 @@ export const updateCardTC = (cardId: string, packId: string): AppThunkType => (d
 }
 
 //type
-export type InitialStateType = {
+export type InitialCardsStateType = {
     cards: CardType []
     cardsTotalCount: number
     maxGrade: number
