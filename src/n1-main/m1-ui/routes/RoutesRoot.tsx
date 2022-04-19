@@ -6,9 +6,9 @@ import {Registration} from '../../../n2-features/f1-auth/a2-registration/Registr
 import {NewPassword} from '../../../n2-features/f1-auth/a3-newPassword/NewPassword';
 import {Profile} from '../../../n2-features/f1-auth/a5 -profile/Profile';
 import {EditProfile} from '../../../n2-features/f1-auth/a5 -profile/EditProfile';
-import {PackList} from '../../../n2-features/f2-cards/packs/PackList';
 import {Forgot} from '../../../n2-features/f1-auth/a4-forgot/Forgot';
 import {CardsList} from '../../../n2-features/f2-cards/cards/CardsList';
+import {PackList} from "../../../n2-features/f2-cards/Packs/PackList";
 
 
 export const PATH = {

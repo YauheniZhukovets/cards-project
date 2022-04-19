@@ -2,8 +2,9 @@ import packsS from './PacksTable.module.css';
 import React, {useCallback, useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {setPacksSortAC} from '../../../../n1-main/m2-bll/b1-reducers/packReducer';
-import {Pack} from './Pack';
+
 import {PackType} from '../../../../n1-main/m3-dal/m1-API/packsAPI';
+import {Pack} from "../../Packs/packsTable/Pack";
 
 export type PacksTablePropsType = {
     packs: PackType []
