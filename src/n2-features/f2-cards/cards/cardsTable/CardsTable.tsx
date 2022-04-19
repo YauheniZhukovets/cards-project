@@ -39,9 +39,5 @@ export const CardsTable: React.FC<CardsTablePropsType> = ({cards}) => {
                 </div>
             </div>
         </div>
-
-       /* // <>
-        //     {cards && cards.map(card => <Card key={card._id} card={card}/>)}
-        // </>*/
     );
 };

@@ -23,7 +23,7 @@ export const CardsList = () => {
 
     useEffect(() => {
         if (packId) {
-            dispatch(fetchCardsTC(packId))
+            dispatch(fetchCardsTC(packId,10))
         }
     }, [dispatch, packId, cardQuestion])
 

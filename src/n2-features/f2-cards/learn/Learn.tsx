@@ -1,12 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppStoreType} from '../../../n1-main/m2-bll/store';
-import {useNavigate, useParams} from 'react-router-dom';
+import {Navigate, useNavigate, useParams} from 'react-router-dom';
 import {CardType} from '../../../n1-main/m3-dal/m1-API/cardsAPI';
 import SuperButton from '../../../n1-main/m1-ui/common/c2-SuperButton/SuperButton';
-import {fetchCardsTC, InitialCardsStateType} from '../../../n1-main/m2-bll/b1-reducers/cardReducer';
+import {fetchCardsTC, gradeAnswerTC} from '../../../n1-main/m2-bll/b1-reducers/cardReducer';
 import {AppStatusType} from '../../../n1-main/m2-bll/b1-reducers/appReducer';
 import {PATH} from '../../../n1-main/m1-ui/routes/RoutesRoot';
+import SuperRadio from '../../../n1-main/m1-ui/common/c6-SuperRadio/SuperRadio';
+import {Header} from '../../../n1-main/m1-ui/heder/Header';
+import {Loading} from '../../../n1-main/m1-ui/common/c0-Preloder/Loading';
 
 
 const grades = ['не знал', 'забыл', 'долго думал', 'перепутал', 'знал'];
@@ -26,16 +29,17 @@ const getCard = (cards: CardType[]) => {
 }
 
 export const Learn = () => {
-    const {cards} = useSelector<AppStoreType, InitialCardsStateType>((store) => store.cards);
-    const packName = useSelector<AppStoreType, string>(state => state.packs.cardPacks.filter(pack => pack._id === packId)[0].name)
-    const status = useSelector<AppStoreType, AppStatusType>(state => state.app.status)
-
-    const {packId} = useParams<{ packId: string }>()
+    const {packId, packName} = useParams<string>();
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    const [isChecked, setIsChecked] = useState<boolean>(false);
+    const status = useSelector<AppStoreType, AppStatusType>(state => state.app.status)
+    const isLoggedIn = useSelector<AppStoreType, boolean>(state => state.login.isLoggedIn)
+    const cards = useSelector<AppStoreType, CardType []>((store) => store.cards.cards);
+
     const [first, setFirst] = useState<boolean>(true);
+    const [isChecked, setIsChecked] = useState<boolean>(false);
+    const [rating, setRating] = useState<string>('')
     const [card, setCard] = useState<CardType>({
         _id: '',
         cardsPack_id: '',
@@ -49,28 +53,20 @@ export const Learn = () => {
     });
 
     useEffect(() => {
-        console.log('LearnContainer useEffect');
-
         if (first) {
-            packId && dispatch(fetchCardsTC(packId))
-            setFirst(false);
+            packId && dispatch(fetchCardsTC(packId, 150))
+            setFirst(false)
         }
-
-        console.log('cards', cards)
         if (cards.length > 0) setCard(getCard(cards));
 
-        return () => {
-            console.log('LearnContainer useEffect off');
-        }
-    }, [dispatch, packId, cards, first]);
+    }, [cards, first, dispatch, packId,]);
 
     const onNext = () => {
-        setIsChecked(false);
-
-        if (cards.length > 0) {
-            setCard(getCard(cards));
-        } else {
-
+        if (rating) {
+            setIsChecked(false)
+            setRating('')
+            dispatch(gradeAnswerTC(grades.findIndex(el => el === rating) + 1, card._id))
+            if (cards.length > 0) setCard(getCard(cards));
         }
     }
 
@@ -78,28 +74,39 @@ export const Learn = () => {
         navigate(PATH.PACKS, {replace: true})
     }
 
-    return (
-        <div>
-            Learn {packName}
+    if (!isLoggedIn) return <Navigate to={PATH.LOGIN}/>
 
-            <div>{card.question}</div>
+    if (status === 'loading') return <Loading/>
+
+
+    return (
+        <>
+            <Header/>
             <div>
-                <SuperButton onClick={() => setIsChecked(true)}>check</SuperButton>
+                <h2>Learn {packName}</h2>
+
+                <div><b>Question</b>: {card.question}</div>
+
+                {
+                    isChecked && (
+                        <>
+                            <div><b>Answer</b>: {card.answer}</div>
+
+                            <SuperRadio name={'radio'}
+                                        options={grades}
+                                        value={rating}
+                                        onChangeOption={setRating}
+                            />
+                        </>
+                    )}
+                {
+                    isChecked
+                        ? <div><SuperButton onClick={onNext} disabled={!rating}>Next</SuperButton></div>
+                        : <div><SuperButton onClick={() => setIsChecked(true)}>Answer</SuperButton></div>
+                }
+                <div><SuperButton onClick={onClickCanselHandler}>Cansel</SuperButton></div>
             </div>
 
-            {isChecked && (
-                <>
-                    <div>{card.answer}</div>
-
-                    {grades.map((g, i) => (
-                        <SuperButton key={'grade-' + i} onClick={() => {
-                        }}>{g}</SuperButton>
-                    ))}
-
-                    <div><SuperButton onClick={onNext}>Next</SuperButton></div>
-                    <div><SuperButton onClick={onClickCanselHandler}>Cansel</SuperButton></div>
-                </>
-            )}
-        </div>
+        </>
     );
 };

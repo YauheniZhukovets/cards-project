@@ -37,7 +37,7 @@ export const RoutesRoot = () => {
                 <Route path={PATH.EDIT_PROFILE} element={<EditProfile/>}/>
                 <Route path={PATH.PACKS} element={<PackList/>}/>
                 <Route path={PATH.CARDS + '/:packId'} element={<CardsList/>}/>
-                <Route path={PATH.LEARN + '/:packId'} element={<Learn/>}/>
+                <Route path={PATH.LEARN + '/:packId/:packName'} element={<Learn/>} />
                 <Route path={'*'} element={<Error404/>}/>
             </Routes>
         </div>

@@ -42,7 +42,7 @@ export const Pack: React.FC<PackPropsType> = ({pack}) => {
                 </>
 
             }
-                <NavLink to={`/learn/${pack._id}`}>
+                <NavLink to={`/learn/${pack._id}/${pack.name}`}>
                     <button className={s.btn} disabled={!pack.cardsCount}>Learn</button>
                 </NavLink>
             </div>
