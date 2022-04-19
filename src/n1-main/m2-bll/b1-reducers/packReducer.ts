@@ -83,12 +83,12 @@ export const fetchPacksTC = () => (dispatch: Dispatch<ActionsPacksType>, getStat
             dispatch(setAppStatusAC('failed'))
         })
 }
-export const addPackTC = (packName: string): AppThunkType => (dispatch) => {
+export const addPackTC = (packName: string, privateValue:boolean): AppThunkType => (dispatch) => {
     dispatch(setAppStatusAC('loading'))
     const payload = {
         name: packName,
         deckCover: '',
-        private: false
+        private: privateValue
     }
     PacksAPI.addPack(payload)
         .then(() => {

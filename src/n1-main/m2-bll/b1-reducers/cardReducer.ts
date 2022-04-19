@@ -59,10 +59,12 @@ export const fetchCardsTC = (packUId: string) => (dispatch: Dispatch<ActionsCard
             dispatch(setAppStatusAC('failed'))
         })
 }
-export const addCardTC = (cardId: string): AppThunkType => (dispatch) => {
+export const addCardTC = (cardId: string, question: string, answer: string): AppThunkType => (dispatch) => {
     dispatch(setAppStatusAC('loading'))
     const payload = {
-        cardsPack_id: cardId
+        cardsPack_id: cardId,
+        question: question,
+        answer: answer
     }
     CardsAPI.addCard(payload)
         .then(() => {

@@ -16,11 +16,11 @@ export const CardsTable: React.FC<CardsTablePropsType> = ({cards}) => {
             <div className={packsS.tableHeaderWrapper}>
                 <div className={packsS.tableHeader}>
                     <div >
-                        Name
+                        Questions
                     </div>
 
                     <div >
-                        Cards
+                        Answer
                     </div>
 
                     <div >

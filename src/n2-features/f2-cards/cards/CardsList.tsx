@@ -26,7 +26,7 @@ export const CardsList = () => {
     const myUserId = useSelector<AppStoreType, string | undefined>(state => state.login.user?._id)
     const cardQuestion = useSelector<AppStoreType, string>(state => state.cards.cardQuestion)
     const [isModalAdd, setIsModalAdd] = useState<boolean>(false)
-    // const showModal = () => setIsModalAdd(true);
+    const showModal = () => setIsModalAdd(true);
     const closeModal = () => setIsModalAdd(false);
 
     const [newCardQuestion, setNewCardQuestion] = useState<string>('');
@@ -43,7 +43,7 @@ export const CardsList = () => {
 
     const onClickAddNewPackHandler = () => {
         if (packId) {
-            dispatch(addCardTC(packId))
+            dispatch(addCardTC(packId, newCardQuestion, newCardAnswer))
             setNewCardQuestion('')
             setNewCardAnswer('')
             closeModal()
@@ -69,7 +69,7 @@ export const CardsList = () => {
                             <h1 className={style.titleCardsBlock}> Cards</h1>
                             <div className={style.searchAddBlock}>
                                 <CardsSearch/>
-                                {myUserId === packsUserId && <SuperButton style={{marginLeft:'20px'}} onClick={onClickAddNewPackHandler}>Add new card</SuperButton>}
+                                {myUserId === packsUserId && <SuperButton style={{marginLeft:'20px'}} onClick={showModal}>Add new card</SuperButton>}
 
                             </div>
                             <div className={style.mainTable}>
