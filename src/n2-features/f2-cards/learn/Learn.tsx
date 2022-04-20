@@ -95,7 +95,6 @@ export const Learn = () => {
                                     <>
                                         <div className={s.radioBlock}>
                                             <div className={`${s.gap} ${s.block}`}><b>Answer</b>: {card.answer}</div>
-
                                             <SuperRadio name={'radio'}
                                                         options={grades}
                                                         value={rating}
