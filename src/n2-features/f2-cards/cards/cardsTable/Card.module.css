@@ -8,24 +8,32 @@
 }
 
 .nameItem {
-    width: 250px;
+    width: 224px;
     color: rgb(190, 47, 65);
 }
 .nameItem:hover {
-    width: 250px;
+    width: 224px;
     color: rgba(9, 1, 3);
 }
 .nameItem:active {
-    width: 250px;
+    width: 224px;
     color: aqua;
 }
 
 .cardsCount {
-    width: 194px;
+    width: 156px;
 }
 
 .updated {
-    width: 140px;
+    width: 150px;
+}
+
+.grade{
+    width: 86px;
+}
+.textArea {
+    margin-bottom: 20px;
+    text-align: left;
 }
 
 .buttons {

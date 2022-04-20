@@ -16,7 +16,7 @@ export const CardsTable: React.FC<CardsTablePropsType> = ({cards}) => {
             <div className={packsS.tableHeaderWrapper}>
                 <div className={packsS.tableHeader}>
                     <div >
-                        Questions
+                        Question
                     </div>
 
                     <div >
@@ -25,6 +25,10 @@ export const CardsTable: React.FC<CardsTablePropsType> = ({cards}) => {
 
                     <div >
                         Last Updated
+                    </div>
+
+                    <div>
+                        Grade
                     </div>
 
                     <div>
@@ -39,9 +43,5 @@ export const CardsTable: React.FC<CardsTablePropsType> = ({cards}) => {
                 </div>
             </div>
         </div>
-
-       /* // <>
-        //     {cards && cards.map(card => <Card key={card._id} card={card}/>)}
-        // </>*/
     );
 };

@@ -114,11 +114,11 @@ export const deletePackTC = (packId: string): AppThunkType => (dispatch) => {
             dispatch(setAppStatusAC('failed'))
         })
 }
-export const updatePackTC = (packId: string): AppThunkType => (dispatch) => {
+export const updatePackTC = (packId: string, packName: string): AppThunkType => (dispatch) => {
     dispatch(setAppStatusAC('loading'))
     const payload = {
         _id: packId,
-        name: '!!Changed name!!'
+        name: packName
     }
     PacksAPI.updatePack(payload)
         .then(() => {

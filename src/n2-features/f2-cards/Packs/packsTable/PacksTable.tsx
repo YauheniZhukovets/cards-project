@@ -2,9 +2,8 @@ import packsS from './PacksTable.module.css';
 import React, {useCallback, useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {setPacksSortAC} from '../../../../n1-main/m2-bll/b1-reducers/packReducer';
-
+import {Pack} from './Pack';
 import {PackType} from '../../../../n1-main/m3-dal/m1-API/packsAPI';
-import {Pack} from "../../Packs/packsTable/Pack";
 
 export type PacksTablePropsType = {
     packs: PackType []
@@ -45,7 +44,7 @@ export const PacksTable: React.FC<PacksTablePropsType> = ({packs}) => {
     }, [dispatch, lastUpdatedValue]);
 
     return (
-        <div>
+        <div >
             <div className={packsS.tableHeaderWrapper}>
                 <div className={packsS.tableHeader}>
                     <div onClick={nameSortHandler}>
@@ -66,7 +65,7 @@ export const PacksTable: React.FC<PacksTablePropsType> = ({packs}) => {
                 </div>
             </div>
 
-            <div>
+            <div className={packsS.tableContainer}>
                 <div style={{height: '440px'}}>
                     {packs && packs.map(pack => <Pack key={pack._id} pack={pack}/>)}
                 </div>

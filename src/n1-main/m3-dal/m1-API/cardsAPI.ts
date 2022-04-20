@@ -1,4 +1,5 @@
 import {instance} from '../instance';
+import {AxiosResponse} from 'axios';
 
 export const CardsAPI = {
     getCards(params: Partial<CardParamsType>) {
@@ -12,6 +13,9 @@ export const CardsAPI = {
     },
     updateCard(card: Partial<UpdateCardParamsType>) {
         return instance.put('cards/card/', {card})
+    },
+    gradeCard(card: GradeCardParamsType) {
+        return instance.put<GradeCardParamsType, AxiosResponse<UpdatedGradeResponseType>>('cards/grade/', card)
     }
 }
 
@@ -34,6 +38,15 @@ export type CardsResponseType = {
     page: number
     pageCount: number
     packUserId: string
+}
+
+export type UpdatedGradeResponseType = {
+    _id: string
+    cardsPack_id: string
+    card_id: string
+    user_id: string
+    grade: number
+    shots: number
 }
 
 export type CardType = {
@@ -64,4 +77,9 @@ export type UpdateCardParamsType = {
     _id: string
     question: string
     comments: string
+}
+
+export type GradeCardParamsType = {
+    grade: number
+    card_id: string
 }

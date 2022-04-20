@@ -12,18 +12,18 @@ import {PATH} from '../../../n1-main/m1-ui/routes/RoutesRoot';
 import {Navigate} from 'react-router-dom';
 import {Header} from '../../../n1-main/m1-ui/heder/Header';
 import SuperButton from '../../../n1-main/m1-ui/common/c2-SuperButton/SuperButton';
-import { Sidebar } from '../../../n1-main/m1-ui/Sidebar/Sidebar';
+
 import {PackType} from '../../../n1-main/m3-dal/m1-API/packsAPI';
 import style from '../../../n1-main/m1-ui/styles/PackPage.module.css';
-import {PacksTable} from '../../../n2-features/f2-cards/Packs/packsTable/PacksTable';
+import {PacksTable} from './packsTable/PacksTable';
 import {PacksSearch} from '../../../n1-main/m1-ui/common/c10-Search/PacksSearch';
 import {Pagination} from '../../../n1-main/m1-ui/common/c12-Pagination/Pagination';
 import {PageSizeSelector} from '../../../n1-main/m1-ui/common/c11-PageSizeSelector/PageSizeSelector';
-import Modal from "../../../n1-main/m1-ui/Modal/Modal";
+import {Sidebar} from '../../../n1-main/m1-ui/sidebar/Sidebar';
 import SuperInputText from "../../../n1-main/m1-ui/common/c1-SuperInputText/SuperInputText";
-import SuperCheckbox from "../../../n1-main/m1-ui/common/c3-SuperCheckbox/SuperCheckbox";
-import ModalButtonsWrap from '../../../n1-main/m1-ui/Modal/ModalButtonsWrap';
-import {PackFrame} from "../../../n1-main/m1-ui/common/PackFrame/PackFrame";
+import SuperCheckbox from '../../../n1-main/m1-ui/common/c3-SuperCheckbox/SuperCheckbox';
+import Modal from "../../../n1-main/m1-ui/Modal/Modal";
+import ModalButtonsWrap from "../../../n1-main/m1-ui/Modal/ModalButtonsWrap";
 
 
 export const PackList = () => {
@@ -43,7 +43,6 @@ export const PackList = () => {
 
     const showModal = () => setIsModal(true);
     const closeModal = () => setIsModal(false);
-
 
     useEffect(() => {
         dispatch(fetchPacksTC())
@@ -71,59 +70,57 @@ export const PackList = () => {
     return (
         <div>
             <Header/>
-            <PackFrame>
-                <div className={style.mainContainer}>
-                    <div className={style.container_log}>
-                        <div className={style.blockAvatar}>
-                            <div className={style.avatarUrl}>
-                                <h2>Show Cards Packs</h2>
-                                <Sidebar/>
-                            </div>
-                            <div className={style.descriptionForDoubleRangeSlider}>Cards count in a pack</div>
-                            <div className={style.DoubleRangeSliderContainer}>
-                                {/*<SuperDoubleRange/>*/}
+            <div className={style.mainContainer}>
+                <div className={style.container_log}>
+                    <div className={style.blockAvatar}>
+                        <div className={style.avatarUrl}>
+                            <h2>Show Cards Packs</h2>
+                            <Sidebar/>
+                        </div>
+                        <div className={style.descriptionForDoubleRangeSlider}>Cards count in a pack</div>
+                        <div className={style.DoubleRangeSliderContainer}>
+                            {/*<SuperDoubleRange/>*/}
+                        </div>
+                    </div>
+                    <div className={style.packsBlock}>
+                        <h1 className={style.titleCardsBlock}> Pack list</h1>
+                        <div className={style.searchAddBlock}>
+                            <PacksSearch/>
+                            <SuperButton className={style.btnContainer}
+                                         onClick={showModal}>
+                                Add new Pack
+                            </SuperButton>
+                        </div>
+                        <div className={style.mainTable}>
+                            <PacksTable packs={packs}/>
+                            <div className={style.paginationWrapper}>
+                                {
+                                    cardPacksTotalCount < pageCount
+                                        ? <></>
+                                        : <>
+                                            <Pagination totalCount={cardPacksTotalCount}
+                                                        pageSize={pageCount}
+                                                        currentPage={page}
+                                                        onChangedPage={onChangedPage}
+                                            />
+                                            <PageSizeSelector pageCount={pageCount}
+                                                              handler={pageSizeHandler}
+                                            />
+                                        </>
+                                }
                             </div>
                         </div>
-                        <div className={style.packsBlock}>
-                            <h1 className={style.titleCardsBlock}> Pack list</h1>
-                            <div className={style.searchAddBlock}>
-                                <PacksSearch/>
-                                <SuperButton className={style.btnContainer}
-                                             onClick={showModal}>
-                                    Add new Pack
-                                </SuperButton>
-                            </div>
-                            <div className={style.mainTable}>
-                                <PacksTable packs={packs}/>
-                                <div className={style.paginationWrapper}>
-                                    {
-                                        cardPacksTotalCount < pageCount
-                                            ? <></>
-                                            : <>
-                                                <Pagination totalCount={cardPacksTotalCount}
-                                                            pageSize={pageCount}
-                                                            currentPage={page}
-                                                            onChangedPage={onChangedPage}
-                                                />
-                                                <PageSizeSelector pageCount={pageCount}
-                                                                  handler={pageSizeHandler}
-                                                />
-                                            </>
-                                    }
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
 
                 </div>
-            </PackFrame>
+
+            </div>
             <Modal title={'Add new pack'} show={isModal} closeModal={closeModal}>
                 <label>Name pack</label>
                 <SuperInputText value={newPackName} onChangeText={setNewPackName} placeholder={'Enter pack name'}/>
                 <div className={style.containerCheckBox}>
                     <SuperCheckbox checked={privateValue} onChangeChecked={setPrivateValue}/>
-                    <span>Private Pack</span>
+                    <span style={{marginTop:"10px"}}>Private Pack</span>
                 </div>
                 <ModalButtonsWrap closeModal={closeModal}>
                     <SuperButton onClick={onClickAddNewPackHandler}>Save</SuperButton>

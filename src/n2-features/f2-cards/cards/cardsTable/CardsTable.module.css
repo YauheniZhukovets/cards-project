@@ -90,8 +90,8 @@
 }
 .tableHeader {
     display: grid;
-    grid-template-areas: "1 2 3 4 ";
-    grid-template-columns: 34% 24% 19%  21%;
+    grid-template-areas: "1 2 3 4 5 ";
+    grid-template-columns: 30% 20% 19% 11% 20%;
     padding: 0.5em;
     gap: 1%;
     height: 40px;
@@ -106,8 +106,8 @@
 
 .items {
     display: grid;
-    grid-template-areas: "1 2 3 4 ";
-    grid-template-columns: 39% 9% 25%  27%;
+    grid-template-areas: "1 2 3 4 5";
+    grid-template-columns: 30% 20% 19% 11% 20%;
     align-items: start;
     color: black;
     background-color: #ffffff;

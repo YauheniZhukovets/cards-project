@@ -6,9 +6,10 @@ import {Registration} from '../../../n2-features/f1-auth/a2-registration/Registr
 import {NewPassword} from '../../../n2-features/f1-auth/a3-newPassword/NewPassword';
 import {Profile} from '../../../n2-features/f1-auth/a5 -profile/Profile';
 import {EditProfile} from '../../../n2-features/f1-auth/a5 -profile/EditProfile';
+import {PackList} from '../../../n2-features/f2-cards/packs/PackList';
 import {Forgot} from '../../../n2-features/f1-auth/a4-forgot/Forgot';
 import {CardsList} from '../../../n2-features/f2-cards/cards/CardsList';
-import {PackList} from "../../../n2-features/f2-cards/Packs/PackList";
+import {Learn} from '../../../n2-features/f2-cards/learn/Learn';
 
 
 export const PATH = {
@@ -19,7 +20,8 @@ export const PATH = {
     PROFILE: '/profile',
     EDIT_PROFILE: '/edit-profile',
     PACKS: '/packs',
-    CARDS: '/cards'
+    CARDS: '/cards',
+    LEARN: '/learn'
 }
 
 export const RoutesRoot = () => {
@@ -35,6 +37,7 @@ export const RoutesRoot = () => {
                 <Route path={PATH.EDIT_PROFILE} element={<EditProfile/>}/>
                 <Route path={PATH.PACKS} element={<PackList/>}/>
                 <Route path={PATH.CARDS + '/:packId'} element={<CardsList/>}/>
+                <Route path={PATH.LEARN + '/:packId/:packName'} element={<Learn/>} />
                 <Route path={'*'} element={<Error404/>}/>
             </Routes>
         </div>

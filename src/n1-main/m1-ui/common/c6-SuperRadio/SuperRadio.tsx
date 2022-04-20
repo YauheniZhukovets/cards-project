@@ -25,7 +25,7 @@ const SuperRadio: React.FC<SuperRadioPropsType> = (
     const finalInputClassName = `${s.radioCheckbox} ${className ? className : ''}`
 
     const mappedOptions: any[] = options ? options.map((o, i) => (
-        <label className={s.lable} key={name + '-' + i}>
+        <label className={s.label} key={name + '-' + i}>
             <input
                 type={'radio'}
                 onChange={onChangeCallback}

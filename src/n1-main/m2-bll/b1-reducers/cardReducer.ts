@@ -1,9 +1,15 @@
 import {Dispatch} from 'redux';
 import {AppStoreType, AppThunkType} from '../store';
 import {setAppStatusAC, SetAppStatusACType, setErrorAC, SetErrorACType} from './appReducer';
-import {CardsAPI, CardsResponseType, CardType} from '../../m3-dal/m1-API/cardsAPI';
+import {
+    CardsAPI,
+    CardsResponseType,
+    CardType,
+    GradeCardParamsType,
+    UpdatedGradeResponseType
+} from '../../m3-dal/m1-API/cardsAPI';
 
-const initialState: InitialStateType = {
+const initialState: InitialCardsStateType = {
     cards: [],
     cardsTotalCount: 0,
     maxGrade: 5,
@@ -19,13 +25,23 @@ const initialState: InitialStateType = {
     cardsPack_id: '',
 }
 
-export const cardReducer = (state: InitialStateType = initialState, action: ActionsCardsType): InitialStateType => {
+export const cardReducer = (state: InitialCardsStateType = initialState, action: ActionsCardsType): InitialCardsStateType => {
     switch (action.type) {
         case 'card/SET-CARDS': {
             return {...state, ...action.payload}
         }
         case 'cards/SET-FILTERED-CARDS': {
             return {...state, cardQuestion: action.payload.cardQuestion}
+        }
+        case 'cards/SET-PAGE-COUNT': {
+            return {...state, pageCount: action.payload.pageCount}
+        }
+        case 'cards/SET-CARDS-GRADE': {
+            return {
+                ...state, cards: state.cards.map(card => card._id === action.payload.updatedGrade.card_id
+                    ? {...card, shots: action.payload.updatedGrade.shots, grade: action.payload.updatedGrade.grade}
+                    : card)
+            }
         }
         default:
             return state
@@ -39,11 +55,17 @@ export const setCardsAC = (data: CardsResponseType) => {
 export const setFilteredCardsAC = (cardQuestion: string) => {
     return {type: 'cards/SET-FILTERED-CARDS', payload: {cardQuestion}} as const
 }
-
+export const setPageCountAC = (pageCount: number) => {
+    return {type: 'cards/SET-PAGE-COUNT', payload: {pageCount}} as const
+}
+export const setCardsGradeAC = (updatedGrade: UpdatedGradeResponseType) => {
+    return {type: 'cards/SET-CARDS-GRADE', payload: {updatedGrade}} as const
+}
 //thunk
-export const fetchCardsTC = (packUId: string) => (dispatch: Dispatch<ActionsCardsType>, getState: () => AppStoreType) => {
+export const fetchCardsTC = (packUId: string, pageCardsCount: number) => (dispatch: Dispatch<ActionsCardsType>, getState: () => AppStoreType) => {
 
     let {cardAnswer, cardQuestion, page, min, max, sortCards, pageCount, cardsPack_id} = getState().cards
+    pageCount = pageCardsCount
     cardsPack_id = packUId
     const payload = {cardAnswer, cardQuestion, page, min, max, sortCards, pageCount, cardsPack_id}
 
@@ -68,7 +90,7 @@ export const addCardTC = (cardId: string, question: string, answer: string): App
     }
     CardsAPI.addCard(payload)
         .then(() => {
-            cardId && dispatch(fetchCardsTC(cardId))
+            cardId && dispatch(fetchCardsTC(cardId, 10))
             dispatch(setAppStatusAC('succeeded'))
         })
         .catch((e) => {
@@ -81,7 +103,7 @@ export const deleteCardTC = (cardId: string, packId: string): AppThunkType => (d
     dispatch(setAppStatusAC('loading'))
     CardsAPI.deleteCard(cardId)
         .then(() => {
-            dispatch(fetchCardsTC(packId))
+            dispatch(fetchCardsTC(packId, 10))
             dispatch(setAppStatusAC('succeeded'))
         })
         .catch((e) => {
@@ -90,15 +112,33 @@ export const deleteCardTC = (cardId: string, packId: string): AppThunkType => (d
             dispatch(setAppStatusAC('failed'))
         })
 }
-export const updateCardTC = (cardId: string, packId: string): AppThunkType => (dispatch) => {
+export const updateCardTC = (cardId: string, packId: string, question: string, answer: string): AppThunkType => (dispatch) => {
     dispatch(setAppStatusAC('loading'))
     const payload = {
         _id: cardId,
-        question: '!!!new question!!!',
+        question: question,
+        answer: answer
     }
     CardsAPI.updateCard(payload)
         .then(() => {
-            dispatch(fetchCardsTC(packId))
+            dispatch(fetchCardsTC(packId, 10))
+            dispatch(setAppStatusAC('succeeded'))
+        })
+        .catch((e) => {
+            const error = e.response ? e.response.data.error : (e.message + ', more details in the console')
+            dispatch(setErrorAC(error))
+            dispatch(setAppStatusAC('failed'))
+        })
+}
+export const gradeAnswerTC = (grade: number, cardId: string): AppThunkType => (dispatch) => {
+    const payload: GradeCardParamsType = {
+        grade: grade,
+        card_id: cardId
+    }
+    dispatch(setAppStatusAC('loading'))
+    CardsAPI.gradeCard(payload)
+        .then((res) => {
+            dispatch(setCardsGradeAC(res.data))
             dispatch(setAppStatusAC('succeeded'))
         })
         .catch((e) => {
@@ -109,7 +149,7 @@ export const updateCardTC = (cardId: string, packId: string): AppThunkType => (d
 }
 
 //type
-export type InitialStateType = {
+export type InitialCardsStateType = {
     cards: CardType []
     cardsTotalCount: number
     maxGrade: number
@@ -127,5 +167,13 @@ export type InitialStateType = {
 
 type GetCardsACType = ReturnType<typeof setCardsAC>
 type SetFilteredCardsACType = ReturnType<typeof setFilteredCardsAC>
+type SetPageCountACType = ReturnType<typeof setPageCountAC>
+type SetCardsGradeACType = ReturnType<typeof setCardsGradeAC>
 
-export type ActionsCardsType = GetCardsACType | SetErrorACType | SetAppStatusACType | SetFilteredCardsACType
+export type ActionsCardsType =
+    GetCardsACType
+    | SetErrorACType
+    | SetAppStatusACType
+    | SetFilteredCardsACType
+    | SetPageCountACType
+    | SetCardsGradeACType
