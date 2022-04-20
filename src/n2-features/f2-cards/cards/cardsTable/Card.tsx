@@ -12,6 +12,7 @@ import ModalButtonsWrap from "../../../../n1-main/m1-ui/Modal/ModalButtonsWrap";
 import SuperTextArea from "../../../../n1-main/m1-ui/SuperTextArea/SuperTextArea";
 import {inspect} from "util";
 
+
 export type CardPropsType = {
     card: CardType
 }
