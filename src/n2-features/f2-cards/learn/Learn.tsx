@@ -90,7 +90,6 @@ export const Learn = () => {
                         <h2>Learn {packName}</h2>
                         <div>
                             <div className={s.block}><b>Question</b>: {card.question}</div>
-
                             {
                                 isChecked && (
                                     <>
